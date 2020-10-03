@@ -1,0 +1,40 @@
+[
+    {
+        "scenes": "s1",
+        "path": "scenes/A1-1",
+        "description": "旁白1",
+        "questionOpt": [
+            {
+                "optScenes": "s2",
+                "optQuestion": "問題選項1"
+            },
+            {
+                "optScenes": "s3",
+                "optQuestion": "問題選項2"
+            },
+            {
+                "optScenes": "s4",
+                "optQuestion": "問題選項3"
+            }
+        ]
+    },{
+        "scenes": "s2",
+        "path": "scenes/A2-1",
+        "description": "旁白2",
+        "questionOpt": [
+            {
+                "optScenes": "s5",
+                "optQuestion": "問題選項1"
+            },
+            {
+                "optScenes": "s6",
+                "optQuestion": "問題選項2"
+            },
+            {
+                "optScenes": "s7",
+                "optQuestion": "問題選項3"
+            }
+        ]
+    }
+    
+]
