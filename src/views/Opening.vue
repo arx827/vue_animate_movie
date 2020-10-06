@@ -1,19 +1,44 @@
 <template>
   <div class="fitLayout">
-    <button class="startBtn">開場</button>
+    <!-- <button class="startBtn" @click="playStartEvent">開場</button> -->
+    <button class="startBtn" @click="playStartEvent">開場</button>
   </div>
 </template>
 
 <script>
+// import { loadingMixin } from "@/mixins/mixins.js";
 export default {
-  name: "Scenes",
+  name: "Opening",
   data() {
-    return {};
+    return {
+      loadingTimer: ""
+    };
+  },
+  methods: {
+    playStartEvent() {
+      this.$emit("emitPlayStartEvent");
+    }
+  },
+  beforeCreate() {
+    this.$store.dispatch("updateLoading", true);
+  },
+  mounted() {
+    let vm = this;
+    this.loadingTimer = setTimeout(function() {
+      vm.$store.dispatch("updateLoading", false);
+    }, vm.$store.state.loadingDelay);
+  },
+  beforeDestroy() {
+    clearTimeout(this.loadingTimer);
+    // this.$store.dispatch("updateLoading", true);
   }
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+.fitLayout {
+  background: #aaa;
+}
 .startBtn {
   background: var(--color-main);
   position: absolute;
