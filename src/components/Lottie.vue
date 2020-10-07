@@ -25,6 +25,13 @@ export default {
             },
         };
     },
+    watch: {
+        // 深度監聽Scence
+        options: {
+            handler: 'propChange',
+            deep: true
+        }
+    },
     mounted() {
         this.anim = lottie.loadAnimation({
             container: this.$refs.lavContainer,
@@ -34,7 +41,21 @@ export default {
             animationData: this.options.animationData,
             rendererSettings: this.options.rendererSettings,
         });
-        this.$emit('animCreated', this.anim);
+    },
+    methods: {
+        propChange() {
+
+            this.anim.destroy();
+            this.anim = lottie.loadAnimation({
+                container: this.$refs.lavContainer,
+                renderer: 'svg',
+                loop: this.options.loop !== false,
+                autoplay: this.options.autoplay !== false,
+                animationData: this.options.animationData,
+                rendererSettings: this.options.rendererSettings,
+            });
+            console.log(1)
+        }
     },
     beforeDestroy() {
         console.log(23)

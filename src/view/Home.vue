@@ -6,9 +6,9 @@
     <transition name="bounce">
         <div class="transition" v-if="FadeInOut">淡入淡出</div>
     </transition>
-    <!--
-    <button @click="transitionFn">12</button>
-    -->
+
+    <button @click="ani">12</button>
+
 </div>
 </template>
 
@@ -22,7 +22,7 @@ import {
 } from "@/static/json/scenes.js";
 import Lottie from '@/components/Lottie.vue';
 import * as animationData from '../static/home/home.json';
-
+import * as animation2 from '../static/foreword/rocket.json';
 export default {
     name: "Home",
     data() {
@@ -61,6 +61,9 @@ export default {
         // 下一頁
         nextScence(sIds) {
             this.ScenceManger.next(sIds, scenesAll);
+        },
+        ani() {
+            this.defaultOptions.animationData = animation2.default;
         }
     }
 

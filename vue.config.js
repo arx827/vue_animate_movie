@@ -2,6 +2,7 @@ module.exports={
     // publicPath: '/',
     outputDir:'dist/' + process.env.NODE_ENV,
     lintOnSave: true,
+    assetsDir: "assets",
     // eslint-loader 是否在儲存的時候檢查
     lintOnSave: true,
     css: {
