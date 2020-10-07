@@ -2,7 +2,7 @@
 <div class="Home">
 
     <Scence @next="nextScence" :Scence="[...ScenceManger]" />
-    <!--<Lottie :options="defaultOptions"></Lottie>-->
+    <Lottie :options="defaultOptions"></Lottie>
     <transition name="bounce">
         <div class="transition" v-if="FadeInOut">淡入淡出</div>
     </transition>
@@ -20,8 +20,8 @@ import {
 import {
     scenesAll
 } from "@/static/json/scenes.js";
-// import Lottie from '@/components/Lottie.vue';
-// import * as animationData from '../static/home/home.json';
+import Lottie from '@/components/Lottie.vue';
+import * as animationData from '../static/home/home.json';
 
 export default {
     name: "Home",
@@ -29,14 +29,14 @@ export default {
         return {
             FadeInOut: true,
             ScenceManger: {},
-            // defaultOptions: {
-            //     animationData: animationData.default,
-            // },
+            defaultOptions: {
+                animationData: animationData.default,
+            },
         };
     },
     components: {
         Scence,
-        // Lottie
+        Lottie
     },
     created() {
         // 初始化
