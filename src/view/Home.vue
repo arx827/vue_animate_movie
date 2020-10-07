@@ -1,106 +1,107 @@
 <template>
-<div class="Home">
-
+  <div class="Home">
     <Scence @next="nextScence" :Scence="[...ScenceManger]" />
-    <Lottie :options="defaultOptions"></Lottie>
-    <transition name="bounce">
-        <div class="transition" v-if="FadeInOut">淡入淡出</div>
-    </transition>
+    <!-- <Lottie :options="defaultOptions"></Lottie> -->
+    <!-- <transition name="bounce">
+      <div class="transition" v-if="FadeInOut">淡入淡出</div>
+    </transition> -->
 
-    <button @click="ani">12</button>
-
-</div>
+    <!-- <button @click="ani">12</button> -->
+  </div>
 </template>
 
 <script>
 import Scence from "@/components/Scence.vue";
-import {
-    SceneManager
-} from "@/plugins/scenceFactory.js";
-import {
-    scenesAll
-} from "@/static/json/scenes.js";
-import Lottie from '@/components/Lottie.vue';
-import * as animationData from '../static/home/home.json';
-import * as animation2 from '../static/foreword/rocket.json';
+import { SceneManager } from "@/plugins/scenceFactory.js";
+import { scenesAll } from "@/static/json/scenes.js";
+// import Lottie from "@/components/Lottie.vue";
+// import * as animationData from "../static/home/home.json";
+// import * as animation2 from "../static/foreword/rocket.json";
 export default {
-    name: "Home",
-    data() {
-        return {
-            FadeInOut: true,
-            ScenceManger: {},
-            defaultOptions: {
-                animationData: animationData.default,
-            },
-        };
-    },
-    components: {
-        Scence,
-        Lottie
-    },
-    created() {
-        // 初始化
-        this.ScenceManger = SceneManager(scenesAll, this.transitionFn);
+  name: "Home",
+  data() {
+    return {
+      FadeInOut: true,
+      ScenceManger: {}
+      //   defaultOptions: {
+      //     animationData: animationData.default
+      //   }
+    };
+  },
+  components: {
+    Scence
+    // Lottie
+  },
+  created() {
+    // 初始化
+    this.ScenceManger = SceneManager(scenesAll, this.transitionFn);
+  },
+  mounted() {
+    // 第一場警開始
+    this.ScenceManger.createStart();
+  },
 
-    },
-    mounted() {
-        // 第一場警開始
-        this.ScenceManger.createStart();
-    },
-
-    methods: {
-        // 轉場動畫
-        transitionFn() {
-            if (this.FadeInOut) {
-                this.FadeInOut = false
-            } else {
-                this.FadeInOut = true
-            }
-
-        },
-        // 下一頁
-        nextScence(sIds) {
-            this.ScenceManger.next(sIds, scenesAll);
-        },
-        ani() {
-            this.defaultOptions.animationData = animation2.default;
-        }
+  methods: {
+    // 轉場動畫
+    // transitionFn() {
+    //   if (this.FadeInOut) {
+    //     this.FadeInOut = false;
+    //   } else {
+    //     this.FadeInOut = true;
+    //   }
+    // },
+    // 下一頁
+    nextScence(sIds) {
+      this.ScenceManger.next(sIds, scenesAll);
     }
-
+    // ani() {
+    //   this.defaultOptions.animationData = animation2.default;
+    // }
+  }
 };
 </script>
 
 <style lang="scss">
+.Home {
+  width: 100%;
+  max-width: var(--scenes_w);
+  min-height: var(--scenes_h);
+  margin: 0 auto;
+
+  //   測試
+  background: #aaa;
+}
+
 .bounce-enter-active {
-    animation: bounce-in 1s;
+  animation: bounce-in 1s;
 }
 
 .bounce-leave-active {
-    animation: bounce-in 1s reverse;
+  animation: bounce-in 1s reverse;
 }
 
 .transition {
-    position: absolute;
-    z-index: 1001;
-    top: 0px;
-    pointer-events: none;
-    width: 1000px;
-    height: 576px;
-    background-color: black;
-    opacity: 0;
+  position: absolute;
+  z-index: 1001;
+  top: 0px;
+  pointer-events: none;
+  width: 1000px;
+  height: 576px;
+  background-color: black;
+  opacity: 0;
 }
 
 @keyframes bounce-in {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 </style>
