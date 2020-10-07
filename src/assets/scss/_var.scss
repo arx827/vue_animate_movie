@@ -1,9 +1,12 @@
 // login 頁面
 $color-white: #FFF;                 // 白色
 
-:root {
-    // 展示框大小
-    --scenes_w: 1000px;
-    --scenes_h: 576px;
-    --color-main: #00b7ff;
-}
+// :root {
+//     // 展示框大小
+//     --scenes_w: 1000px;
+//     --scenes_h: 576px;
+//     --color-main: #00b7ff;
+// }
+
+$scenes-w: 1000px;
+$scenes-h: 576px;
