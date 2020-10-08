@@ -24,9 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "assets/scss/_var.scss";
-@import "assets/scss/_reset.scss";
-@import "bootstrap/scss/bootstrap.scss";
+@import "@/assets/all.scss";
 </style>
 <style scoped lang="scss">
 #app {

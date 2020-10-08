@@ -83,6 +83,7 @@ export default {
   margin: 0 auto;
   position: relative;
   background: var(--Home-bg);
+  box-shadow: 0 0 15px var(--box-shadow);
 }
 
 // 開場、場景淡出淡入

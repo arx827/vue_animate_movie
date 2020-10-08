@@ -1,17 +1,33 @@
 // login 頁面
 $color-white: #FFF;                 // 白色
+$color-black: #000;                 // 黑色
+$box-shadow: lighten($color-black, 90%);
+
+//----------------------------- RWD 斷點 -----------------------------
+$xl-media:1200px;
+$lg-media:992px;
+$md-media:768px;
+$sm-media:576px;
+
 
 :root {
     // 展示框大小
     --scenes_w: 1000px;
-    --scenes_h: 576px;
+    --scenes_h: 580px;
     --color-main: #00b7ff;
 
+    --color-white: #{$color-white};
+    --color-black: #{$color-black};
+
     --color-gray1: #333;
-    --color-gray2: #999;
+    --color-gray2: #666;
+    --color-gray3: #999;
 
-    --color-black: #000;
+    
 
 
-    --Home-bg: var(--color-gray2);
+
+
+    --box-shadow: #{$box-shadow};
+    --Home-bg: var(--color-gray3);
 }
