@@ -1,16 +1,26 @@
 <template>
   <div class="Home">
-    <Scence @next="nextScence" :Scence="[...ScenceManger]" />
-    <!-- <Lottie :options="defaultOptions"></Lottie> -->
-    <!-- <transition name="bounce">
-      <div class="transition" v-if="FadeInOut">淡入淡出</div>
-    </transition> -->
+    <transition name="trans" mode="out-in">
+      <TranformAn v-if="$store.state.isLoading" />
+    </transition>
+    <transition name="fade" mode="out-in">
+      <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
+    </transition>
+    <transition name="fade" mode="out-in">
+      <Scence
+        v-if="isShow == 'Scence'"
+        @next="nextScence"
+        :Scence="[...ScenceManger]"
+      />
+    </transition>
 
     <!-- <button @click="ani">12</button> -->
   </div>
 </template>
 
 <script>
+import TranformAn from "@/components/TranformAn.vue";
+import Opening from "@/components/Opening.vue";
 import Scence from "@/components/Scence.vue";
 import { SceneManager } from "@/plugins/scenceFactory.js";
 import { scenesAll } from "@/static/json/scenes.js";
@@ -21,38 +31,42 @@ export default {
   name: "Home",
   data() {
     return {
-      FadeInOut: true,
-      ScenceManger: {}
+      ScenceManger: {},
+      isShow: "Opening",
+      // 測試
+      // isShow: "Scence",
+      isTranform: false
       //   defaultOptions: {
       //     animationData: animationData.default
       //   }
     };
   },
   components: {
+    TranformAn,
+    Opening,
     Scence
     // Lottie
   },
   created() {
     // 初始化
-    this.ScenceManger = SceneManager(scenesAll, this.transitionFn);
+    this.ScenceManger = SceneManager(scenesAll);
   },
   mounted() {
-    // 第一場警開始
+    // 第一場景開始
     this.ScenceManger.createStart();
   },
 
   methods: {
-    // 轉場動畫
-    // transitionFn() {
-    //   if (this.FadeInOut) {
-    //     this.FadeInOut = false;
-    //   } else {
-    //     this.FadeInOut = true;
-    //   }
-    // },
+    openingBtn() {
+      this.isShow = "Scence";
+    },
     // 下一頁
     nextScence(sIds) {
+      this.isShow = "";
       this.ScenceManger.next(sIds, scenesAll);
+      this.$nextTick(() => {
+        this.isShow = "Scence";
+      });
     }
     // ani() {
     //   this.defaultOptions.animationData = animation2.default;
@@ -67,41 +81,28 @@ export default {
   max-width: var(--scenes_w);
   min-height: var(--scenes_h);
   margin: 0 auto;
-
-  //   測試
-  background: #aaa;
+  position: relative;
 }
 
-.bounce-enter-active {
-  animation: bounce-in 1s;
+// 開場、場景淡出淡入
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
 }
-
-.bounce-leave-active {
-  animation: bounce-in 1s reverse;
-}
-
-.transition {
-  position: absolute;
-  z-index: 1001;
-  top: 0px;
-  pointer-events: none;
-  width: 1000px;
-  height: 576px;
-  background-color: black;
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 
-@keyframes bounce-in {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+// 轉場淡出淡入
+.trans-enter-active {
+  transition: opacity 0.2s;
+}
+.trans-leave-active {
+  transition: opacity 1s;
+}
+.trans-enter,
+.trans-leave-to {
+  opacity: 0;
 }
 </style>
