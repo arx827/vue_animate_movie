@@ -1,5 +1,5 @@
 <template>
-  <div class="Scence">
+  <div class="fitLayout Scence">
     <p>{{ scenes }}</p>
     <p>{{ description }}</p>
     <div v-for="item in questionOpt" :key="item.optScenes">
@@ -59,9 +59,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Scence {
-  width: inherit;
-  min-height: inherit;
-  background: #fcffe0;
+.fitLayout {
+  // width: inherit;
+  // min-height: inherit;
+  // background: #fcffe0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
 }
 </style>

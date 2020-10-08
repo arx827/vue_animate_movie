@@ -82,6 +82,7 @@ export default {
   min-height: var(--scenes_h);
   margin: 0 auto;
   position: relative;
+  background: var(--Home-bg);
 }
 
 // 開場、場景淡出淡入

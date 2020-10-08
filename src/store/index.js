@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isLoading: true,
+    isLoading: false,
     loadingDelay: 1000 // 附加延遲
   },
   actions: {
