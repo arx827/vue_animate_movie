@@ -1,14 +1,14 @@
 <template>
   <div class="fitLayout d-flex justify-content-center align-items-center">
     <div class="text-center">
-      <div class="tranfrom_animation">( 轉場動畫 )</div>
+      <div class="loading_animation">( loading )</div>
       <p>載入中...</p>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "Tranfrom",
+  name: "Loading",
   data() {
     return {};
   }

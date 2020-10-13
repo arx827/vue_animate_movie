@@ -26,7 +26,7 @@ export default {
 <style lang="scss">
 @import "@/assets/all.scss";
 </style>
-<style scoped lang="scss">
+<style lang="scss">
 #app {
   width: 100%;
   max-width: 1140px;

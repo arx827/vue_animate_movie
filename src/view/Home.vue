@@ -1,27 +1,37 @@
 <template>
   <div class="Home">
-    <transition name="trans" mode="out-in">
-      <TranformAn v-if="$store.state.isLoading" />
-    </transition>
-    <transition name="fade" mode="out-in">
-      <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
-    </transition>
-    <transition name="fade" mode="out-in">
-      <Scence
-        v-if="isShow == 'Scence'"
-        @next="nextScence"
+    <TheaterHeader :Scence="[...ScenceManger]" v-if="isShow == 'Scence'" />
+    <div class="theater theater__pcCover">
+      <div class="theater__main">
+        <transition name="trans" mode="out-in">
+          <Loading v-if="$store.state.isLoading" />
+        </transition>
+        <transition name="fade" mode="out-in">
+          <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
+        </transition>
+        <transition name="fade" mode="out-in">
+          <Scence v-if="isShow == 'Scence'" :Scence="[...ScenceManger]" />
+        </transition>
+      </div>
+      <Procedure />
+      <TheaterOptions
         :Scence="[...ScenceManger]"
+        @next="nextScence"
+        v-if="isShow == 'Scence'"
       />
-    </transition>
-
+    </div>
+    <!-- <div class="" :Scence="[...ScenceManger]"></div> -->
     <!-- <button @click="ani">12</button> -->
   </div>
 </template>
 
 <script>
-import TranformAn from "@/components/TranformAn.vue";
+import TheaterHeader from "@/components/Theater/TheaterHeader.vue";
+import Loading from "@/components/Loading.vue";
 import Opening from "@/components/Opening.vue";
 import Scence from "@/components/Scence.vue";
+import Procedure from "@/components/Theater/Procedure.vue";
+import TheaterOptions from "@/components/Theater/TheaterOptions.vue";
 import { SceneManager } from "@/plugins/scenceFactory.js";
 import { scenesAll } from "@/static/json/scenes.js";
 // import Lottie from "@/components/Lottie.vue";
@@ -42,13 +52,16 @@ export default {
     };
   },
   components: {
-    TranformAn,
+    TheaterHeader,
+    Loading,
     Opening,
-    Scence
+    Scence,
+    Procedure,
+    TheaterOptions
     // Lottie
   },
   created() {
-    // 初始化
+    // 實體化
     this.ScenceManger = SceneManager(scenesAll);
   },
   mounted() {
@@ -79,11 +92,25 @@ export default {
 .Home {
   width: 100%;
   max-width: var(--scenes_w);
-  min-height: var(--scenes_h);
   margin: 0 auto;
+}
+.theater {
   position: relative;
-  background: var(--Home-bg);
-  box-shadow: 0 0 15px var(--box-shadow);
+  &__pcCover {
+    @include md-media {
+      height: var(--scenes_h);
+      overflow: hidden;
+    }
+  }
+  &__main {
+    position: relative;
+    width: 100%;
+    // height: calc(1000 / 100 * 670);
+    min-height: var(--scenes_h);
+    background: var(--Home-bg);
+    box-shadow: 0 0 15px var(--box-shadow);
+    overflow: hidden;
+  }
 }
 
 // 開場、場景淡出淡入

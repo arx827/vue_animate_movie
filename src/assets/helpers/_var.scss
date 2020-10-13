@@ -13,7 +13,7 @@ $sm-media:576px;
 :root {
     // 展示框大小
     --scenes_w: 1000px;
-    --scenes_h: 580px;
+    --scenes_h: 670px;
     --color-main: #00b7ff;
 
     --color-white: #{$color-white};
@@ -22,6 +22,9 @@ $sm-media:576px;
     --color-gray1: #333;
     --color-gray2: #666;
     --color-gray3: #999;
+
+    --btn-mb-bg: #b5e4ff;
+    --btn-pc-bg: #F4FBFF;
 
     
 
