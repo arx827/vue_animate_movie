@@ -21,7 +21,7 @@
         <TheaterOptions
           :questionOpt="getCurrentData.questionOpt"
           @next="nextScence"
-          v-if="isOptShow"
+          v-if="$store.state.isOptShow"
         />
       </transition>
     </div>
