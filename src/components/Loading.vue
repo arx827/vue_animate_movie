@@ -1,8 +1,9 @@
 <template>
   <div class="fitLayout d-flex justify-content-center align-items-center">
     <div class="text-center">
-      <div class="loading_animation">( loading )</div>
-      <p>載入中...</p>
+      <!-- <div class="loading_animation">( loading )</div> -->
+      <img class="img-fluid" src="@/assets/images/demo/img_testbg.jpg" alt="" />
+      <p class="loading__txt">載入中...</p>
     </div>
   </div>
 </template>
@@ -24,5 +25,12 @@ export default {
   bottom: 0;
   right: 0;
   z-index: 20;
+}
+img {
+  opacity: 0;
+}
+.loading {
+  &__txt {
+  }
 }
 </style>

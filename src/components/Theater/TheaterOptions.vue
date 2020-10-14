@@ -34,7 +34,7 @@
 <script>
 export default {
   name: "TheaterOptions",
-  props: { questionOpt: Object },
+  props: { questionOpt: Array },
   data() {
     return {
       isShowOptBox: true

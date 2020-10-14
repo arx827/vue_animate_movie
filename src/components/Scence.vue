@@ -2,7 +2,11 @@
   <div class="fitLayout scence">
     <div class="scence__content">
       <div class="scence__animate">
-        <img src="@/assets/images/demo/img_testbg.jpg" alt="" />
+        <img
+          class="img-fluid"
+          src="@/assets/images/demo/img_testbg.jpg"
+          alt=""
+        />
       </div>
       <!-- <div
         class="scence__optBox d-flex flex-column align-items-center"

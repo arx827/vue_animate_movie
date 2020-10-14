@@ -15,8 +15,12 @@
         <transition name="fade" mode="out-in">
           <Scence v-if="isShow == 'Scence'" :currentData="getCurrentData" />
         </transition>
+        <img
+          class="img-fluid"
+          src="@/assets/images/demo/img_testbg.jpg"
+          style="opacity:0; pointer-events: none;"
+        />
       </div>
-      <Procedure />
       <transition name="fade" mode="out-in">
         <TheaterOptions
           :questionOpt="getCurrentData.questionOpt"
@@ -25,6 +29,7 @@
         />
       </transition>
     </div>
+    <Procedure />
     <!-- <div class="" :Scence="[...ScenceManger]"></div> -->
     <!-- <button @click="ani">12</button> -->
   </div>
@@ -117,11 +122,19 @@ export default {
     position: relative;
     width: 100%;
     // height: calc(1000 / 100 * 670);
-    min-height: var(--scenes_h);
+    // min-height: var(--scenes_h);
     background: var(--Home-bg);
     box-shadow: 0 0 15px var(--box-shadow);
     overflow: hidden;
   }
+}
+
+.fitLayout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 // 開場、場景淡出淡入
