@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import {ScenceManger} from "./scence-manger";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -18,5 +18,7 @@ export default new Vuex.Store({
       state.isLoading = status;
     }
   },
-  modules: {}
+  modules: {
+    ScenceManger
+  }
 });
