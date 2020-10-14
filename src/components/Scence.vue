@@ -1,9 +1,7 @@
 <template>
   <div class="fitLayout scence">
     <div class="scence__content">
-      <div
-        class="scence__animate d-flex align-items-center justify-content-center"
-      >
+      <div class="scence__animate">
         <img src="@/assets/images/demo/img_testbg.jpg" alt="" />
       </div>
       <!-- <div

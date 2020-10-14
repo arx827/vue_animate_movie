@@ -21,7 +21,6 @@
         :questionOpt="currentData.questionOpt"
         @next="nextScence"
         v-if="isShow == 'Scence'"
-        v-show="!$store.state.isLoading"
       />
     </div>
     <!-- <div class="" :Scence="[...ScenceManger]"></div> -->
@@ -104,6 +103,7 @@ export default {
 }
 .theater {
   position: relative;
+  z-index: 10;
   &__pcCover {
     @include md-media {
       height: var(--scenes_h);
