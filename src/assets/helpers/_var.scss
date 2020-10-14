@@ -2,6 +2,11 @@
 $color-white: #FFF;                 // 白色
 $color-black: #000;                 // 黑色
 
+$color-gray1: #333;
+$color-gray2: #666;
+$color-gray3: #999;
+$color-gray4: #eee;
+
 $color-main2: #bc977a;
 $box-shadow: lighten($color-black, 90%);
 
@@ -22,9 +27,10 @@ $sm-media:576px;
     --color-white: #{$color-white};
     --color-black: #{$color-black};
 
-    --color-gray1: #333;
-    --color-gray2: #666;
-    --color-gray3: #999;
+    --color-gray1: #{$color-gray1};
+    --color-gray2: #{$color-gray2};
+    --color-gray3: #{$color-gray3};
+    --color-gray4: #{$color-gray4};
 
     --btn-mb-bg: #b5e4ff;
     --btn-pc-bg: #F4FBFF;
@@ -33,5 +39,5 @@ $sm-media:576px;
 
 
     --box-shadow: #{$box-shadow};
-    --Home-bg: var(--color-gray3);
+    --Home-bg: var(--color-gray4);
 }

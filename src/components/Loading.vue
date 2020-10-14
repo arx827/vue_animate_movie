@@ -1,10 +1,11 @@
 <template>
-  <div class="fitLayout d-flex justify-content-center align-items-center">
-    <div class="text-center">
-      <!-- <div class="loading_animation">( loading )</div> -->
-      <img class="img-fluid" src="@/assets/images/demo/img_testbg.jpg" alt="" />
-      <p class="loading__txt">載入中...</p>
-    </div>
+  <div
+    class="fitLayout d-flex flex-column justify-content-center align-items-center"
+  >
+    <!-- <div class="text-center"> -->
+    <div class="loading_animation">( loading )</div>
+    <p class="loading__txt">載入中...</p>
+    <!-- </div> -->
   </div>
 </template>
 <script>
@@ -24,13 +25,13 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 20;
-}
-img {
-  opacity: 0;
+  z-index: 999;
+  color: var(--color-gray3);
 }
 .loading {
   &__txt {
+    margin: 0;
+    color: var(--color-gray3);
   }
 }
 </style>

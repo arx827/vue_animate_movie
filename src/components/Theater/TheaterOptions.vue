@@ -57,6 +57,7 @@ export default {
 .theater {
   &__optBox {
     box-shadow: 0 0 15px var(--box-shadow);
+    z-index: 30;
     @include md-media {
       transform: translateY(calc(100% - (50px + 1rem)));
       transition: 0.4s;
@@ -108,8 +109,6 @@ export default {
       flex: 1;
       text-align: left;
       background: var(--btn-mb-bg);
-      margin-left: 10px;
-      margin-right: 10px;
       border-radius: 30px;
       border: 0;
       padding: 30px 28px 30px;
@@ -117,6 +116,8 @@ export default {
         outline: none;
       }
       @include md-media {
+        margin-left: 10px;
+        margin-right: 10px;
         padding-bottom: 40px;
         background: var(--btn-pc-bg);
       }

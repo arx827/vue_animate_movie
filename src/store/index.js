@@ -6,8 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     isLoading: false,
-    isOptShow: true,
-    loadingDelay: 1000 // 附加延遲
+    isOptShow: false,
+    loadingDelay: 500 // 附加延遲
   },
   actions: {
     updateLoading(context, status) {

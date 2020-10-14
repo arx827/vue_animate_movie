@@ -5,22 +5,25 @@
       v-if="isShow == 'Scence'"
     />
     <div class="theater theater__pcCover">
-      <div class="theater__main">
+      <div class="theater__mbCover">
+        <!-- 圖片為定義寬高比例用 -->
+        <img
+          class="img-fluid theater__ratio"
+          src="@/assets/images/demo/img_testbg.jpg"
+        />
         <transition name="trans" mode="out-in">
           <Loading v-if="$store.state.isLoading" />
         </transition>
-        <transition name="fade" mode="out-in">
-          <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
-        </transition>
-        <transition name="fade" mode="out-in">
-          <Scence v-if="isShow == 'Scence'" :currentData="getCurrentData" />
-        </transition>
-        <img
-          class="img-fluid"
-          src="@/assets/images/demo/img_testbg.jpg"
-          style="opacity:0; pointer-events: none;"
-        />
+        <div class="theater__main">
+          <transition name="fade" mode="out-in">
+            <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
+          </transition>
+          <transition name="fade" mode="out-in">
+            <Scence v-if="isShow == 'Scence'" :currentData="getCurrentData" />
+          </transition>
+        </div>
       </div>
+      <Procedure v-if="isShow == 'Scence'" />
       <transition name="fade" mode="out-in">
         <TheaterOptions
           :questionOpt="getCurrentData.questionOpt"
@@ -29,7 +32,7 @@
         />
       </transition>
     </div>
-    <Procedure />
+
     <!-- <div class="" :Scence="[...ScenceManger]"></div> -->
     <!-- <button @click="ani">12</button> -->
   </div>
@@ -114,18 +117,35 @@ export default {
   z-index: 10;
   &__pcCover {
     @include md-media {
-      height: var(--scenes_h);
+      // height: var(--scenes_h);
       overflow: hidden;
     }
   }
-  &__main {
+  &__mbCover {
     position: relative;
+    overflow: hidden;
+    @include md-media {
+      // height: var(--scenes_h);
+      overflow: visible;
+    }
+  }
+  &__ratio {
+    opacity: 0;
+    pointer-events: none;
+  }
+  &__main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
     // height: calc(1000 / 100 * 670);
     // min-height: var(--scenes_h);
     background: var(--Home-bg);
     box-shadow: 0 0 15px var(--box-shadow);
-    overflow: hidden;
+    // overflow: hidden;
+    z-index: 10;
   }
 }
 
@@ -139,7 +159,7 @@ export default {
 
 // 開場、場景淡出淡入
 .fade-enter-active {
-  transition: opacity 1s;
+  transition: opacity 2s;
 }
 
 .fade-leave-active {
@@ -153,7 +173,7 @@ export default {
 
 // 轉場淡出淡入
 .trans-enter-active {
-  transition: opacity 0.2s;
+  transition: opacity 0s;
 }
 
 .trans-leave-active {

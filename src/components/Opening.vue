@@ -20,12 +20,12 @@ export default {
   },
   mounted() {
     let vm = this;
-    // this.loadingTimer = setTimeout(function() {
-    vm.$store.dispatch("updateLoading", false);
-    // }, vm.$store.state.loadingDelay);
+    this.loadingTimer = setTimeout(function() {
+      vm.$store.dispatch("updateLoading", false);
+    }, vm.$store.state.loadingDelay);
   },
   beforeDestroy() {
-    // clearTimeout(this.loadingTimer);
+    clearTimeout(this.loadingTimer);
   }
 };
 </script>

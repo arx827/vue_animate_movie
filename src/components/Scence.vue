@@ -34,9 +34,11 @@ export default {
     this.loadingTimer = setTimeout(function() {
       vm.$store.dispatch("updateLoading", false);
     }, vm.$store.state.loadingDelay);
+    this.$store.dispatch("updateOpt", true);
   },
   beforeDestroy() {
     clearTimeout(this.loadingTimer);
+    this.$store.dispatch("updateOpt", false);
   }
 };
 </script>
