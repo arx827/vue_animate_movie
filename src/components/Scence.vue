@@ -1,56 +1,22 @@
 <template>
   <div class="fitLayout scence">
-    <!-- <div class="scence__header">
-      <div class="scence__header__container d-flex align-items-center">
-        <img
-          src="https://via.placeholder.com/80"
-          alt=""
-          class="scence__header__icon"
-        />
-        <p class="scence__header__voice">{{ description }}</p>
-      </div>
-    </div> -->
     <div class="scence__content">
-      <div
-        class="scence__animate d-flex align-items-center justify-content-center"
-      >
-        <img src="https://via.placeholder.com/1000x670" alt="" />
+      <div class="scence__animate">
+        <img src="@/assets/images/demo/img_testbg.jpg" alt="" />
       </div>
       <!-- <div
         class="scence__optBox d-flex flex-column align-items-center"
         :class="{ scence__optBox__open: isShowOptBox }"
       >
-        <div class="scence__optBox__control">
-          <button class="scence__optBox__controlBtn" @click="controlBtn">
-            click
-          </button>
-          <div class="scence__optBox__line"></div>
-        </div>
-
-        <div class="scence__optBox__wrap">
-          <button
-            v-for="item in questionOpt"
-            :key="item.optScenes"
-            @click="$emit('next', item.optScenes)"
-          >
-            {{ item.optQuestion }}
-          </button>
-        </div>
       </div> -->
     </div>
-    <!-- <p>{{ scenes }}</p>
-    <div v-for="item in questionOpt" :key="item.optScenes">
-      <button @click="$emit('next', item.optScenes)">
-        {{ item.optQuestion }}
-      </button>
-    </div> -->
   </div>
 </template>
 
 <script>
 export default {
   name: "Scence",
-  props: { currentData: Object },
+  props: ["currentData"],
   data() {
     return {
       scenes: ""
@@ -73,6 +39,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/all.scss";
+
 .fitLayout {
   // width: inherit;
   // min-height: inherit;
@@ -85,6 +52,7 @@ export default {
   z-index: 10;
   // overflow: hidden;
 }
+
 .scence {
   // &__header {
   //   background: var(--color-white);
@@ -117,8 +85,10 @@ export default {
     // min-height: var(--scenes_h);
     // overflow: hidden;
   }
+
   &__animate {
   }
+
   // &__optBox {
   //   transform: translateY(calc(100% - (50px + 1rem)));
   //   transition: 0.4s;

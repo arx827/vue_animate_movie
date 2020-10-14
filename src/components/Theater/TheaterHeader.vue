@@ -32,6 +32,8 @@ export default {
     // top: 0;
     // left: 0;
     box-shadow: 0 0 15px var(--box-shadow);
+    position: relative;
+    z-index: 20;
     &__container {
       width: 100%;
       margin-right: auto;

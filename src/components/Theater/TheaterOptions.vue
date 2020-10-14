@@ -3,7 +3,7 @@
   <div
     class="theater__optBox d-flex flex-column align-items-center"
     :class="{ theater__optBox__open: isShowOptBox }"
-    v-if="questionOpt.length"
+    v-if="hasOpts"
   >
     <div class="theater__optBox__control d-none d-md-block">
       <button class="theater__optBox__controlBtn" @click="controlBtn">
@@ -34,13 +34,16 @@
 <script>
 export default {
   name: "TheaterOptions",
-  props: {
-    questionOpt: Array
-  },
+  props: { questionOpt: Object },
   data() {
     return {
       isShowOptBox: true
     };
+  },
+  computed: {
+    hasOpts() {
+      return this.questionOpt ? true : false;
+    }
   },
   methods: {
     controlBtn() {
