@@ -3,7 +3,7 @@
   <div
     class="theater__optBox d-flex flex-column align-items-center"
     :class="{ theater__optBox__open: isShowOptBox }"
-    v-if="questionOpt != []"
+    v-if="questionOpt.length"
   >
     <div class="theater__optBox__control d-none d-md-block">
       <button class="theater__optBox__controlBtn" @click="controlBtn">
@@ -55,7 +55,7 @@ export default {
   &__optBox {
     box-shadow: 0 0 15px var(--box-shadow);
     @include md-media {
-      transform: translateY(calc(100% - (45px + 1rem)));
+      transform: translateY(calc(100% - (50px + 1rem)));
       transition: 0.4s;
       position: absolute;
       bottom: 0;
