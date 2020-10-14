@@ -72,13 +72,6 @@ export default {
     // 第一場景開始
     this.ScenceManger.createStart();
   },
-  // watch: {
-  //   // 深度監聽Scence
-  //   ScenceManger: {
-  //     handler: "printValue",
-  //     deep: true
-  //   }
-  // },
   computed: {
     currentData() {
       return this.ScenceManger.currentData;
@@ -115,6 +108,7 @@ export default {
     @include md-media {
       height: var(--scenes_h);
       overflow: hidden;
+      box-shadow: 0 0 15px var(--box-shadow);
     }
   }
   &__main {
@@ -123,7 +117,6 @@ export default {
     // height: calc(1000 / 100 * 670);
     min-height: var(--scenes_h);
     background: var(--Home-bg);
-    box-shadow: 0 0 15px var(--box-shadow);
     overflow: hidden;
   }
 }

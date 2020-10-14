@@ -27,10 +27,7 @@ export default {
   &__header {
     background: var(--color-white);
     padding: 16px;
-    // position: absolute;
     width: 100%;
-    // top: 0;
-    // left: 0;
     box-shadow: 0 0 15px var(--box-shadow);
     &__container {
       width: 100%;
