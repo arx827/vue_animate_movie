@@ -21,8 +21,7 @@
         <TheaterOptions
           :questionOpt="getCurrentData.questionOpt"
           @next="nextScence"
-          v-if="isShow == 'Scence'"
-          v-show="!$store.state.isLoading"
+          v-if="isOptShow"
         />
       </transition>
     </div>
@@ -38,7 +37,7 @@ import Opening from "@/components/Opening.vue";
 import Scence from "@/components/Scence.vue";
 import Procedure from "@/components/Theater/Procedure.vue";
 import TheaterOptions from "@/components/Theater/TheaterOptions.vue";
-import { SceneManager } from "@/plugins/scenceFactory.js";
+// import { SceneManager } from "@/plugins/scenceFactory.js";
 import { scenesAll } from "@/static/json/scenes.js";
 import { mapGetters, mapActions } from "vuex";
 
