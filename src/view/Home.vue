@@ -1,6 +1,9 @@
 <template>
   <div class="Home">
-    <TheaterHeader :Scence="[...ScenceManger]" v-if="isShow == 'Scence'" />
+    <TheaterHeader
+      :description="currentData.description"
+      v-if="isShow == 'Scence'"
+    />
     <div class="theater theater__pcCover">
       <div class="theater__main">
         <transition name="trans" mode="out-in">
@@ -10,14 +13,15 @@
           <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
         </transition>
         <transition name="fade" mode="out-in">
-          <Scence v-if="isShow == 'Scence'" :Scence="[...ScenceManger]" />
+          <Scence v-if="isShow == 'Scence'" :currentData="currentData" />
         </transition>
       </div>
       <Procedure />
       <TheaterOptions
-        :Scence="[...ScenceManger]"
+        :questionOpt="currentData.questionOpt"
         @next="nextScence"
         v-if="isShow == 'Scence'"
+        v-show="!$store.state.isLoading"
       />
     </div>
     <!-- <div class="" :Scence="[...ScenceManger]"></div> -->
@@ -42,9 +46,9 @@ export default {
   data() {
     return {
       ScenceManger: {},
-      isShow: "Opening",
+      // isShow: "Opening",
       // 測試
-      // isShow: "Scence",
+      isShow: "Scence",
       isTranform: false
       //   defaultOptions: {
       //     animationData: animationData.default
@@ -68,7 +72,18 @@ export default {
     // 第一場景開始
     this.ScenceManger.createStart();
   },
-
+  // watch: {
+  //   // 深度監聽Scence
+  //   ScenceManger: {
+  //     handler: "printValue",
+  //     deep: true
+  //   }
+  // },
+  computed: {
+    currentData() {
+      return this.ScenceManger.currentData;
+    }
+  },
   methods: {
     openingBtn() {
       this.isShow = "Scence";

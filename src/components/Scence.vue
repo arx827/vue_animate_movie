@@ -50,39 +50,11 @@
 <script>
 export default {
   name: "Scence",
-  props: {
-    Scence: Array
-  },
+  props: { currentData: Object },
   data() {
     return {
-      scenes: "",
-      description: "",
-      questionOpt: [],
-      isShowOptBox: false
+      scenes: ""
     };
-  },
-  watch: {
-    // 深度監聽Scence
-    Scence: {
-      handler: "printValue",
-      deep: true
-    }
-  },
-  methods: {
-    printValue() {
-      const {
-        scenes,
-        description,
-        // optScenes,
-        questionOpt
-      } = this.Scence[0].currentData;
-      this.scenes = scenes;
-      this.description = description;
-      this.questionOpt = questionOpt;
-    }
-    // controlBtn() {
-    //   this.isShowOptBox = !this.isShowOptBox;
-    // }
   },
   beforeCreate() {
     this.$store.dispatch("updateLoading", true);

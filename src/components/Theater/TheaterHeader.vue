@@ -6,7 +6,11 @@
         alt=""
         class="theater__header__icon"
       />
-      <p class="theater__header__voice" v-html="description"></p>
+      <p
+        class="theater__header__voice"
+        v-show="!$store.state.isLoading"
+        v-html="description"
+      ></p>
     </div>
   </div>
 </template>
@@ -14,29 +18,7 @@
 <script>
 export default {
   name: "TheaterHeader",
-  props: {
-    Scence: Array
-  },
-  watch: {
-    // 深度監聽Scence
-    Scence: {
-      handler: "printValue",
-      deep: true
-    }
-  },
-  data() {
-    return {
-      scenes: "",
-      description: ""
-    };
-  },
-  methods: {
-    printValue() {
-      const { scenes, description } = this.Scence[0].currentData;
-      this.scenes = scenes;
-      this.description = description;
-    }
-  }
+  props: { description: String }
 };
 </script>
 
