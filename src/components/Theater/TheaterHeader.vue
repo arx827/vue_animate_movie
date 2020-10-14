@@ -6,7 +6,11 @@
         alt=""
         class="theater__header__icon"
       />
-      <p class="theater__header__voice" v-html="description"></p>
+      <p
+        class="theater__header__voice"
+        v-show="!$store.state.isLoading"
+        v-html="description"
+      ></p>
     </div>
   </div>
 </template>
@@ -14,29 +18,7 @@
 <script>
 export default {
   name: "TheaterHeader",
-  props: {
-    Scence: Array
-  },
-  watch: {
-    // 深度監聽Scence
-    Scence: {
-      handler: "printValue",
-      deep: true
-    }
-  },
-  data() {
-    return {
-      scenes: "",
-      description: ""
-    };
-  },
-  methods: {
-    printValue() {
-      const { scenes, description } = this.Scence[0].currentData;
-      this.scenes = scenes;
-      this.description = description;
-    }
-  }
+  props: { description: String }
 };
 </script>
 
@@ -45,10 +27,7 @@ export default {
   &__header {
     background: var(--color-white);
     padding: 16px;
-    // position: absolute;
     width: 100%;
-    // top: 0;
-    // left: 0;
     box-shadow: 0 0 15px var(--box-shadow);
     &__container {
       width: 100%;

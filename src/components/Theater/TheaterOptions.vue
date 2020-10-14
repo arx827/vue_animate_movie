@@ -3,11 +3,16 @@
   <div
     class="theater__optBox d-flex flex-column align-items-center"
     :class="{ theater__optBox__open: isShowOptBox }"
-    v-if="questionOpt.length"
+    v-if="questionOpt != []"
   >
     <div class="theater__optBox__control d-none d-md-block">
       <button class="theater__optBox__controlBtn" @click="controlBtn">
-        click
+        <img
+          class="img-fluid"
+          src="@/assets/images/demo/img_icon_tiger.png"
+          alt=""
+        />
+        <p class="theater__optBox__controlBtn__txt">看選項</p>
       </button>
       <div class="theater__optBox__line"></div>
     </div>
@@ -30,28 +35,14 @@
 export default {
   name: "TheaterOptions",
   props: {
-    Scence: Array
-  },
-  watch: {
-    // 深度監聽theater
-    Scence: {
-      handler: "printValue",
-      deep: true
-    }
+    questionOpt: Array
   },
   data() {
     return {
-      scenes: "",
-      questionOpt: [],
       isShowOptBox: true
     };
   },
   methods: {
-    printValue() {
-      const { scenes, questionOpt } = this.Scence[0].currentData;
-      this.scenes = scenes;
-      this.questionOpt = questionOpt;
-    },
     controlBtn() {
       this.isShowOptBox = !this.isShowOptBox;
     }
@@ -64,7 +55,7 @@ export default {
   &__optBox {
     box-shadow: 0 0 15px var(--box-shadow);
     @include md-media {
-      transform: translateY(calc(100% - (50px + 1rem)));
+      transform: translateY(calc(100% - (45px + 1rem)));
       transition: 0.4s;
       position: absolute;
       bottom: 0;
@@ -79,17 +70,26 @@ export default {
     }
     &__controlBtn {
       border: 0;
-      background: #ffc107;
-      width: 50px;
-      height: 50px;
+      background: transparent;
+      width: 52px;
+      padding: 0;
+      position: relative;
       &:focus {
         outline: 0;
+      }
+      &__txt {
+        position: absolute;
+        margin: 0;
+        top: calc((100% - (14px * 1.5)) / 2);
+        right: calc(-14px * 3);
+        font-size: 14px;
+        color: var(--color-main2);
       }
     }
     &__line {
       width: 0;
       height: 1rem;
-      border-left: 1px solid #000;
+      border-left: 1px solid var(--color-gray2);
       margin: 2px auto;
     }
     &__wrap {

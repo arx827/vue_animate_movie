@@ -1,6 +1,8 @@
 // login 頁面
 $color-white: #FFF;                 // 白色
 $color-black: #000;                 // 黑色
+
+$color-main2: #bc977a;
 $box-shadow: lighten($color-black, 90%);
 
 //----------------------------- RWD 斷點 -----------------------------
@@ -15,6 +17,7 @@ $sm-media:576px;
     --scenes_w: 1000px;
     --scenes_h: 670px;
     --color-main: #00b7ff;
+    --color-main2: #{$color-main2};
 
     --color-white: #{$color-white};
     --color-black: #{$color-black};
@@ -25,8 +28,6 @@ $sm-media:576px;
 
     --btn-mb-bg: #b5e4ff;
     --btn-pc-bg: #F4FBFF;
-
-    
 
 
 

@@ -45,15 +45,15 @@ export const ScenceManger = {
         init({commit},AllData,historyMax){
             commit('setAllData', AllData);
             commit('setHistoryMax',historyMax);
-        }
-        ,
+        },
         createStart(context){
             let { state, getters, commit, rootState } = context;
             const startSenceData = getters.getScenceDataById(state.startId);            
             commit('setCurrentData', startSenceData);
         },
-        nextScence({ state, getters, commit, rootState },Id){
+        goToNext({ getters, commit, dispatch,rootGetters },Id){
             const SenceData = getters.getScenceDataById(Id);
+            console.log([rootGetters,dispatch])
             commit('setCurrentData', SenceData);
         }
     }

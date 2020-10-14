@@ -1,6 +1,6 @@
 <template>
 <div class="Home">
-    <TheaterHeader :Scence="[this.getCurrentData]" v-if="isShow == 'Scence'" />
+    <TheaterHeader :description="getCurrentData.description" v-if="isShow == 'Scence'" />
     <div class="theater theater__pcCover">
         <div class="theater__main">
             <transition name="trans" mode="out-in">
@@ -10,11 +10,13 @@
                 <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
             </transition>
             <transition name="fade" mode="out-in">
-                <Scence v-if="isShow == 'Scence'" :Scence="[this.getCurrentData]" />
+                <Scence v-if="isShow == 'Scence'" :currentData="getCurrentData" />
             </transition>
         </div>
         <Procedure />
-        <TheaterOptions :Scence="[this.getCurrentData]" @next="nextScence" v-if="isShow == 'Scence'" />
+        <transition name="fade" mode="out-in">
+            <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="nextScence" v-if="isShow == 'Scence'" v-show="!$store.state.isLoading" />
+        </transition>
     </div>
     <!-- <div class="" :Scence="[...ScenceManger]"></div> -->
     <!-- <button @click="ani">12</button> -->
@@ -76,15 +78,14 @@ export default {
         ...mapGetters('ScenceManger', ['getCurrentData', 'getScenceDataById']),
     },
     methods: {
-        ...mapActions('ScenceManger', ['nextScence', 'init', 'createStart']),
+        ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart']),
         openingBtn() {
             this.isShow = "Scence";
         },
         // 下一頁
         nextScence(sIds) {
             this.isShow = "";
-            this.ScenceManger.nextScence(sIds);
-
+            this.goToNext(sIds);
             this.$nextTick(() => {
                 this.isShow = "Scence";
             });
@@ -110,6 +111,7 @@ export default {
         @include md-media {
             height: var(--scenes_h);
             overflow: hidden;
+            box-shadow: 0 0 15px var(--box-shadow);
         }
     }
 
@@ -119,13 +121,15 @@ export default {
         // height: calc(1000 / 100 * 670);
         min-height: var(--scenes_h);
         background: var(--Home-bg);
-        box-shadow: 0 0 15px var(--box-shadow);
         overflow: hidden;
     }
 }
 
 // 開場、場景淡出淡入
-.fade-enter-active,
+.fade-enter-active {
+    transition: opacity 1s;
+}
+
 .fade-leave-active {
     transition: opacity 1s;
 }
