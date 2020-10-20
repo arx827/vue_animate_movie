@@ -44,8 +44,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/all.scss";
-
 .fitLayout {
   // width: inherit;
   // min-height: inherit;

@@ -56,7 +56,7 @@ export default {
 <style scoped lang="scss">
 .theater {
   &__optBox {
-    box-shadow: 0 0 15px var(--box-shadow);
+    // box-shadow: 0 0 15px var(--box-shadow);
     z-index: 30;
     @include md-media {
       transform: translateY(calc(100% - (50px + 1rem)));
@@ -98,10 +98,10 @@ export default {
     }
     &__wrap {
       width: 100%;
-      margin-top: 10px;
+      // margin-top: 10px;
       margin-bottom: 10px;
       @include md-media {
-        margin-top: 0;
+        // margin-top: 0;
         margin-bottom: 20px;
       }
     }

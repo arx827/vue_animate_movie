@@ -6,6 +6,7 @@ $color-gray1: #333;
 $color-gray2: #666;
 $color-gray3: #999;
 $color-gray4: #eee;
+$color-gray5: #e0e0e0;
 
 $color-main2: #bc977a;
 $box-shadow: lighten($color-black, 90%);
@@ -34,6 +35,9 @@ $sm-media:576px;
 
     --btn-mb-bg: #b5e4ff;
     --btn-pc-bg: #F4FBFF;
+
+    --btn-step: #{$color-gray5};
+    --btn-step-active: #{$color-gray3};
 
 
 
