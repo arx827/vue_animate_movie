@@ -42,10 +42,13 @@ export const ScenceManger = {
     getHistroyNums(state){
       return state.historyIds.length;
     },
-
+    getHistroyMax(state){
+      return state.historyMax;
+    }
   },
   actions: {
-    init({ commit }, AllData, historyMax) {
+    init({ commit }, [AllData, historyMax]) {
+      console.log([AllData,historyMax])
       commit("setAllData", AllData);
       commit("setHistoryMax", historyMax);
     },

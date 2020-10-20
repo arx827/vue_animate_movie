@@ -5,8 +5,8 @@
     <div class="procedure__stepItem" @click="stepClick($event)"></div>
     <div class="procedure__stepItem" @click="stepClick($event)"></div> -->
 
-        <template v-for="item in 5">
-            <div class="procedure__stepItem" @click="stepClick($event, item)" :key="item"></div>
+        <template v-for="item in getHistroyMax">
+            <div class="procedure__stepItem" :class="{'procedure__stepItem--active':(item <= getHistroyNums+1)}" @click="stepClick($event, item)" :key="item"></div>
         </template>
     </div>
 </div>
@@ -19,7 +19,7 @@ import {
 export default {
     name: "TheaterProcedure",
     computed: {
-        ...mapGetters("ScenceManger", ["getHistroyNums"]),
+        ...mapGetters("ScenceManger", ["getHistroyNums", "getHistroyMax"]),
     },
     methods: {
         stepClick(event, item) {
@@ -27,7 +27,7 @@ export default {
         }
     },
     created() {
-        console.log(this.getHistroyNums)
+
     }
 };
 </script>
