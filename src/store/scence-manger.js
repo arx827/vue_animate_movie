@@ -38,7 +38,11 @@ export const ScenceManger = {
         });
         return resultData;
       };
-    }
+    },
+    getHistroyNums(state){
+      return state.historyIds.length;
+    },
+
   },
   actions: {
     init({ commit }, AllData, historyMax) {
@@ -54,6 +58,7 @@ export const ScenceManger = {
       const SenceData = getters.getScenceDataById(Id);
       console.log([rootGetters, dispatch]);
       commit("setCurrentData", SenceData);
+      commit("addHistoryIds", Id);
     }
   }
 };
