@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { ScenceManger } from "./scence-manger";
+import { ScenceManger } from "./scence_manger/index";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
