@@ -16,5 +16,5 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   },
 
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier", "@vue/airbnb"]
+  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/airbnb"]
 };
