@@ -1,6 +1,10 @@
 <template>
-  <div class="theater__procedure d-flex justify-content-center align-items-md-center">
-    <div class=" d-flex flex-md-column flex-wrap flex-md-column-reverse justify-content-start">
+  <div
+    class="theater__procedure d-flex justify-content-center align-items-md-center"
+  >
+    <div
+      class=" d-flex flex-md-column flex-wrap flex-md-column-reverse justify-content-start"
+    >
       <!-- <div class="procedure__stepItem procedure__stepItem--active"></div>
     <div class="procedure__stepItem" @click="stepClick($event)"></div>
     <div class="procedure__stepItem" @click="stepClick($event)"></div> -->

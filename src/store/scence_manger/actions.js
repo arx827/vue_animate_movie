@@ -30,11 +30,11 @@ export const actions = {
       clearTimeout(timmer);
     }, state.currentData.animationTime);
   },
-  AfterAnimate({ state },fn){
-    console.log(fn)
+  AfterAnimate({ state }, fn) {
+    console.log(fn);
     const timer = state.currentData.animationTime;
-    setTimeout(()=>{
+    setTimeout(() => {
       fn();
-    },timer)
+    }, timer);
   }
 };

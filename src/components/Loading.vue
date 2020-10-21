@@ -1,5 +1,7 @@
 <template>
-  <div class="fitLayout d-flex flex-column justify-content-center align-items-center">
+  <div
+    class="fitLayout d-flex flex-column justify-content-center align-items-center"
+  >
     <!-- <div class="text-center"> -->
     <div class="loading_animation">( loading )</div>
     <p class="loading__txt">載入中...</p>

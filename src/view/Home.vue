@@ -1,10 +1,16 @@
 <template>
   <div class="Home">
-    <TheaterHeader :description="getCurrentData.description" v-if="isShow == 'Scence'" />
+    <TheaterHeader
+      :description="getCurrentData.description"
+      v-if="isShow == 'Scence'"
+    />
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
         <!-- 圖片為定義寬高比例用 -->
-        <img class="img-fluid theater__ratio" src="@/assets/images/demo/img_testbg.jpg" />
+        <img
+          class="img-fluid theater__ratio"
+          src="@/assets/images/demo/img_testbg.jpg"
+        />
         <transition name="trans" mode="out-in">
           <Loading v-if="$store.state.isLoading" />
         </transition>

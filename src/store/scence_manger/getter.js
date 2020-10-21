@@ -8,7 +8,9 @@ export const getters = {
       if (state.allData === "") {
         return;
       }
-      const resultData = state.allData.find(sceneData => sceneData.scenes === id);
+      const resultData = state.allData.find(
+        sceneData => sceneData.scenes === id
+      );
       return resultData;
     };
   },
@@ -33,6 +35,9 @@ export const getters = {
   },
   /* ---------------Finally相關--------------------------*/
   getIsFinally(state) {
-    return state.historyIds.length === state.historyMax && Boolean(state.currentData.conclusion);
+    return (
+      state.historyIds.length === state.historyMax &&
+      Boolean(state.currentData.conclusion)
+    );
   }
 };

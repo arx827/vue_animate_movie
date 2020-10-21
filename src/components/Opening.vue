@@ -21,7 +21,7 @@ export default {
   mounted() {
     const vm = this;
     this.loadingTimer = setTimeout(() => {
-      vm.$store.dispatch('updateLoading', false);
+      vm.$store.dispatch("updateLoading", false);
     }, vm.$store.state.loadingDelay);
   },
   beforeDestroy() {

@@ -7,6 +7,7 @@ module.exports = {
       args[0].title = "Animation";
       return args;
     });
+    config.module.rule("eslint").use("eslint-loader");
   },
   // eslint-loader 是否在儲存的時候檢查
   // eslint-disable-next-line no-dupe-keys
