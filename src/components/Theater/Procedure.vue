@@ -6,7 +6,7 @@
     <div class="procedure__stepItem" @click="stepClick($event)"></div> -->
 
         <template v-for="item in getHistroyMax">
-            <div class="procedure__stepItem" :class="{'procedure__stepItem--active':(item <= getHistroyNums+1)}" @click="stepClick($event, item)" :key="item"></div>
+            <div class="procedure__stepItem" :class="{'procedure__stepItem--active':(item <= getHistroyNums)}" @click="stepClick($event, item)" :key="item"></div>
         </template>
     </div>
 </div>

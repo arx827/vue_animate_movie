@@ -6,9 +6,10 @@ export const mutations = {
       state.historyMax = historyMax;
     },
     addHistoryIds(state, currentId) {
-      if (state.historyIds.length >= state.historyMax) {
+      if (state.historyIds.length > state.historyMax) {
         throw Error("您的歷史紀錄出錯了 historyMax error");
       }
+      console.log(state.historyIds)
       state.historyIds.push(currentId);
     },
     setCurrentData(state, currentData) {

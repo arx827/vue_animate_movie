@@ -29,5 +29,9 @@ export const getters = {
     getIsAnimationNow(state){
       const currentDate = state.currentData;
       return Boolean(currentDate.redirectTo)
+    },
+    getIsFinally(state){
+      console.log(Boolean(state.currentData.conclusion))
+      return (state.historyIds.length===state.historyMax) && Boolean(state.currentData.conclusion);
     }
   }

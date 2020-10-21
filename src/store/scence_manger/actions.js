@@ -1,7 +1,8 @@
 export const actions = {
-    init({ commit }, [AllData, historyMax]) {
+    init({ state,commit }, [AllData, historyMax]) {
       commit("setAllData", AllData);
       commit("setHistoryMax", historyMax);
+      commit("addHistoryIds", state.startId);
     },
     createStart(context) {
       let { state, getters, commit } = context;
@@ -18,10 +19,10 @@ export const actions = {
     },
     goToNextByAnimation({ state,getters, commit },correctNowId){
       const timmer = setTimeout(()=>{
-        console.log(state)
         if(correctNowId === state.currentData.scenes){
           const nextId = getters.getNextId;
           const SenceData = getters.getScenceDataById(nextId);
+          commit("addHistoryIds", nextId);
           commit("setCurrentData", SenceData);
         }
         clearTimeout(timmer);
