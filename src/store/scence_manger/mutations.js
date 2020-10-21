@@ -14,7 +14,6 @@ export const mutations = {
     if (state.historyIds.length > state.historyMax) {
       throw Error("您的歷史紀錄出錯了 historyMax error");
     }
-    console.log(state.historyIds);
     state.historyIds.push(currentId);
   }
 };
