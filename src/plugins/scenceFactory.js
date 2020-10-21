@@ -35,7 +35,6 @@ class SceneStage {
   }
 }
 
-
 //-------- 實體化 ---------//
 export const SceneManager = AllData => {
   return new SceneStage(AllData);
