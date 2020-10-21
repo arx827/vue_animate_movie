@@ -19,9 +19,9 @@ export default {
     this.$store.dispatch("updateLoading", true);
   },
   mounted() {
-    let vm = this;
-    this.loadingTimer = setTimeout(function() {
-      vm.$store.dispatch("updateLoading", false);
+    const vm = this;
+    this.loadingTimer = setTimeout(() => {
+      vm.$store.dispatch('updateLoading', false);
     }, vm.$store.state.loadingDelay);
   },
   beforeDestroy() {

@@ -2,11 +2,7 @@
   <div class="fitLayout scence">
     <div class="scence__content">
       <div class="scence__animate">
-        <img
-          class="img-fluid"
-          src="@/assets/images/demo/img_testbg.jpg"
-          alt=""
-        />
+        <img class="img-fluid" src="@/assets/images/demo/img_testbg.jpg" alt="" />
       </div>
       <!-- <div
         class="scence__optBox d-flex flex-column align-items-center"
@@ -30,9 +26,9 @@ export default {
     this.$store.dispatch("updateLoading", true);
   },
   mounted() {
-    let vm = this;
-    this.loadingTimer = setTimeout(function() {
-      vm.$store.dispatch("updateLoading", false);
+    const vm = this;
+    this.loadingTimer = setTimeout(() => {
+      vm.$store.dispatch('updateLoading', false);
     }, vm.$store.state.loadingDelay);
     this.$store.dispatch("updateOpt", true);
   },

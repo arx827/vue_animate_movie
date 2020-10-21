@@ -1,6 +1,7 @@
 import { mutations } from "./mutations";
 import { getters } from "./getter";
 import { actions } from "./actions";
+
 export const ScenceManger = {
   namespaced: true,
   state: () => ({

@@ -1,12 +1,12 @@
 export const mutations = {
-  /*---------------scence相關----------------------*/
+  /* ---------------scence相關----------------------*/
   setAllData(state, allData) {
     state.allData = allData;
   },
   setCurrentData(state, currentData) {
     state.currentData = currentData;
   },
-  /*----------------history相關--------------------------*/
+  /* ----------------history相關--------------------------*/
   setHistoryMax(state, historyMax) {
     state.historyMax = historyMax;
   },

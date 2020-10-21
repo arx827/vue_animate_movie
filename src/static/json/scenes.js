@@ -95,8 +95,7 @@ export const scenesAll = [
   },
   {
     scenes: "s8",
-    description:
-      "途中，遇到一位神仙指示<br>山中有隻母老虎，戰力很高，十分恰北北，武松會？",
+    description: "途中，遇到一位神仙指示<br>山中有隻母老虎，戰力很高，十分恰北北，武松會？",
     animationTime: 2000,
     questionOpt: [
       {
@@ -133,8 +132,7 @@ export const scenesAll = [
   },
   {
     scenes: "s12",
-    description:
-      "母老虎此時一個轉身，以芭雷舞的姿勢出現在武松面前耀武揚威打算把武松吃掉！！",
+    description: "母老虎此時一個轉身，以芭雷舞的姿勢出現在武松面前耀武揚威打算把武松吃掉！！",
     animationTime: 2000,
     questionOpt: [
       {
@@ -158,8 +156,7 @@ export const scenesAll = [
     questionOpt: [
       {
         optScenes: "s16",
-        optQuestion:
-          "被母老虎的泰山姿勢吸引，瞬間產生情愫，決定與母老虎一起闖蕩..."
+        optQuestion: "被母老虎的泰山姿勢吸引，瞬間產生情愫，決定與母老虎一起闖蕩..."
       },
       {
         optScenes: "s17",
@@ -169,14 +166,12 @@ export const scenesAll = [
   },
   {
     scenes: "s14",
-    description:
-      "怎知道，母老虎直接打壞電腦，把武松壓在了地上，準備要吃武松...",
+    description: "怎知道，母老虎直接打壞電腦，把武松壓在了地上，準備要吃武松...",
     animationTime: 2000,
     questionOpt: [
       {
         optScenes: "s16",
-        optQuestion:
-          "母老虎果斷的攻擊打破武松的計畫，瞬間產生情愫，決定與母老虎開一家店"
+        optQuestion: "母老虎果斷的攻擊打破武松的計畫，瞬間產生情愫，決定與母老虎開一家店"
       },
       {
         optScenes: "s17",
@@ -209,8 +204,7 @@ export const scenesAll = [
   },
   {
     scenes: "s17",
-    description:
-      "這一拼讓武松成了當地的紅人，但卻住進醫院，必須負擔大筆的醫療與相關費用。",
+    description: "這一拼讓武松成了當地的紅人，但卻住進醫院，必須負擔大筆的醫療與相關費用。",
     animationTime: 2000,
     conclusion:
       "辛苦打拼與努力，卻忘了意外的發生總是讓人措手不及，如果身為家中支柱與社會棟樑，你更應該備好保障與失能風險，讓保險在你需要幫助的時候成為你的最佳助手。"

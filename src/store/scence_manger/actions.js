@@ -1,12 +1,12 @@
 export const actions = {
-  /*---------------scence相關----------------------*/
+  /* ---------------scence相關----------------------*/
   init({ state, commit }, [AllData, historyMax]) {
     commit("setAllData", AllData);
     commit("setHistoryMax", historyMax);
     commit("addHistoryIds", state.startId);
   },
   createStart(context) {
-    let { state, getters, commit } = context;
+    const { state, getters, commit } = context;
     const startSenceData = getters.getScenceDataById(state.startId);
     commit("setCurrentData", startSenceData);
   },
@@ -18,7 +18,7 @@ export const actions = {
       dispatch("goToNextByAnimation", Id);
     }
   },
-  /*---------------Animation相關----------------------*/
+  /* ---------------Animation相關----------------------*/
   goToNextByAnimation({ state, getters, commit }, correctNowId) {
     const timmer = setTimeout(() => {
       if (correctNowId === state.currentData.scenes) {
@@ -29,5 +29,12 @@ export const actions = {
       }
       clearTimeout(timmer);
     }, state.currentData.animationTime);
+  },
+  AfterAnimate({ state },fn){
+    console.log(fn)
+    const timer = state.currentData.animationTime;
+    setTimeout(()=>{
+      fn();
+    },timer)
   }
 };
