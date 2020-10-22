@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     isLoading: false,
     isOptShow: false,
+    isFinally: false,
     loadingDelay: 500 // 附加延遲
   },
   actions: {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     },
     updateOpt(context, status) {
       context.commit("OPTIONSHOW", status);
+    },
+    updateFinally(context, status) {
+      context.commit("FINALLY", status);
     }
   },
   mutations: {
@@ -24,6 +28,9 @@ export default new Vuex.Store({
     },
     OPTIONSHOW(state, status) {
       state.isOptShow = status;
+    },
+    FINALLY(state, status) {
+      state.isFinally = status;
     }
   },
   modules: {

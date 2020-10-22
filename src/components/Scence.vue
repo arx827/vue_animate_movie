@@ -8,14 +8,14 @@
           alt=""
         />
       </div>
-      <div v-if="isShow">
-        重新
-      </div>
-      <!-- <div
-        class="scence__optBox d-flex flex-column align-items-center"
-        :class="{ scence__optBox__open: isShowOptBox }"
-      >
-      </div> -->
+
+      <div class="scence__conclusion">{{ currentData.conclusion }}</div>
+      <!-- <button
+          v-if="isShow"
+          class="scence__reStartBtn"
+        >
+          重新
+        </button> -->
     </div>
   </div>
 </template>
@@ -27,8 +27,7 @@ export default {
   props: ["currentData"],
   data() {
     return {
-      scenes: "",
-      isShow: false
+      scenes: ""
     };
   },
   beforeCreate() {
@@ -42,11 +41,8 @@ export default {
     this.$store.dispatch("updateOpt", true);
     if (this.getIsFinally) {
       vm.$store.dispatch("ScenceManger/AfterAnimate", () => {
-        this.isShow = true;
+        this.$store.dispatch("updateFinally", true);
       });
-      // this.AfterAnimate(() => {
-      //     this.isShow = true
-      // });
     }
   },
   beforeDestroy() {
@@ -141,5 +137,35 @@ export default {
   //     margin-right: auto;
   //   }
   // }
+  &__conclusion {
+    position: absolute;
+    top: 1rem;
+    left: 5%;
+    width: 90%;
+  }
+  &__reStartBtn {
+    background: var(--color-main);
+    position: static;
+    width: 100%;
+    margin-top: 1rem;
+    border: 0;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    z-index: 30;
+    @include md-media {
+      position: absolute;
+      width: 200px;
+      bottom: 20px;
+      left: calc((100% - 200px) / 2);
+    }
+    &:focus {
+      outline: 0;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
 }
 </style>

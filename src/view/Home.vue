@@ -23,12 +23,22 @@
           </transition>
         </div>
       </div>
+      <Procedure v-if="isShow == 'Scence'" />
+      <!-- 開始/再玩一次 - 按鈕 -->
       <transition name="fade" mode="out-in">
         <button v-if="isShow == 'Opening'" class="startBtn" @click="openingBtn">
           開場
         </button>
       </transition>
-      <Procedure v-if="isShow == 'Scence'" />
+      <transition name="fade" mode="out-in">
+        <button
+          v-if="$store.state.isFinally"
+          class="scence__reStartBtn"
+          @click="reStart"
+        >
+          再玩一次
+        </button>
+      </transition>
       <transition name="fade" mode="out-in">
         <TheaterOptions
           :questionOpt="getCurrentData.questionOpt"
@@ -37,9 +47,6 @@
         />
       </transition>
     </div>
-
-    <!-- <div class="" :Scence="[...ScenceManger]"></div> -->
-    <!-- <button @click="ani">12</button> -->
   </div>
 </template>
 
@@ -86,12 +93,18 @@ export default {
     // 第一場景開始
     // this.ScenceManger.createStart();
     this.createStart();
+    // if (this.getIsFinally) {
+    //   this.$store.dispatch("ScenceManger/AfterAnimate", () => {
+    //     this.isFinally = true;
+    //   });
+    // }
   },
   computed: {
     ...mapGetters("ScenceManger", ["getCurrentData", "getScenceDataById"])
   },
   methods: {
     ...mapActions("ScenceManger", ["goToNext", "init", "createStart"]),
+    // 開始
     openingBtn() {
       this.isShow = "Scence";
     },
@@ -102,10 +115,13 @@ export default {
       this.$nextTick(() => {
         this.isShow = "Scence";
       });
+    },
+    // 再玩一次
+    reStart() {
+      // this.init([scenesAll, 8]);
+      this.isShow = "Opening";
+      this.reStart();
     }
-    // ani() {
-    //   this.defaultOptions.animationData = animation2.default;
-    // }
   }
 };
 </script>
@@ -167,11 +183,13 @@ export default {
   right: 0;
 }
 
-.startBtn {
+.startBtn,
+.scence__reStartBtn {
   background: var(--color-main);
   position: static;
   width: 100%;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   border: 0;
   border-radius: 5px;
   padding: 20px;
@@ -186,7 +204,6 @@ export default {
   &:focus {
     outline: 0;
   }
-
   &:active {
     opacity: 0.8;
   }
