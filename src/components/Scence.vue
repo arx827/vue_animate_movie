@@ -8,17 +8,27 @@
           alt=""
         />
       </div>
+      <div v-if="isShow">
+        重新
+      </div>
+      <!-- <div
+        class="scence__optBox d-flex flex-column align-items-center"
+        :class="{ scence__optBox__open: isShowOptBox }"
+      >
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Scence",
   props: ["currentData"],
   data() {
     return {
-      scenes: ""
+      scenes: "",
+      isShow: false
     };
   },
   beforeCreate() {
@@ -30,10 +40,24 @@ export default {
       vm.$store.dispatch("updateLoading", false);
     }, vm.$store.state.loadingDelay);
     this.$store.dispatch("updateOpt", true);
+    if (this.getIsFinally) {
+      vm.$store.dispatch("ScenceManger/AfterAnimate", () => {
+        this.isShow = true;
+      });
+      // this.AfterAnimate(() => {
+      //     this.isShow = true
+      // });
+    }
   },
   beforeDestroy() {
     clearTimeout(this.loadingTimer);
     this.$store.dispatch("updateOpt", false);
+  },
+  computed: {
+    ...mapGetters("ScenceManger", ["getIsFinally"])
+  },
+  method: {
+    ...mapActions("ScenceManger", ["AfterAnimate"])
   }
 };
 </script>
