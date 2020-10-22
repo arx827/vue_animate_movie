@@ -10,7 +10,7 @@
         <img
           class="img-fluid"
           src="@/assets/images/demo/img_icon_tiger.png"
-          alt="  "
+          alt=""
         />
         <p class="theater__optBox__controlBtn__txt">看選項</p>
       </button>

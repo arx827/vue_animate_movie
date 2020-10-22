@@ -23,6 +23,11 @@
           </transition>
         </div>
       </div>
+      <transition name="fade" mode="out-in">
+        <button v-if="isShow == 'Opening'" class="startBtn" @click="openingBtn">
+          開場
+        </button>
+      </transition>
       <Procedure v-if="isShow == 'Scence'" />
       <transition name="fade" mode="out-in">
         <TheaterOptions
@@ -54,9 +59,9 @@ export default {
   data() {
     return {
       ScenceManger: {},
-      isShow: "Opening",
+      // isShow: "Opening",
       // 測試
-      // isShow: "Scence",
+      isShow: "Scence",
       isTranform: false
       //   defaultOptions: {
       //     animationData: animationData.default
@@ -160,6 +165,31 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+.startBtn {
+  background: var(--color-main);
+  position: static;
+  width: 100%;
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  @include md-media {
+    position: absolute;
+    width: 200px;
+    bottom: 20px;
+    left: calc((100% - 200px) / 2);
+  }
+  &:focus {
+    outline: 0;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
 }
 
 // 開場、場景淡出淡入

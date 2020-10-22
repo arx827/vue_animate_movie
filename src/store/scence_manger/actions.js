@@ -31,7 +31,7 @@ export const actions = {
     }, state.currentData.animationTime);
   },
   AfterAnimate({ state }, fn) {
-    console.log(fn);
+    // console.log(fn);
     const timer = state.currentData.animationTime;
     setTimeout(() => {
       fn();

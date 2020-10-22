@@ -8,11 +8,6 @@
           alt=""
         />
       </div>
-      <!-- <div
-        class="scence__optBox d-flex flex-column align-items-center"
-        :class="{ scence__optBox__open: isShowOptBox }"
-      >
-      </div> -->
     </div>
   </div>
 </template>
