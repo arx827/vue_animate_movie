@@ -30,6 +30,7 @@ export default {
         };
     },
     beforeCreate() {
+      console.log("beforecreate")
         this.$store.dispatch("updateLoading", true);
     },
     mounted() {

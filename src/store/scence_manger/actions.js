@@ -2,20 +2,20 @@ import {initState} from "./index";
 
 export const actions = {
   /* ---------------scence相關----------------------*/
-  init({ state, commit }, [AllData, historyMax]) {
+  init({ commit }, [AllData, historyMax]) {
     commit("setAllData", AllData);
     commit("setHistoryMax", historyMax);
-    commit("addHistoryIds", state.startId);
   },
-  createStart({ state, getters, commit } ) {
+  createStart({ state, rootState } ) {
+    
     if(state.historyIds.length > 1){
       state.historyIds=[];
     }
-    const startSenceData = getters.getScenceDataById(state.startId);
-    console.log(startSenceData)
-    commit("setCurrentData", startSenceData);
+    // commit("addHistoryIds", state.startId);
+    // const startSenceData = getters.getScenceDataById(state.startId);
+    // commit("setCurrentData", startSenceData);
   },
-  goToNext({ state,getters, commit, dispatch }, Id) {
+  goToNext({ getters, commit, dispatch }, Id) {
     const SenceData = getters.getScenceDataById(Id);
     commit("setCurrentData", SenceData);
     commit("addHistoryIds", Id);
@@ -24,8 +24,9 @@ export const actions = {
     }
   },
   /* ------------------History相關----------------------*/
-  goBackToHistory({ state,commit ,getters,dispatch }, step){
+  goBackToHistory({ state,dispatch }, step){
     let newArray = [];
+    step-=1;
     const stepIds = state.historyIds[step];
     for(let i=0;i<step;i++){
       newArray.push(state.historyIds[i])
@@ -35,21 +36,23 @@ export const actions = {
     // const SenceData = getters.getScenceDataById(state.historyIds[step]);
   },
   /* ---------------Animation相關----------------------*/
-  goToNextByAnimation({ state, getters, commit }, correctNowId) {
+  goToNextByAnimation({ state, getters, commit,dispatch}, correctNowId) {
     const timmer = setTimeout(() => {
       if (correctNowId === state.currentData.scenes) {
         const nextId = getters.getNextId;
-        const SenceData = getters.getScenceDataById(nextId);
-        commit("addHistoryIds", nextId);
-        commit("setCurrentData", SenceData);
+        // const SenceData = getters.getScenceDataById(nextId);
+        // commit("addHistoryIds", nextId);
+        // commit("setCurrentData", SenceData);
+        dispatch("goToNext",nextId)
       }
       clearTimeout(timmer);
     }, state.currentData.animationTime);
   },
-  AfterAnimate({ state }, fn) {
+  AfterAnimate({ state,rootState }, fn) {
     // console.log(fn);
     const timer = state.currentData.animationTime;
     setTimeout(() => {
+      console.log(rootState)
       fn();
     }, timer);
   },

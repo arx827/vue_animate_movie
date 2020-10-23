@@ -25,8 +25,9 @@ export default {
     methods: {
         ...mapActions("ScenceManger", ["goBackToHistory"]),
         stepClick(item) {
-            console.log(item)
+          if(this.getHistroyNums>item){
             this.goBackToHistory(item)
+          } 
         }
     },
     created() {}

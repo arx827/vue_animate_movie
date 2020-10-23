@@ -1,6 +1,6 @@
 <template>
 <div class="Home">
-    <TheaterHeader :description="getCurrentData.description" v-if="isShow == 'Scence'" />
+    <TheaterHeader :description="getCurrentData.description" v-if="$store.state.isShow == 'Scence'" />
     <div class="theater theater__pcCover">
         <div class="theater__mbCover">
             <!-- 圖片為定義寬高比例用 -->
@@ -10,22 +10,22 @@
             </transition>
             <div class="theater__main">
                 <transition name="fade" mode="out-in">
-                    <Opening v-if="isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
+                    <Opening v-if="$store.state.isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
                 </transition>
                 <transition name="fade" mode="out-in">
-                    <Scence v-if="isShow == 'Scence'" :currentData="getCurrentData" />
+                    <Scence v-if="$store.state.isShow == 'Scence'" :currentData="getCurrentData" />
                 </transition>
             </div>
         </div>
-        <Procedure v-if="isShow == 'Scence'" />
+        <Procedure v-if="$store.state.isShow == 'Scence'" />
         <!-- 開始/再玩一次 - 按鈕 -->
         <transition name="fade" mode="out-in">
-            <button v-if="isShow == 'Opening'" class="startBtn" @click="openingBtn">
+            <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn">
                 開場
             </button>
         </transition>
         <transition name="fade" mode="out-in">
-            <button v-if="$store.state.isFinally" class="scence__reStartBtn" @click="reStart">
+            <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
                 再玩一次
             </button>
         </transition>
@@ -43,7 +43,6 @@ import Opening from "@/components/Opening.vue";
 import Scence from "@/components/Scence.vue";
 import Procedure from "@/components/Theater/Procedure.vue";
 import TheaterOptions from "@/components/Theater/TheaterOptions.vue";
-// import { SceneManager } from "@/plugins/scenceFactory.js";
 import {
     scenesAll
 } from "@/static/json/scenes.js";
@@ -56,15 +55,11 @@ export default {
     name: "Home",
     data() {
         return {
-            ScenceManger: {},
-            isShow: "Opening",
-            // 測試
-            // isShow: "Scence",
-            isTranform: false
-            //   defaultOptions: {
-            //     animationData: animationData.default
-            //   }
+            ScenceManger: {}
         };
+    },
+    beforeCreate(){
+        console.log(1)
     },
     components: {
         TheaterHeader,
@@ -77,41 +72,46 @@ export default {
     },
     created() {
         // 實體化
-        // this.ScenceManger = SceneManager(scenesAll);
         this.init([scenesAll, 8]);
     },
     mounted() {
-        // 第一場景開始
-        // this.ScenceManger.createStart();
         this.createStart();
-        // if (this.getIsFinally) {
-        //   this.$store.dispatch("ScenceManger/AfterAnimate", () => {
-        //     this.isFinally = true;
-        //   });
-        // }
     },
     computed: {
-        ...mapGetters("ScenceManger", ["getCurrentData", "getScenceDataById"])
+        ...mapGetters("ScenceManger", ["getStartId","getCurrentData", "getScenceDataById","getIsFinally"])
     },
     methods: {
+        ...mapActions( ["updateShow"]),
         ...mapActions("ScenceManger", ["goToNext", "init", "createStart"]),
         // 開始
         openingBtn() {
-            this.isShow = "Scence";
+            this.updateShow("Scence");
+            this.goToNext(this.getStartId);
+            // 第一場景開始
         },
         // 下一頁
         nextScence(sIds) {
-            this.isShow = "";
             this.goToNext(sIds);
-            this.$nextTick(() => {
-                this.isShow = "Scence";
-            });
         },
         // 再玩一次
         reStart() {
-            // this.init([scenesAll, 8]);
-            this.isShow = "Opening";
             this.createStart();
+            this.$store.dispatch("updateFinally", false);
+             this.updateShow("Opening")
+        }
+    },
+    watch:{
+        getCurrentData:{
+            immediate: true,
+            handler(newValue, oldValue) {
+                if(oldValue){
+                    this.updateShow("")
+                    this.$nextTick(() => {
+                        this.updateShow("Scence")
+                    });
+                }
+                
+            }
         }
     }
 };

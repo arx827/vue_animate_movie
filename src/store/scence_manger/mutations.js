@@ -15,5 +15,6 @@ export const mutations = {
       throw Error("您的歷史紀錄出錯了 historyMax error");
     }
     state.historyIds.push(currentId);
+    console.log(currentId,state.historyIds)
   }
 };

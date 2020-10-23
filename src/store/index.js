@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    isShow:"Opening",
     isLoading: false,
     isOptShow: false,
     isFinally: false,
@@ -20,7 +21,11 @@ export default new Vuex.Store({
     },
     updateFinally(context, status) {
       context.commit("FINALLY", status);
+    },
+    updateShow(context, status){
+      context.commit("CHANGESHOW", status);
     }
+
   },
   mutations: {
     LOADING(state, status) {
@@ -31,6 +36,9 @@ export default new Vuex.Store({
     },
     FINALLY(state, status) {
       state.isFinally = status;
+    },
+    CHANGESHOW(state, status){
+      state.isShow = status;
     }
   },
   modules: {
