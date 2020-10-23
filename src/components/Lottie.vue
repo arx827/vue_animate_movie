@@ -19,8 +19,8 @@ export default {
   data() {
     return {
       style: {
-        width: this.width ? `${this.width}px` : "100px",
-        height: this.height ? `${this.height}px` : "100px",
+        width: this.width ? `${this.width}px` : "100%",
+        height: this.height ? `${this.height}px` : "100%",
         overflow: "hidden",
         margin: "0 auto"
       }
@@ -33,13 +33,22 @@ export default {
       deep: true
     }
   },
+  created(){
+    
+  },
   mounted() {
+    const { animationData } = this.options;
+    const { pathId }=animationData;
+    animationData.assets.forEach((item,index)=>{
+      item.u="";
+      item.p=require(`@/assets/icons/${pathId}/img_${index}.svg`);
+    })
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
       renderer: "svg",
       loop: this.options.loop !== false,
       autoplay: this.options.autoplay !== false,
-      animationData: this.options.animationData,
+      animationData: animationData,
       rendererSettings: this.options.rendererSettings
     });
   },
@@ -54,11 +63,9 @@ export default {
         animationData: this.options.animationData,
         rendererSettings: this.options.rendererSettings
       });
-      console.log(1);
     }
   },
   beforeDestroy() {
-    console.log(23);
   }
 };
 </script>
