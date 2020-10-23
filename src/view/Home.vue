@@ -74,7 +74,7 @@ export default {
     };
   },
   beforeCreate() {
-    console.log(1);
+    
   },
   components: {
     TheaterHeader,

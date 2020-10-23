@@ -15,7 +15,7 @@
 </template>
 <script>
 import Lottie from "@/components/Lottie.vue";
-import * as loadingData from "@/assets/lottie/loading/loading.json";
+import * as loadingData from "@/lotties/loading/loading.json";
 export default {
   name: "Loading",
   data() {
