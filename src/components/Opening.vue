@@ -8,14 +8,14 @@
 
 <script>
 export default {
-  name: "Opening",
+  name: 'Opening',
   data() {
     return {
-      loadingTimer: ""
+      loadingTimer: '',
     };
   },
   beforeCreate() {
-    this.$store.dispatch("updateLoading", true);
+    this.$store.dispatch('updateLoading', true);
   },
   mounted() {
     const vm = this;
@@ -25,6 +25,6 @@ export default {
   },
   beforeDestroy() {
     clearTimeout(this.loadingTimer);
-  }
+  },
 };
 </script>

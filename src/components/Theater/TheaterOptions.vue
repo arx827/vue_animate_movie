@@ -7,11 +7,7 @@
   >
     <div class="theater__optBox__control d-none d-md-block">
       <button class="theater__optBox__controlBtn" @click="controlBtn">
-        <img
-          class="img-fluid"
-          src="@/assets/images/demo/img_icon_tiger.png"
-          alt=""
-        />
+        <img class="img-fluid" src="@/assets/images/demo/img_icon_tiger.png" alt="" />
         <p class="theater__optBox__controlBtn__txt">看選項</p>
       </button>
       <div class="theater__optBox__line"></div>
@@ -32,15 +28,16 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
+
 export default {
-  name: "TheaterOptions",
+  name: 'TheaterOptions',
   props: {
-    questionOpt: Array
+    questionOpt: Array,
   },
   data() {
     return {
-      isShowOptBox: false
+      isShowOptBox: false,
     };
   },
   mounted() {
@@ -51,14 +48,14 @@ export default {
   computed: {
     hasOpts() {
       return !!this.questionOpt;
-    }
+    },
   },
   methods: {
-    ...mapActions("ScenceManger", ["AfterAnimate"]),
+    ...mapActions('ScenceManger', ['AfterAnimate']),
     controlBtn() {
       this.isShowOptBox = !this.isShowOptBox;
-    }
-  }
+    },
+  },
 };
 </script>
 

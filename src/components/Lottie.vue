@@ -5,51 +5,49 @@
 </template>
 
 <script>
-import lottie from "lottie-web";
+import lottie from 'lottie-web';
 
 export default {
   props: {
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     height: Number,
-    width: Number
+    width: Number,
   },
   data() {
     return {
       style: {
-        width: this.width ? `${this.width}px` : "100%",
-        height: this.height ? `${this.height}px` : "100%",
-        overflow: "hidden",
-        margin: "0 auto"
-      }
+        width: this.width ? `${this.width}px` : '100%',
+        height: this.height ? `${this.height}px` : '100%',
+        overflow: 'hidden',
+        margin: '0 auto',
+      },
     };
   },
   watch: {
     // 深度監聽Scence
     options: {
-      handler: "propChange",
-      deep: true
-    }
+      handler: 'propChange',
+      deep: true,
+    },
   },
-  created(){
-    
-  },
+  created() {},
   mounted() {
     const { animationData } = this.options;
-    const { pathId }=animationData;
-    animationData.assets.forEach((item,index)=>{
-      item.u="";
-      item.p=require(`@/assets/icons/${pathId}/img_${index}.svg`);
-    })
+    const { pathId } = animationData;
+    animationData.assets.forEach((item, index) => {
+      item.u = '';
+      item.p = require(`@/assets/icons/${pathId}/img_${index}.svg`);
+    });
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
-      renderer: "svg",
+      renderer: 'svg',
       loop: this.options.loop !== false,
       autoplay: this.options.autoplay !== false,
-      animationData: animationData,
-      rendererSettings: this.options.rendererSettings
+      animationData,
+      rendererSettings: this.options.rendererSettings,
     });
   },
   methods: {
@@ -57,15 +55,14 @@ export default {
       this.anim.destroy();
       this.anim = lottie.loadAnimation({
         container: this.$refs.lavContainer,
-        renderer: "svg",
+        renderer: 'svg',
         loop: this.options.loop !== false,
         autoplay: this.options.autoplay !== false,
         animationData: this.options.animationData,
-        rendererSettings: this.options.rendererSettings
+        rendererSettings: this.options.rendererSettings,
       });
-    }
+    },
   },
-  beforeDestroy() {
-  }
+  beforeDestroy() {},
 };
 </script>

@@ -2,8 +2,8 @@
 class SceneStage {
   constructor(AllData) {
     this.AllData = AllData;
-    this.currentData = "";
-    this.setStartId = "s1";
+    this.currentData = '';
+    this.setStartId = 's1';
   }
 
   // -------- Func庫 ---------//
@@ -16,8 +16,8 @@ class SceneStage {
 
   // 用ID找到當頁資料
   findId(sId) {
-    let returnScene = "";
-    this.AllData.forEach(item => {
+    let returnScene = '';
+    this.AllData.forEach((item) => {
       const oSceneData = item;
       if (oSceneData.scenes === sId) {
         returnScene = oSceneData;
@@ -40,4 +40,4 @@ class SceneStage {
 }
 
 // -------- 實體化 ---------//
-export const SceneManager = AllData => new SceneStage(AllData);
+export const SceneManager = (AllData) => new SceneStage(AllData);

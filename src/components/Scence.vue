@@ -2,11 +2,7 @@
   <div class="fitLayout scence">
     <div class="scence__content">
       <div class="scence__animate">
-        <img
-          class="img-fluid"
-          src="@/assets/images/demo/img_testbg.jpg"
-          alt=""
-        />
+        <img class="img-fluid" src="@/assets/images/demo/img_testbg.jpg" alt="" />
       </div>
 
       <div class="scence__conclusion">{{ currentData.conclusion }}</div>
@@ -21,42 +17,43 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
-  name: "Scence",
-  props: ["currentData"],
+  name: 'Scence',
+  props: ['currentData'],
   data() {
     return {
-      scenes: ""
+      scenes: '',
     };
   },
   beforeCreate() {
-    console.log("beforecreate");
-    this.$store.dispatch("updateLoading", true);
+    console.log('beforecreate');
+    this.$store.dispatch('updateLoading', true);
   },
   mounted() {
     const vm = this;
     this.loadingTimer = setTimeout(() => {
-      vm.$store.dispatch("updateLoading", false);
+      vm.$store.dispatch('updateLoading', false);
     }, vm.$store.state.loadingDelay);
-    this.$store.dispatch("updateOpt", true);
+    this.$store.dispatch('updateOpt', true);
     // 判斷最後一幕
     if (this.getIsFinally) {
-      vm.$store.dispatch("ScenceManger/AfterAnimate", () => {
-        this.$store.dispatch("updateFinally", true);
+      vm.$store.dispatch('ScenceManger/AfterAnimate', () => {
+        this.$store.dispatch('updateFinally', true);
       });
     }
   },
   beforeDestroy() {
     clearTimeout(this.loadingTimer);
-    this.$store.dispatch("updateOpt", false);
+    this.$store.dispatch('updateOpt', false);
   },
   computed: {
-    ...mapGetters("ScenceManger", ["getIsFinally"])
+    ...mapGetters('ScenceManger', ['getIsFinally']),
   },
   method: {
-    ...mapActions("ScenceManger", ["AfterAnimate"])
-  }
+    ...mapActions('ScenceManger', ['AfterAnimate']),
+  },
 };
 </script>
 

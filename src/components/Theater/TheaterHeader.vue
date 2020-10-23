@@ -1,24 +1,16 @@
 <template>
   <div class="theater__header">
     <div class="theater__header__container d-flex align-items-center">
-      <img
-        src="@/assets/images/demo/img_icon.png"
-        alt=""
-        class="theater__header__icon"
-      />
-      <p
-        class="theater__header__voice"
-        v-show="!$store.state.isLoading"
-        v-html="description"
-      ></p>
+      <img src="@/assets/images/demo/img_icon.png" alt="" class="theater__header__icon" />
+      <p class="theater__header__voice" v-show="!$store.state.isLoading" v-html="description"></p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TheaterHeader",
-  props: { description: String }
+  name: 'TheaterHeader',
+  props: { description: String },
 };
 </script>
 

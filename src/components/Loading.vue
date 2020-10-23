@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="fitLayout d-flex flex-column justify-content-center align-items-center"
-  >
+  <div class="fitLayout d-flex flex-column justify-content-center align-items-center">
     <!-- <div class="text-center"> -->
     <div class="loading_animation">
       <div class="lottie">
@@ -14,20 +12,21 @@
   </div>
 </template>
 <script>
-import Lottie from "@/components/Lottie.vue";
-import * as loadingData from "@/lotties/loading/loading.json";
+import Lottie from '@/components/Lottie.vue';
+import * as loadingData from '@/lotties/loading/loading.json';
+
 export default {
-  name: "Loading",
+  name: 'Loading',
   data() {
     return {
       defaultOptions: {
-        animationData: loadingData.default
-      }
+        animationData: loadingData.default,
+      },
     };
   },
   components: {
-    lottie: Lottie
-  }
+    lottie: Lottie,
+  },
 };
 </script>
 

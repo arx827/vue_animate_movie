@@ -7,36 +7,23 @@
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
         <!-- 圖片為定義寬高比例用 -->
-        <img
-          class="img-fluid theater__ratio"
-          src="@/assets/images/demo/img_testbg.jpg"
-        />
+        <img class="img-fluid theater__ratio" src="@/assets/images/demo/img_testbg.jpg" />
         <transition name="trans" mode="out-in">
           <Loading v-if="$store.state.isLoading" />
         </transition>
         <div class="theater__main">
           <transition name="fade" mode="out-in">
-            <Opening
-              v-if="$store.state.isShow == 'Opening'"
-              @emitOpeningBtn="openingBtn"
-            />
+            <Opening v-if="$store.state.isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
           </transition>
           <transition name="fade" mode="out-in">
-            <Scence
-              v-if="$store.state.isShow == 'Scence'"
-              :currentData="getCurrentData"
-            />
+            <Scence v-if="$store.state.isShow == 'Scence'" :currentData="getCurrentData" />
           </transition>
         </div>
       </div>
       <Procedure v-if="$store.state.isShow == 'Scence'" />
       <!-- 開始/再玩一次 - 按鈕 -->
       <transition name="fade" mode="out-in">
-        <button
-          v-if="$store.state.isShow == 'Opening'"
-          class="startBtn"
-          @click="openingBtn"
-        >
+        <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn">
           開場
         </button>
       </transition>
@@ -53,36 +40,39 @@
         />
       </transition>
     </div>
+    <div>
+      <component :is="view"></component>
+      <button @click="changeView">12</button>
+    </div>
   </div>
 </template>
 
 <script>
-import TheaterHeader from "@/components/Theater/TheaterHeader.vue";
-import Loading from "@/components/Loading.vue";
-import Opening from "@/components/Opening.vue";
-import Scence from "@/components/Scence.vue";
-import Procedure from "@/components/Theater/Procedure.vue";
-import TheaterOptions from "@/components/Theater/TheaterOptions.vue";
-import { scenesAll } from "@/static/json/scenes.js";
-import { mapGetters, mapActions } from "vuex";
-
+import TheaterHeader from '@/components/Theater/TheaterHeader.vue';
+import Loading from '@/components/Loading.vue';
+import Opening from '@/components/Opening.vue';
+import Scence from '@/components/Scence.vue';
+import Procedure from '@/components/Theater/Procedure.vue';
+import TheaterOptions from '@/components/Theater/TheaterOptions.vue';
+import { scenesAll } from '@/static/json/scenes.js';
+import { mapGetters, mapActions } from 'vuex';
+import s1 from "../components/Scences/s1.vue";
 export default {
-  name: "Home",
+  name: 'Home',
   data() {
     return {
-      ScenceManger: {}
+      ScenceManger: {},
+      view:s1 
     };
   },
-  beforeCreate() {
-    
-  },
+  beforeCreate() {},
   components: {
     TheaterHeader,
     Loading,
     Opening,
     Scence,
     Procedure,
-    TheaterOptions
+    TheaterOptions,
     // Lottie
   },
   created() {
@@ -93,19 +83,19 @@ export default {
     this.createStart();
   },
   computed: {
-    ...mapGetters("ScenceManger", [
-      "getStartId",
-      "getCurrentData",
-      "getScenceDataById",
-      "getIsFinally"
-    ])
+    ...mapGetters('ScenceManger', [
+      'getStartId',
+      'getCurrentData',
+      'getScenceDataById',
+      'getIsFinally',
+    ]),
   },
   methods: {
-    ...mapActions(["updateShow"]),
-    ...mapActions("ScenceManger", ["goToNext", "init", "createStart"]),
+    ...mapActions(['updateShow']),
+    ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart']),
     // 開始
     openingBtn() {
-      this.updateShow("Scence");
+      this.updateShow('Scence');
       this.goToNext(this.getStartId);
       // 第一場景開始
     },
@@ -116,8 +106,14 @@ export default {
     // 再玩一次
     reStart() {
       this.createStart();
-      this.$store.dispatch("updateFinally", false);
-      this.updateShow("Opening");
+      this.$store.dispatch('updateFinally', false);
+      this.updateShow('Opening');
+    },
+    changeView(s){
+      
+      const newView = () => import(`../components/Scences/${s}.vue`);
+      console.log(newView)
+      this.view = newView;
     }
   },
   watch: {
@@ -125,14 +121,14 @@ export default {
       immediate: true,
       handler(newValue, oldValue) {
         if (oldValue) {
-          this.updateShow("");
+          this.updateShow('');
           this.$nextTick(() => {
-            this.updateShow("Scence");
+            this.updateShow('Scence');
           });
         }
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

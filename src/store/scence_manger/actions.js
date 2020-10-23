@@ -1,10 +1,10 @@
-import { initState } from "./index";
+import { initState } from './index';
 
 export const actions = {
   /* ---------------scence相關----------------------*/
   init({ commit }, [AllData, historyMax]) {
-    commit("setAllData", AllData);
-    commit("setHistoryMax", historyMax);
+    commit('setAllData', AllData);
+    commit('setHistoryMax', historyMax);
   },
   createStart({ state, rootState }) {
     if (state.historyIds.length > 1) {
@@ -16,33 +16,35 @@ export const actions = {
   },
   goToNext({ getters, commit, dispatch }, Id) {
     const SenceData = getters.getScenceDataById(Id);
-    commit("setCurrentData", SenceData);
-    commit("addHistoryIds", Id);
+    commit('setCurrentData', SenceData);
+    commit('addHistoryIds', Id);
     if (getters.getIsAnimationNow) {
-      dispatch("goToNextByAnimation", Id);
+      dispatch('goToNextByAnimation', Id);
     }
   },
   /* ------------------History相關----------------------*/
   goBackToHistory({ state, dispatch }, step) {
-    let newArray = [];
+    const newArray = [];
     step -= 1;
     const stepIds = state.historyIds[step];
     for (let i = 0; i < step; i++) {
       newArray.push(state.historyIds[i]);
     }
     state.historyIds = newArray;
-    dispatch("goToNext", stepIds);
+    dispatch('goToNext', stepIds);
     // const SenceData = getters.getScenceDataById(state.historyIds[step]);
   },
   /* ---------------Animation相關----------------------*/
-  goToNextByAnimation({ state, getters, commit, dispatch }, correctNowId) {
+  goToNextByAnimation({
+    state, getters, commit, dispatch,
+  }, correctNowId) {
     const timmer = setTimeout(() => {
       if (correctNowId === state.currentData.scenes) {
         const nextId = getters.getNextId;
         // const SenceData = getters.getScenceDataById(nextId);
         // commit("addHistoryIds", nextId);
         // commit("setCurrentData", SenceData);
-        dispatch("goToNext", nextId);
+        dispatch('goToNext', nextId);
       }
       clearTimeout(timmer);
     }, state.currentData.animationTime);
@@ -54,5 +56,5 @@ export const actions = {
       console.log(rootState);
       fn();
     }, timer);
-  }
+  },
 };
