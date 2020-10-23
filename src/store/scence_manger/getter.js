@@ -1,6 +1,6 @@
 export const getters = {
   /* ---------------scence相關----------------------*/
-  getStartId(state){
+  getStartId(state) {
     return state.startId;
   },
   getCurrentData(state) {

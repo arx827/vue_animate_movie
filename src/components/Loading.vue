@@ -3,16 +3,30 @@
     class="fitLayout d-flex flex-column justify-content-center align-items-center"
   >
     <!-- <div class="text-center"> -->
-    <div class="loading_animation">( loading )</div>
+    <div class="loading_animation">
+      <div class="lottie">
+        <lottie :options="defaultOptions" />
+      </div>
+    </div>
+
     <p class="loading__txt">載入中...</p>
     <!-- </div> -->
   </div>
 </template>
 <script>
+import Lottie from "@/components/Lottie.vue";
+import * as loadingData from "@/assets/lottie/loading/loading.json";
 export default {
   name: "Loading",
   data() {
-    return {};
+    return {
+      defaultOptions: {
+        animationData: loadingData.default
+      }
+    };
+  },
+  components: {
+    lottie: Lottie
   }
 };
 </script>
