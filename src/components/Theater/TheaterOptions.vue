@@ -8,8 +8,8 @@
     <div class="theater__optBox__control d-none d-md-block">
       <button class="theater__optBox__controlBtn" @click="controlBtn">
         <img
-          class="img-fluid"
-          src="@/assets/images/demo/img_icon_tiger.png"
+          class="img-fluid theater__optBox__controlBtn__img"
+          src="@/assets/images/demo/Icon_arrow_down.svg"
           alt=""
         />
         <p class="theater__optBox__controlBtn__txt">看選項</p>
@@ -69,7 +69,7 @@ export default {
     z-index: 30;
 
     @include md-media {
-      transform: translateY(calc(100% - (50px + 1rem)));
+      transform: translateY(calc(100% - (55px + 1rem + 4px)));
       transition: 0.4s;
       position: absolute;
       bottom: 0;
@@ -86,22 +86,39 @@ export default {
 
     &__controlBtn {
       border: 0;
-      background: transparent;
-      width: 52px;
+      width: 55px;
+      height: 55px;
+      border-radius: 100%;
       padding: 0;
       position: relative;
-
+      background: #000000b3;
       &:focus {
         outline: 0;
       }
-
+      &__img {
+        width: 23px;
+        transition: 0.5s;
+        transform: rotate(180deg);
+      }
       &__txt {
         position: absolute;
         margin: 0;
         top: calc((100% - (14px * 1.5)) / 2);
-        right: calc(-14px * 3);
+        left: calc(55px + 5px);
+        word-break: keep-all;
         font-size: 14px;
         color: var(--color-main2);
+      }
+      &:hover {
+        background: #0188d1b3;
+      }
+    }
+    &__open {
+      .theater__optBox__controlBtn__img {
+        transform: rotate(0deg);
+      }
+      .theater__optBox__controlBtn__txt {
+        display: none;
       }
     }
 

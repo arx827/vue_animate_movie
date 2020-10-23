@@ -1,9 +1,11 @@
 <template>
   <div class="Home">
-    <TheaterHeader
-      :description="getCurrentData.description"
-      v-if="$store.state.isShow == 'Scence'"
-    />
+    <transition name="theaterH" mode="out-in">
+      <TheaterHeader
+        :description="getCurrentData.description"
+        v-if="$store.state.isShow == 'Scence'"
+      />
+    </transition>
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
         <!-- 圖片為定義寬高比例用 -->
@@ -222,31 +224,45 @@ export default {
   }
 }
 
+// 旁白區塊 淡出淡入
+.theaterH {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active {
+    transition: opacity 3s;
+  }
+  &-leave-active {
+    transition: opacity 10s;
+  }
+}
+
 // 開場、場景淡出淡入
-.fade-enter-active {
-  transition: opacity 2s;
-}
-
-.fade-leave-active {
-  transition: opacity 1s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+.fade {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active {
+    transition: opacity 2s;
+  }
+  &-leave-active {
+    transition: opacity 1s;
+  }
 }
 
 // 轉場淡出淡入
-.trans-enter-active {
-  transition: opacity 0s;
-}
-
-.trans-leave-active {
-  transition: opacity 1s;
-}
-
-.trans-enter,
-.trans-leave-to {
-  opacity: 0;
+.trans {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active {
+    transition: opacity 0s;
+  }
+  &-leave-active {
+    transition: opacity 1s;
+  }
 }
 </style>
