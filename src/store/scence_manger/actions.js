@@ -51,7 +51,7 @@ export const actions = {
     // console.log(fn);
     const timer = state.currentData.animationTime;
     setTimeout(() => {
-      console.log(rootState);
+      // console.log(rootState);
       fn();
     }, timer);
   }

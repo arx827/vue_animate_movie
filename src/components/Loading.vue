@@ -5,11 +5,11 @@
     <!-- <div class="text-center"> -->
     <div class="loading_animation">
       <div class="lottie">
-        <lottie :options="defaultOptions" />
+        <lottie :options="defaultOptions" :style="{ maxWidth: '500px' }" />
       </div>
     </div>
 
-    <p class="loading__txt">載入中...</p>
+    <!-- <p class="loading__txt">載入中...</p> -->
     <!-- </div> -->
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
 
 <style scoped lang="scss">
 .fitLayout {
-  background: #b6fff4;
+  background: var(--color-white);
   position: absolute;
   top: 0;
   left: 0;

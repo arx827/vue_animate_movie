@@ -75,9 +75,7 @@ export default {
       ScenceManger: {}
     };
   },
-  beforeCreate() {
-    
-  },
+  beforeCreate() {},
   components: {
     TheaterHeader,
     Loading,

@@ -1,13 +1,15 @@
 <template>
   <div class="fitLayout scence">
     <div class="scence__content">
-      <div class="scence__animate">
+      <!-- <div class="scence__animate">
         <img
           class="img-fluid"
           src="@/assets/images/demo/img_testbg.jpg"
           alt=""
         />
-      </div>
+      </div> -->
+      <component :is="scenesView"></component>
+      <!-- <ScenceView /> -->
 
       <div class="scence__conclusion">{{ currentData.conclusion }}</div>
       <!-- <button
@@ -22,16 +24,21 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import s1View from "@/components/Scences/s1.vue";
+import s2View from "@/components/Scences/s2.vue";
 export default {
   name: "Scence",
   props: ["currentData"],
   data() {
     return {
-      scenes: ""
+      scenesView: ""
     };
   },
+  components: {
+    s1View,
+    s2View
+  },
   beforeCreate() {
-    console.log("beforecreate");
     this.$store.dispatch("updateLoading", true);
   },
   mounted() {
@@ -53,6 +60,9 @@ export default {
   },
   computed: {
     ...mapGetters("ScenceManger", ["getIsFinally"])
+    // scenesView() {
+    //   return `${this.currentData.scenes}View`;
+    // }
   },
   method: {
     ...mapActions("ScenceManger", ["AfterAnimate"])

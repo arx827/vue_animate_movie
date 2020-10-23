@@ -19,8 +19,8 @@ export default {
   data() {
     return {
       style: {
-        width: this.width ? `${this.width}px` : "100%",
-        height: this.height ? `${this.height}px` : "100%",
+        width: this.width ? `${this.width}` : "100%",
+        height: this.height ? `${this.height}` : "100%",
         overflow: "hidden",
         margin: "0 auto"
       }
@@ -33,16 +33,14 @@ export default {
       deep: true
     }
   },
-  created(){
-    
-  },
+  created() {},
   mounted() {
     const { animationData } = this.options;
-    const { pathId }=animationData;
-    animationData.assets.forEach((item,index)=>{
-      item.u="";
-      item.p=require(`@/assets/icons/${pathId}/img_${index}.svg`);
-    })
+    const { pathId } = animationData;
+    animationData.assets.forEach((item, index) => {
+      item.u = "";
+      item.p = require(`@/assets/icons/${pathId}/img_${index}.svg`);
+    });
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
       renderer: "svg",
@@ -65,7 +63,6 @@ export default {
       });
     }
   },
-  beforeDestroy() {
-  }
+  beforeDestroy() {}
 };
 </script>
