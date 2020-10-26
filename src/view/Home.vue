@@ -37,7 +37,7 @@
       <transition name="fade" mode="out-in">
         <TheaterOptions
           :questionOpt="getCurrentData.questionOpt"
-          @next="nextScence"
+          @next="goToNext"
           v-if="$store.state.isOptShow"
         />
       </transition>
@@ -70,7 +70,6 @@ export default {
     Scence,
     Procedure,
     TheaterOptions,
-    // Lottie
   },
   created() {
     // 實體化
@@ -95,10 +94,6 @@ export default {
       this.updateShow('Scence');
       this.goToNext(this.getStartId);
       // 第一場景開始
-    },
-    // 下一頁
-    nextScence(sIds) {
-      this.goToNext(sIds);
     },
     // 再玩一次
     reStart() {

@@ -57,6 +57,8 @@ export default {
       animationData,
       rendererSettings: this.options.rendererSettings,
     });
+    // this.anim.addEventListener("config_ready", this.$emit('emitConfig_ready', this.anim));    //初始配置完成
+    // this.anim.addEventListener("data_ready", this.$emit('emitDataReady', this.anim));     //所有動畫數據加載完成
   },
   methods: {
     propChange() {
@@ -71,6 +73,8 @@ export default {
       });
     }
   },
-  beforeDestroy() {},
+  beforeDestroy() {
+    this.anim.destroy();
+  },
 };
 </script>

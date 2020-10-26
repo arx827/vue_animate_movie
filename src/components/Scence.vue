@@ -54,9 +54,6 @@ export default {
   },
   computed: {
     ...mapGetters('ScenceManger', ['getIsFinally']),
-    // scenesView() {
-    //   return `${this.currentData.scenes}View`;
-    // }
   },
   method: {
     ...mapActions('ScenceManger', ['AfterAnimate']),
@@ -66,16 +63,7 @@ export default {
 
 <style lang="scss">
 .fitLayout {
-  // width: inherit;
-  // min-height: inherit;
-  // background: #fcffe0;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // bottom: 0;
-  // right: 0;
   z-index: 10;
-  // overflow: hidden;
 }
 
 .scence {
