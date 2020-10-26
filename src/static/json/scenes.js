@@ -2,7 +2,7 @@ export const scenesAll = [
   {
     scenes: 's1',
     description: '有一天，武松要回家探望兄長，經過景陽崗之前看到一家酒館...',
-    animationTime: 2000,
+    animationTime: 3000,
     questionOpt: [
       {
         optScenes: 's2',
@@ -21,7 +21,7 @@ export const scenesAll = [
   {
     scenes: 's2',
     description: '喝酒中，遇到醉漢把桌子直接翻掉...',
-    animationTime: 2000,
+    animationTime: 3000,
     questionOpt: [
       {
         optScenes: 's5',

@@ -13,31 +13,31 @@ export default new Vuex.Store({
     loadingDelay: 500, // 附加延遲
   },
   actions: {
-    updateLoading(context, status) {
-      context.commit('LOADING', status);
+    updateLoading(context, isLoading) {
+      context.commit('LOADING', isLoading);
     },
-    updateOpt(context, status) {
-      context.commit('OPTIONSHOW', status);
+    updateOpt(context, isOptShow) {
+      context.commit('OPTIONSHOW', isOptShow);
     },
-    updateFinally(context, status) {
-      context.commit('FINALLY', status);
+    updateFinally(context, isFinally) {
+      context.commit('FINALLY', isFinally);
     },
-    updateShow(context, status) {
-      context.commit('CHANGESHOW', status);
+    updateShow(context, isShow) {
+      context.commit('CHANGESHOW', isShow);
     },
   },
   mutations: {
-    LOADING(state, status) {
-      state.isLoading = status;
+    LOADING(state, isLoading) {
+      state.isLoading = isLoading;
     },
-    OPTIONSHOW(state, status) {
-      state.isOptShow = status;
+    OPTIONSHOW(state, isOptShow) {
+      state.isOptShow = isOptShow;
     },
-    FINALLY(state, status) {
-      state.isFinally = status;
+    FINALLY(state, isFinally) {
+      state.isFinally = isFinally;
     },
-    CHANGESHOW(state, status) {
-      state.isShow = status;
+    CHANGESHOW(state, isShow) {
+      state.isShow = isShow;
     },
   },
   modules: {

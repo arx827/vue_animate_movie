@@ -42,10 +42,6 @@
         />
       </transition>
     </div>
-    <div>
-      <component :is="view"></component>
-      <button @click="changeView">12</button>
-    </div>
   </div>
 </template>
 
@@ -58,13 +54,12 @@ import Procedure from '@/components/Theater/Procedure.vue';
 import TheaterOptions from '@/components/Theater/TheaterOptions.vue';
 import { scenesAll } from '@/static/json/scenes.js';
 import { mapGetters, mapActions } from 'vuex';
-import s1 from "../components/Scences/s1.vue";
+
 export default {
   name: 'Home',
   data() {
     return {
       ScenceManger: {},
-      view:s1 
     };
   },
   beforeCreate() {},
@@ -111,14 +106,9 @@ export default {
       this.$store.dispatch('updateFinally', false);
       this.updateShow('Opening');
     },
-    changeView(s){
-      
-      const newView = () => import(`../components/Scences/${s}.vue`);
-      console.log(newView)
-      this.view = newView;
-    }
   },
   watch: {
+    // 變換場景 立即 觸發Scence重載
     getCurrentData: {
       immediate: true,
       handler(newValue, oldValue) {

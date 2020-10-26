@@ -1,52 +1,47 @@
 <template>
   <div class="fitLayout scence">
     <div class="scence__content">
-      <!-- <div class="scence__animate">
+      <div class="scence__animate">
         <img
-          class="img-fluid"
+          class="img-fluid scence__bg"
           src="@/assets/images/demo/img_testbg.jpg"
           alt=""
         />
-      </div> -->
-      <component :is="scenesView"></component>
-      <!-- <ScenceView /> -->
+        <div class="scence__main d-flex justify-content-center align-items-center">
+          <component :is="scenesView"></component>
+        </div>
 
-      <div class="scence__conclusion">{{ currentData.conclusion }}</div>
-      <!-- <button
-          v-if="isShow"
-          class="scence__reStartBtn"
-        >
-          重新
-        </button> -->
+      </div>
+
+      <!-- 結尾 結語 -->
+      <div class="scence__conclusion" v-if="currentData.conclusion">{{ currentData.conclusion }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import s1View from "@/components/Scences/s1.vue";
-import s2View from "@/components/Scences/s2.vue";
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'Scence',
   props: ['currentData'],
   data() {
     return {
-      scenesView: ""
+      scenesView: '',
     };
   },
-  components: {
-    s1View,
-    s2View
-  },
   beforeCreate() {
-    this.$store.dispatch("updateLoading", true);
+    this.$store.dispatch('updateLoading', true);
   },
   mounted() {
     const vm = this;
     this.loadingTimer = setTimeout(() => {
       vm.$store.dispatch('updateLoading', false);
+      // 動態切換場景
+      this.scenesView = () => import(`../components/Scences/${this.currentData.scenes}.vue`);
     }, vm.$store.state.loadingDelay);
     this.$store.dispatch('updateOpt', true);
+
     // 判斷最後一幕
     if (this.getIsFinally) {
       vm.$store.dispatch('ScenceManger/AfterAnimate', () => {
@@ -59,7 +54,7 @@ export default {
     this.$store.dispatch('updateOpt', false);
   },
   computed: {
-    ...mapGetters("ScenceManger", ["getIsFinally"])
+    ...mapGetters('ScenceManger', ['getIsFinally']),
     // scenesView() {
     //   return `${this.currentData.scenes}View`;
     // }
@@ -85,102 +80,26 @@ export default {
 }
 
 .scence {
-  // &__header {
-  //   background: var(--color-white);
-  //   padding: 16px;
-  //   // position: absolute;
-  //   width: 100%;
-  //   // top: 0;
-  //   // left: 0;
-  //   &__container {
-  //     width: 100%;
-  //     margin-right: auto;
-  //     margin-left: auto;
-  //     @include md-media {
-  //       width: 80%;
-  //     }
-  //   }
-  //   &__icon {
-  //     width: 80px;
-  //     height: 80px;
-  //     border-radius: 50%;
-  //     margin-right: 12px;
-  //   }
-  //   &__voice {
-  //     color: var(--color-gray2);
-  //     line-height: 1.5;
-  //     margin-bottom: 0;
-  //   }
-  // }
-  &__content {
-    // min-height: var(--scenes_h);
-    // overflow: hidden;
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
   }
-
-  &__animate {
+  &__main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 20;
   }
-
-  // &__optBox {
-  //   transform: translateY(calc(100% - (50px + 1rem)));
-  //   transition: 0.4s;
-  //   position: absolute;
-  //   bottom: 0;
-  //   right: 0;
-  //   left: 0;
-  //   &__open {
-  //     transform: translateY(0);
-  //   }
-  //   &__control {
-  //   }
-  //   &__controlBtn {
-  //     border: 0;
-  //     background: #ffc107;
-  //     width: 50px;
-  //     height: 50px;
-  //     &:focus {
-  //       outline: 0;
-  //     }
-  //   }
-  //   &__line {
-  //     width: 0;
-  //     height: 1rem;
-  //     border-left: 1px solid #000;
-  //     margin-left: auto;
-  //     margin-right: auto;
-  //   }
-  // }
+  // 結語
   &__conclusion {
     position: absolute;
     top: 1rem;
     left: 5%;
     width: 90%;
-  }
-
-  &__reStartBtn {
-    background: var(--color-main);
-    position: static;
-    width: 100%;
-    margin-top: 1rem;
-    border: 0;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    z-index: 30;
-
-    @include md-media {
-      position: absolute;
-      width: 200px;
-      bottom: 20px;
-      left: calc((100% - 200px) / 2);
-    }
-
-    &:focus {
-      outline: 0;
-    }
-
-    &:active {
-      opacity: 0.8;
-    }
   }
 }
 </style>

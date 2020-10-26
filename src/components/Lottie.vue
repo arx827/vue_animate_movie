@@ -19,28 +19,36 @@ export default {
   data() {
     return {
       style: {
-        width: this.width ? `${this.width}` : "100%",
-        height: this.height ? `${this.height}` : "100%",
-        overflow: "hidden",
-        margin: "0 auto"
-      }
+        width: this.width ? `${this.width}` : '100%',
+        height: this.height ? `${this.height}` : '100%',
+        overflow: 'hidden',
+        margin: '0 auto',
+      },
     };
   },
   watch: {
     // 深度監聽Scence
     options: {
-      handler: "propChange",
-      deep: true
-    }
+      handler: 'propChange',
+      deep: true,
+    },
   },
   created() {},
   mounted() {
-    const { animationData } = this.options;
-    const { pathId } = animationData;
+    const { animationData, pathId} = this.options;
     animationData.assets.forEach((item, index) => {
-      item.u = "";
-      item.p = require(`@/assets/icons/${pathId}/img_${index}.svg`);
+      item.u = '';
+      item.p = require(`@/assets/icons/${pathId}/images/img_${index}.svg`);
     });
+
+    /*
+      container: 當前需要渲染的DOM,
+      renderer: 渲染方式，默認是Svg，還有Html和Canvas方案,
+      loop: 是否循環播放,
+      autoplay: 是否自動播放,
+      animationData: AE導出的Json,
+      assetsPath: Json文件裡資源的絕對路徑，webpack項目需要配合這個參數,
+    **/
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
       renderer: 'svg',
@@ -61,8 +69,8 @@ export default {
         animationData: this.options.animationData,
         rendererSettings: this.options.rendererSettings,
       });
-    },
+    }
   },
-  beforeDestroy() {}
+  beforeDestroy() {},
 };
 </script>
