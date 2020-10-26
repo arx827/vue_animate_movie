@@ -1,21 +1,21 @@
 <template>
   <div class="lottie">
-    <lottie :options="defaultOptions" />
+    <lottie :options="defaultOptions"/>
   </div>
 </template>
 
 <script>
 import Lottie from '@/components/Lottie.vue';
-import * as loadingData from '@/lotties/s1/data.json';
+import * as animationData from '@/lotties/s1/data.json';
 
 export default {
-  name: 'Loading',
+  name: 's1',
   data() {
     return {
       defaultOptions: {
-        animationData: loadingData.default,
+        animationData: animationData.default,
         pathId: 's1'
-      },
+      }
     };
   },
   components: {

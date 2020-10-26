@@ -6,14 +6,14 @@
 
 <script>
 import Lottie from '@/components/Lottie.vue';
-import * as loadingData from '@/lotties/s2/data.json';
+import * as animationData from '@/lotties/s2/data.json';
 
 export default {
-  name: 'Loading',
+  name: 's2',
   data() {
     return {
       defaultOptions: {
-        animationData: loadingData.default,
+        animationData: animationData.default,
         pathId: 's2'
       },
     };

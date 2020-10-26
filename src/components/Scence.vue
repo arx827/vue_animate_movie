@@ -10,7 +10,6 @@
         <div class="scence__main d-flex justify-content-center align-items-center">
           <component :is="scenesView"></component>
         </div>
-
       </div>
 
       <!-- 結尾 結語 -->
