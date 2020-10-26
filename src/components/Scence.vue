@@ -27,8 +27,8 @@ import { mapActions, mapGetters } from "vuex";
 import s1View from "@/components/Scences/s1.vue";
 import s2View from "@/components/Scences/s2.vue";
 export default {
-  name: "Scence",
-  props: ["currentData"],
+  name: 'Scence',
+  props: ['currentData'],
   data() {
     return {
       scenesView: ""
@@ -44,19 +44,19 @@ export default {
   mounted() {
     const vm = this;
     this.loadingTimer = setTimeout(() => {
-      vm.$store.dispatch("updateLoading", false);
+      vm.$store.dispatch('updateLoading', false);
     }, vm.$store.state.loadingDelay);
-    this.$store.dispatch("updateOpt", true);
+    this.$store.dispatch('updateOpt', true);
     // 判斷最後一幕
     if (this.getIsFinally) {
-      vm.$store.dispatch("ScenceManger/AfterAnimate", () => {
-        this.$store.dispatch("updateFinally", true);
+      vm.$store.dispatch('ScenceManger/AfterAnimate', () => {
+        this.$store.dispatch('updateFinally', true);
       });
     }
   },
   beforeDestroy() {
     clearTimeout(this.loadingTimer);
-    this.$store.dispatch("updateOpt", false);
+    this.$store.dispatch('updateOpt', false);
   },
   computed: {
     ...mapGetters("ScenceManger", ["getIsFinally"])
@@ -65,8 +65,8 @@ export default {
     // }
   },
   method: {
-    ...mapActions("ScenceManger", ["AfterAnimate"])
-  }
+    ...mapActions('ScenceManger', ['AfterAnimate']),
+  },
 };
 </script>
 

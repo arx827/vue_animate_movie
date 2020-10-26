@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="theater__procedure d-flex justify-content-center align-items-md-center"
-  >
+  <div class="theater__procedure d-flex justify-content-center align-items-md-center">
     <div class=" d-flex flex-md-column flex-wrap justify-content-start">
       <!-- <div class="procedure__stepItem procedure__stepItem--active"></div>
     <div class="procedure__stepItem" @click="stepClick($event)"></div>
@@ -19,22 +17,22 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: "TheaterProcedure",
+  name: 'TheaterProcedure',
   computed: {
-    ...mapGetters("ScenceManger", ["getHistroyNums", "getHistroyMax"])
+    ...mapGetters('ScenceManger', ['getHistroyNums', 'getHistroyMax']),
   },
   methods: {
-    ...mapActions("ScenceManger", ["goBackToHistory"]),
+    ...mapActions('ScenceManger', ['goBackToHistory']),
     stepClick(item) {
       if (this.getHistroyNums > item) {
         this.goBackToHistory(item);
       }
-    }
+    },
   },
-  created() {}
+  created() {},
 };
 </script>
 

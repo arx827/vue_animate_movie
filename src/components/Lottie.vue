@@ -5,16 +5,16 @@
 </template>
 
 <script>
-import lottie from "lottie-web";
+import lottie from 'lottie-web';
 
 export default {
   props: {
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     height: Number,
-    width: Number
+    width: Number,
   },
   data() {
     return {
@@ -43,11 +43,11 @@ export default {
     });
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
-      renderer: "svg",
+      renderer: 'svg',
       loop: this.options.loop !== false,
       autoplay: this.options.autoplay !== false,
-      animationData: animationData,
-      rendererSettings: this.options.rendererSettings
+      animationData,
+      rendererSettings: this.options.rendererSettings,
     });
   },
   methods: {
@@ -55,13 +55,13 @@ export default {
       this.anim.destroy();
       this.anim = lottie.loadAnimation({
         container: this.$refs.lavContainer,
-        renderer: "svg",
+        renderer: 'svg',
         loop: this.options.loop !== false,
         autoplay: this.options.autoplay !== false,
         animationData: this.options.animationData,
-        rendererSettings: this.options.rendererSettings
+        rendererSettings: this.options.rendererSettings,
       });
-    }
+    },
   },
   beforeDestroy() {}
 };

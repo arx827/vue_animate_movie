@@ -32,15 +32,16 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
+
 export default {
-  name: "TheaterOptions",
+  name: 'TheaterOptions',
   props: {
-    questionOpt: Array
+    questionOpt: Array,
   },
   data() {
     return {
-      isShowOptBox: false
+      isShowOptBox: false,
     };
   },
   mounted() {
@@ -51,14 +52,14 @@ export default {
   computed: {
     hasOpts() {
       return !!this.questionOpt;
-    }
+    },
   },
   methods: {
-    ...mapActions("ScenceManger", ["AfterAnimate"]),
+    ...mapActions('ScenceManger', ['AfterAnimate']),
     controlBtn() {
       this.isShowOptBox = !this.isShowOptBox;
-    }
-  }
+    },
+  },
 };
 </script>
 
