@@ -108,7 +108,8 @@ export default {
         left: calc(55px + 5px);
         word-break: keep-all;
         font-size: 14px;
-        color: var(--color-main2);
+        color: var(--color-gray1);
+        text-shadow: 0px 0px 2px var(--color-white), 0px 0px 2px var(--color-white), 0px 0px 2px var(--color-white), 0px 0px 2px var(--color-white);
       }
       &:hover {
         background: #0188d1b3;
@@ -144,11 +145,12 @@ export default {
     &__btn {
       flex: 1;
       text-align: left;
-      background: var(--btn-mb-bg);
+      background: var(--btn-pc-bg);
+      color: var(--color-white);
       border-radius: 30px;
       border: 0;
       padding: 30px 28px 30px;
-
+      font-size: 18px;
       &:focus {
         outline: none;
       }
