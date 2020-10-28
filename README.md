@@ -27,3 +27,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 sh ./deploy.sh
 ```
+
+### 線上Demo
+[動畫Demo連結](https://arx827.github.io/vue_animate_movie/)
+[網頁串接Demo連結](https://arx827.github.io/marketing_platform/)
