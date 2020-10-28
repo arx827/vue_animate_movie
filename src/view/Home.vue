@@ -202,6 +202,8 @@ export default {
     font-size: 20px;
     color: var(--color-white);
     z-index: 30;
+    border-radius: 5px;
+    padding: 5px 16px;
     &:hover {
         background: var(--btn-bg-70-hover);
     }
@@ -215,7 +217,7 @@ export default {
     &__icon {
       width: 20px;
       height: 20px;
-      margin-left: .5rem;
+      margin-left: .7rem;
     }
   }
 }
