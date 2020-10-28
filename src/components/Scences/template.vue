@@ -14,12 +14,12 @@ export default {
     return {
       defaultOptions: {
         animationData: loadingData.default,
-        pathId: 's1'                  // 圖檔位置
+        pathId: 's1', // 圖檔位置
       },
     };
   },
   components: {
     lottie: Lottie,
-  }
+  },
 };
 </script>

@@ -14,12 +14,12 @@ export default {
     return {
       defaultOptions: {
         animationData: animationData.default,
-        pathId: 's2'
+        pathId: 's2',
       },
     };
   },
   components: {
     lottie: Lottie,
-  }
+  },
 };
 </script>

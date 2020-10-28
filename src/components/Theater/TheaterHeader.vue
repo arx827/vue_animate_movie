@@ -1,7 +1,9 @@
 <template>
   <div class="theater__header">
     <div class="theater__header__container d-flex align-items-center">
-      <img src="@/assets/images/demo/img_icon.png" alt="" class="theater__header__icon" />
+      <div class="theater__header__icon">
+        <img class="img-fluid" src="@/assets/images/img_god.svg" alt="神仙來的"/>
+      </div>
       <p class="theater__header__voice" v-show="!$store.state.isLoading" v-html="description"></p>
     </div>
   </div>
@@ -19,32 +21,34 @@ export default {
   &__header {
     background: var(--color-white);
     padding: 16px;
-    // position: absolute;
     width: 100%;
-    // top: 0;
-    // left: 0;
-    box-shadow: 0 0 15px var(--box-shadow);
     position: relative;
     z-index: 20;
     &__container {
       width: 100%;
       margin-right: auto;
       margin-left: auto;
-      @include md-media {
+      @include sm-media {
         width: 80%;
       }
     }
     &__icon {
-      width: 80px;
-      height: 80px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
-      margin-right: 12px;
+      box-shadow: 1px 1px 1px var(--color-gray5);
     }
     &__voice {
       color: var(--color-gray2);
+      font-size: 16px;
+      margin-left: 7px;
       line-height: 1.5;
       margin-bottom: 0;
       flex: 1;
+      @include sm-media {
+        font-size: 18px;
+        margin-left: 36px;
+      }
     }
   }
 }

@@ -5,7 +5,7 @@
     :class="{ theater__optBox__open: isShowOptBox }"
     v-if="hasOpts"
   >
-    <div class="theater__optBox__control d-none d-md-block">
+    <div class="theater__optBox__control d-none d-sm-block">
       <button class="theater__optBox__controlBtn" @click="controlBtn">
         <img
           class="img-fluid theater__optBox__controlBtn__img"
@@ -17,7 +17,7 @@
       <div class="theater__optBox__line"></div>
     </div>
 
-    <div class="theater__optBox__wrap d-flex flex-column flex-md-row">
+    <div class="theater__optBox__wrap d-flex flex-column flex-sm-row">
       <button
         class=" theater__optBox__btn d-flex flex-md-column"
         v-for="item in questionOpt"
@@ -66,10 +66,8 @@ export default {
 <style lang="scss" scoped>
 .theater {
   &__optBox {
-    // box-shadow: 0 0 15px var(--box-shadow);
     z-index: 30;
-
-    @include md-media {
+    @include sm-media {
       transform: translateY(calc(100% - (55px + 1rem + 4px)));
       transition: 0.4s;
       position: absolute;
@@ -80,7 +78,7 @@ export default {
     }
 
     &__open {
-      @include md-media {
+      @include sm-media {
         transform: translateY(0);
       }
     }
@@ -92,7 +90,7 @@ export default {
       border-radius: 100%;
       padding: 0;
       position: relative;
-      background: #000000b3;
+      background: var(--btn-bg-70);
       &:focus {
         outline: 0;
       }
@@ -109,11 +107,20 @@ export default {
         word-break: keep-all;
         font-size: 14px;
         color: var(--color-gray1);
-        text-shadow: 0px 0px 2px var(--color-white), 0px 0px 2px var(--color-white), 0px 0px 2px var(--color-white), 0px 0px 2px var(--color-white);
+        text-shadow: 0px 0px 3px var(--color-white), 0px 0px 5px var(--color-white);
       }
-      &:hover {
-        background: #0188d1b3;
+      &:active {
+        background: var(--btn-bg-70-hover);
       }
+      @include md-media {
+        &:active {
+          background: var(--btn-bg-70);
+        }
+        &:hover {
+          background: var(--btn-bg-70-hover);
+        }
+      }
+      
     }
     &__open {
       .theater__optBox__controlBtn__img {
@@ -136,7 +143,7 @@ export default {
       // margin-top: 10px;
       margin-bottom: 10px;
 
-      @include md-media {
+      @include sm-media {
         // margin-top: 0;
         margin-bottom: 20px;
       }
@@ -145,27 +152,41 @@ export default {
     &__btn {
       flex: 1;
       text-align: left;
-      background: var(--btn-pc-bg);
+      background: var(--btn-bg-70);
       color: var(--color-white);
-      border-radius: 30px;
+      border-radius: 20px;
       border: 0;
-      padding: 30px 28px 30px;
-      font-size: 18px;
+      padding: 20px 26px;
+      font-size: 16px;
       &:focus {
         outline: none;
       }
-
-      @include md-media {
+      &:hover {
+        background: var(--btn-bg-70);
+      }
+      &:active {
+        background: var(--btn-bg-70-hover);
+      }
+      @include sm-media {
         margin-left: 10px;
         margin-right: 10px;
-        padding-bottom: 40px;
+        padding: 15px 25px 25px;
+        border-radius: 30px;
         background: var(--btn-pc-bg);
+        font-size: 18px;
+      }
+      @include md-media {
+        &:hover {
+          background: var(--btn-bg-70-hover);
+        }
+        &:active {
+          background: var(--btn-bg-70);
+        }
       }
 
       + .theater__optBox__btn {
         margin-top: 10px;
-
-        @include md-media {
+        @include sm-media {
           margin-top: 0;
         }
       }
@@ -190,14 +211,12 @@ export default {
 
       &::before {
         display: block;
-        font-size: 30px;
+        font-size: 25px;
         line-height: 1.2;
         margin-right: 8px;
-
-        @include md-media {
+        @include sm-media {
+          font-size: 30px;
           margin-right: 0;
-          line-height: 1.3;
-          margin-bottom: 8px;
         }
       }
     }

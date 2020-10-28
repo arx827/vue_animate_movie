@@ -6,7 +6,7 @@
 
 <script>
 import Lottie from '@/components/Lottie.vue';
-import * as animationData from '@/lotties/s15/data.json';
+// import * as animationData from '@/lotties/s15/data.json';
 
 export default {
   name: 's15',
@@ -14,12 +14,12 @@ export default {
     return {
       defaultOptions: {
         animationData: loadingData.default,
-        pathId: 's15'                  // 圖檔位置
+        pathId: 's15', // 圖檔位置
       },
     };
   },
   components: {
     lottie: Lottie,
-  }
+  },
 };
 </script>

@@ -3,6 +3,7 @@ $color-white: #FFF;                 // 白色
 $color-black: #000;                 // 黑色
 
 $color-black-op99: #00000099;       // 黑色 透明99
+$color-black-op70: #000000BF;       // 黑色 透明77
 
 $color-gray1: #333;
 $color-gray2: #666;
@@ -11,6 +12,9 @@ $color-gray4: #aaa;
 $color-gray5: #eee;
 
 $color-gray6: #e0e0e0;
+
+
+$color-blue-op70: #0188D1BF;        // 水藍色 透明77
 
 $color-main2: #bc977a;
 $box-shadow: lighten($color-black, 90%);
@@ -38,8 +42,11 @@ $sm-media:576px;
     --color-gray4: #{$color-gray4};
     --color-gray5: #{$color-gray5};
 
-    --btn-mb-bg: #b5e4ff;
+    --btn-mb-bg: #{$color-black-op70};
     --btn-pc-bg: #{$color-black-op99};
+
+    --btn-bg-70: #{$color-black-op70};
+    --btn-bg-70-hover: #{$color-blue-op70};
 
     --btn-step: #{$color-gray5};
     --btn-step-active: #{$color-gray3};

@@ -35,7 +35,7 @@ export default {
   },
   created() {},
   mounted() {
-    const { animationData, pathId} = this.options;
+    const { animationData, pathId } = this.options;
     animationData.assets.forEach((item, index) => {
       item.u = '';
       item.p = require(`@/assets/icons/${pathId}/images/img_${index}.svg`);
@@ -48,7 +48,7 @@ export default {
       autoplay: 是否自動播放,
       animationData: AE導出的Json,
       assetsPath: Json文件裡資源的絕對路徑，webpack項目需要配合這個參數,
-    **/
+    * */
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
       renderer: 'svg',
@@ -71,7 +71,7 @@ export default {
         animationData: this.options.animationData,
         rendererSettings: this.options.rendererSettings,
       });
-    }
+    },
   },
   beforeDestroy() {
     this.anim.destroy();
