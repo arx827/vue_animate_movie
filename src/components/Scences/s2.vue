@@ -1,6 +1,6 @@
 <template>
   <div class="lottie">
-    <lottie :options="defaultOptions" />
+    <lottie :options="defaultOptions" ref="lottie"/>
   </div>
 </template>
 

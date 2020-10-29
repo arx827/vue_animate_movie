@@ -1,6 +1,6 @@
 <template>
   <div class="lottie">
-    <lottie :options="defaultOptions"/>
+    <lottie :options="defaultOptions" ref="lottie"/>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       defaultOptions: {
-        animationData: loadingData.default,
+        animationData: animationData.default,
         pathId: 's12', // 圖檔位置
       },
     };

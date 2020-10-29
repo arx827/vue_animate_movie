@@ -1,7 +1,7 @@
 # lottie.vue
 <template>
   <!-- Lottie -->
-  <div :style="style" ref="lavContainer"></div>
+  <div :style="style" ref="lottieRef"></div>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
         height: this.height ? `${this.height}` : '100%',
         overflow: 'hidden',
         margin: '0 auto',
-      },
+      }
     };
   },
   watch: {
@@ -49,8 +49,9 @@ export default {
       animationData: AE導出的Json,
       assetsPath: Json文件裡資源的絕對路徑，webpack項目需要配合這個參數,
     * */
+   
     this.anim = lottie.loadAnimation({
-      container: this.$refs.lavContainer,
+      container: this.$refs.lottieRef,
       renderer: 'svg',
       loop: this.options.loop !== false,
       autoplay: this.options.autoplay !== false,
@@ -64,7 +65,7 @@ export default {
     propChange() {
       this.anim.destroy();
       this.anim = lottie.loadAnimation({
-        container: this.$refs.lavContainer,
+        container: this.$refs.lottieRef,
         renderer: 'svg',
         loop: this.options.loop !== false,
         autoplay: this.options.autoplay !== false,
@@ -72,6 +73,18 @@ export default {
         rendererSettings: this.options.rendererSettings,
       });
     },
+    play() {
+      this.anim.play();
+    },
+    stop() {
+      this.anim.stop();
+    },
+    pause() {
+      this.anim.pause();
+    },
+    setSpeed(speed = 1) {
+      this.anim.setSpeed(speed);
+    }
   },
   beforeDestroy() {
     this.anim.destroy();

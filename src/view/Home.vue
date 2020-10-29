@@ -79,7 +79,7 @@ export default {
       'getCurrentData',
       'getScenceDataById',
       'getIsFinally',
-    ]),
+    ])
   },
   methods: {
     ...mapActions(['updateShow']),
@@ -95,7 +95,7 @@ export default {
       this.createStart();
       this.$store.dispatch('updateFinally', false);
       this.updateShow('Opening');
-    },
+    }
   },
   watch: {
     // 變換場景 立即 觸發Scence重載
