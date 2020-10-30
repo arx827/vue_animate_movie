@@ -15,6 +15,7 @@ $color-gray6: #e0e0e0;
 
 
 $color-blue-op70: #0188D1BF;        // 水藍色 透明77
+$color-green-op70: #5ec192BF;        // 綠色 透明77
 
 $color-main2: #bc977a;
 $box-shadow: lighten($color-black, 90%);
@@ -46,7 +47,7 @@ $sm-media:576px;
     --btn-pc-bg: #{$color-black-op99};
 
     --btn-bg-70: #{$color-black-op70};
-    --btn-bg-70-hover: #{$color-blue-op70};
+    --btn-bg-70-hover: #{$color-green-op70};
 
     --btn-step: #{$color-gray5};
     --btn-step-active: #{$color-gray3};

@@ -12,7 +12,7 @@
           src="@/assets/images/demo/Icon_arrow_down.svg"
           alt=""
         />
-        <p class="theater__optBox__controlBtn__txt">看選項</p>
+        <!-- <p class="theater__optBox__controlBtn__txt">看選項</p> -->
       </button>
       <div class="theater__optBox__line"></div>
     </div>
@@ -106,8 +106,8 @@ export default {
         left: calc(55px + 5px);
         word-break: keep-all;
         font-size: 14px;
-        color: var(--color-gray1);
-        text-shadow: 0px 0px 3px var(--color-white), 0px 0px 5px var(--color-white);
+        color: var(--color-white);
+        // text-shadow: 0px 0px 3px var(--color-black), 0px 0px 5px var(--color-black);
       }
       &:active {
         background: var(--btn-bg-70-hover);
@@ -134,7 +134,7 @@ export default {
     &__line {
       width: 0;
       height: 1rem;
-      border-left: 1px solid var(--color-gray2);
+      border-left: 2px solid var(--color-gray3);
       margin: 2px auto;
     }
 
