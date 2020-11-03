@@ -50,6 +50,5 @@ p {
 
 .lottie {
   width: 100%;
-  min-width: initial;
 }
 </style>
