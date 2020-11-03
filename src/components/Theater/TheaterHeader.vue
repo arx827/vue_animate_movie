@@ -1,12 +1,14 @@
 <template>
-  <div class="theater__header">
-    <div class="theater__header__container d-flex align-items-center">
-      <div class="theater__header__icon">
-        <img class="img-fluid" src="@/assets/images/img_god.svg" alt="神仙來的"/>
+  <transition name="theaterH" mode="out-in">
+    <div class="theater__header" v-if="$store.state.isShow == 'Scence'">
+      <div class="theater__header__container d-flex align-items-center">
+        <div class="theater__header__icon">
+          <img class="img-fluid" src="@/assets/images/img_god.svg" alt="神仙來的"/>
+        </div>
+        <p class="theater__header__voice" v-show="!$store.state.isLoading" v-html="description"></p>
       </div>
-      <p class="theater__header__voice" v-show="!$store.state.isLoading" v-html="description"></p>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -51,5 +53,19 @@ export default {
       }
     }
   }
+}
+
+// 旁白區塊 淡出淡入
+.theaterH {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 3s;
+    }
+    &-leave-active {
+        transition: opacity 10s;
+    }
 }
 </style>

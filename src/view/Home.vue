@@ -1,24 +1,15 @@
 <template>
   <div class="Home">
-    <transition name="theaterH" mode="out-in">
-      <TheaterHeader
-        :description="getCurrentData.description"
-        v-if="$store.state.isShow == 'Scence'"
-      />
-    </transition>
+    <TheaterHeader :description="getCurrentData.description"/>
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
           <!-- 圖片為定義寬高比例用 -->
           <img class="img-fluid theater__ratio js-theater__ratio" src="@/assets/images/demo/img_testbg.jpg"/>
-          <transition name="trans" mode="out-in">
-              <Loading v-if="$store.state.isLoading" />
-          </transition>
+          <Loading />
           <div class="theater__main">
+              <Opening @emitOpeningBtn="openingBtn" />
               <transition name="fade" mode="out-in">
-                  <Opening v-if="$store.state.isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
-              </transition>
-              <transition name="fade" mode="out-in">
-                  <Scence v-if="$store.state.isShow == 'Scence'" :currentData="getCurrentData" />
+                <Scence :currentData="getCurrentData" v-if="$store.state.isShow == 'Scence'"/>
               </transition>
           </div>
           <transition name="btn" mode="out-in">
@@ -30,12 +21,8 @@
       </div>
       <Procedure v-if="$store.state.isShow == 'Scence'" />
       <!-- 開始/再玩一次 - 按鈕 -->
-      <!-- <transition name="fade" mode="out-in"> -->
-          <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
-      <!-- </transition> -->
-      <transition name="fade" mode="out-in">
-          <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" v-if="$store.state.isOptShow" />
-      </transition>
+      <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
+      <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" />
     </div>
   </div>
 </template>
@@ -249,20 +236,6 @@ export default {
   }
 }
 
-// 旁白區塊 淡出淡入
-.theaterH {
-    &-enter,
-    &-leave-to {
-        opacity: 0;
-    }
-    &-enter-active {
-        transition: opacity 3s;
-    }
-    &-leave-active {
-        transition: opacity 10s;
-    }
-}
-
 // 開場、場景淡出淡入
 .fade {
     &-enter,
@@ -271,20 +244,6 @@ export default {
     }
     &-enter-active {
         transition: opacity 2s;
-    }
-    &-leave-active {
-        transition: opacity 0s;
-    }
-}
-
-// loading淡出淡入
-.trans {
-    &-enter,
-    &-leave-to {
-        opacity: 0;
-    }
-    &-enter-active {
-        transition: opacity 1s;
     }
     &-leave-active {
         transition: opacity 0s;
