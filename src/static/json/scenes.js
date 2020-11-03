@@ -78,19 +78,19 @@ export const scenesAll = [
   {
     scenes: 's5',
     description: '大戰一波後...<br>武松繼續上路',
-    animationTime: 4000,
+    animationTime: 3000,
     redirectTo: 's8',
   },
   {
     scenes: 's6',
     description: '玩完以後...<br>武松繼續上路',
-    animationTime: 4000,
+    animationTime: 3000,
     redirectTo: 's8',
   },
   {
     scenes: 's7',
     description: '迴避以後...<br>武松繼續上路',
-    animationTime: 4000,
+    animationTime: 3000,
     redirectTo: 's8',
   },
   {
@@ -115,19 +115,19 @@ export const scenesAll = [
   {
     scenes: 's9',
     description: '繼續上路',
-    animationTime: 4000,
+    animationTime: 3000,
     redirectTo: 's12',
   },
   {
     scenes: 's10',
     description: '繞道上路',
-    animationTime: 4000,
+    animationTime: 3000,
     redirectTo: 's12',
   },
   {
     scenes: 's11',
     description: '勇往直前',
-    animationTime: 4000,
+    animationTime: 3000,
     redirectTo: 's12',
   },
   {

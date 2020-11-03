@@ -51,9 +51,9 @@ export default {
 
 .procedure {
   &__stepItem {
-    width: 18px;
-    height: 18px;
-    margin: 10px;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: .6rem;
     background-image: url("../../assets/images/img_icon_foot_off.svg");
     background-repeat: no-repeat;
     background-position: center;

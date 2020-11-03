@@ -9,7 +9,7 @@
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
           <!-- 圖片為定義寬高比例用 -->
-          <img class="img-fluid theater__ratio" src="@/assets/images/demo/img_testbg.jpg" />
+          <img class="img-fluid theater__ratio js-theater__ratio" src="@/assets/images/demo/img_testbg.jpg"/>
           <transition name="trans" mode="out-in">
               <Loading v-if="$store.state.isLoading" />
           </transition>
@@ -21,17 +21,17 @@
                   <Scence v-if="$store.state.isShow == 'Scence'" :currentData="getCurrentData" />
               </transition>
           </div>
+          <transition name="btn" mode="out-in">
+            <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
+              <span>再玩一次</span>
+              <img class="scence__reStartBtn__icon" src="@/assets/images/Icon_material-refresh.svg" alt="">
+            </button>
+        </transition>
       </div>
       <Procedure v-if="$store.state.isShow == 'Scence'" />
       <!-- 開始/再玩一次 - 按鈕 -->
       <!-- <transition name="fade" mode="out-in"> -->
           <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
-      <!-- </transition> -->
-      <!-- <transition name="fade" mode="out-in"> -->
-          <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
-            <span>再玩一次</span>
-            <img class="scence__reStartBtn__icon" src="@/assets/images/Icon_material-refresh.svg" alt="">
-          </button>
       <!-- </transition> -->
       <transition name="fade" mode="out-in">
           <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" v-if="$store.state.isOptShow" />
@@ -49,12 +49,13 @@ import Procedure from '@/components/Theater/Procedure.vue';
 import TheaterOptions from '@/components/Theater/TheaterOptions.vue';
 import { scenesAll } from '@/static/json/scenes.js';
 import { mapGetters, mapActions } from 'vuex';
+import _ from 'lodash';
 
 export default {
   name: 'Home',
   data() {
     return {
-      ScenceManger: {},
+      ScenceManger: {}
     };
   },
   beforeCreate() {},
@@ -69,9 +70,24 @@ export default {
   created() {
     // 實體化
     this.init([scenesAll, 8]);
+    this.resize = _.debounce(this.getTheater, 1000);
   },
   mounted() {
+    const vm = this;
     this.createStart();
+    setTimeout(function(){
+      vm.getTheater();
+    });
+    window.addEventListener('resize', this.resize);
+  },
+  updated() {
+    const vm = this;
+    setTimeout(function(){
+      vm.getTheater();
+    });
+  },
+  beforeDestroy(){
+    window.removeEventListener('resize', this.resize);
   },
   computed: {
     ...mapGetters('ScenceManger', [
@@ -82,7 +98,7 @@ export default {
     ])
   },
   methods: {
-    ...mapActions(['updateShow']),
+    ...mapActions(['updateShow','updateTheaterSize']),
     ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart']),
     // 開始
     openingBtn() {
@@ -95,6 +111,12 @@ export default {
       this.createStart();
       this.$store.dispatch('updateFinally', false);
       this.updateShow('Opening');
+    },
+    getTheater() {
+      let item = document.querySelector('.js-theater__ratio');
+      let theaterW = item.clientWidth;
+      let theaterH = item.clientHeight;
+      this.updateTheaterSize({theaterW,theaterH});
     }
   },
   watch: {
@@ -177,6 +199,7 @@ export default {
   font-size: 35px;
   color: var(--color-white);
   z-index: 30;
+  padding: 0;
   @include sm-media {
     --btn-wh: 112px;
   }
@@ -196,14 +219,18 @@ export default {
   &__reStartBtn {
     background: var(--btn-bg-70);
     position: absolute;
-    bottom: 2rem;
-    right: 6rem;
+    bottom: 1rem;
+    right: .5rem;
     border: 0;
     font-size: 20px;
     color: var(--color-white);
     z-index: 30;
     border-radius: 5px;
     padding: 5px 16px;
+    @include sm-media {
+      bottom: 2rem;
+      right: 6rem;
+    }
     &:hover {
         background: var(--btn-bg-70-hover);
     }
@@ -246,21 +273,35 @@ export default {
         transition: opacity 2s;
     }
     &-leave-active {
-        transition: opacity 1s;
+        transition: opacity 0s;
     }
 }
 
-// 轉場淡出淡入
+// loading淡出淡入
 .trans {
     &-enter,
     &-leave-to {
         opacity: 0;
     }
     &-enter-active {
-        transition: opacity 0s;
+        transition: opacity 1s;
     }
     &-leave-active {
+        transition: opacity 0s;
+    }
+}
+
+// 再玩一次 淡出淡入
+.btn {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
         transition: opacity 1s;
+    }
+    &-leave-active {
+        transition: opacity 0s;
     }
 }
 </style>
