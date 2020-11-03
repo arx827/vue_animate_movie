@@ -1,6 +1,6 @@
 <template>
   <div class="lottie">
-    <lottie :options="defaultOptions" ref="lottie"/>
+    <Lottie :options="defaultOptions" ref="lottie"/>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     };
   },
   components: {
-    lottie: Lottie,
+    Lottie,
   }
 };
 </script>

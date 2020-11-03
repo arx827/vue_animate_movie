@@ -1,11 +1,12 @@
 # lottie.vue
 <template>
   <!-- Lottie -->
-  <div :style="style" ref="lottieRef"></div>
+  <div v-if="style" :style="style" ref="lottieRef"></div>
 </template>
 
 <script>
 import lottie from 'lottie-web';
+import { mapState } from 'vuex';
 
 export default {
   props: {
@@ -13,81 +14,123 @@ export default {
       type: Object,
       required: true,
     },
-    height: Number,
-    width: Number,
+    speed: {
+      type: Number,
+      required: false,
+      default: 1
+    },
+    width: {
+      type: Number,
+      required: false,
+      default: -1
+    },
+    height: {
+      type: Number,
+      required: false,
+      default: -1
+    },
+    loop: {
+      type:Boolean,
+      required: false,
+      default: true
+    },
+    autoPlay: {
+      type:Boolean,
+      required: false,
+      default: true
+    },
+    loopDelayMin: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    loopDelayMax: {
+      type: Number,
+      required: false,
+      default: 0
+    },
   },
   data() {
     return {
+      name: 'lottie-animation',
+      rendererSettings: {
+        scaleMode: "centerCrop",
+        clearCanvas: true,
+        progressiveLoad: false,
+        hideOnTransparent: true
+      },
+      anim: null,
       style: {
-        width: this.width ? `${this.width}` : '100%',
-        height: this.height ? `${this.height}` : '100%',
-        overflow: 'hidden',
-        margin: '0 auto',
-      }
+        width: (this.width != -1 )? `${this.width}px` : '100%',
+        height: (this.height != -1 )? `${this.height}px` : '100%',
+        overflow: "hidden",
+        margin: "0 auto"
+      },
+      animationData: this.options.animationData,
+      pathId: this.options.pathId
     };
   },
-  watch: {
-    // 深度監聽Scence
-    options: {
-      handler: 'propChange',
-      deep: true,
-    },
-  },
-  created() {},
   mounted() {
-    const { animationData, pathId } = this.options;
-    animationData.assets.forEach((item, index) => {
+    this.animationData.assets.forEach((item, index) => {
       item.u = '';
-      item.p = require(`@/assets/icons/${pathId}/images/img_${index}.svg`);
+      item.p = require(`@/assets/icons/${this.pathId}/images/img_${index}.svg`);
     });
-
-    /*
-      container: 當前需要渲染的DOM,
-      renderer: 渲染方式，默認是Svg，還有Html和Canvas方案,
-      loop: 是否循環播放,
-      autoplay: 是否自動播放,
-      animationData: AE導出的Json,
-      assetsPath: Json文件裡資源的絕對路徑，webpack項目需要配合這個參數,
-    * */
-   
-    this.anim = lottie.loadAnimation({
-      container: this.$refs.lottieRef,
-      renderer: 'svg',
-      loop: this.options.loop !== false,
-      autoplay: this.options.autoplay !== false,
-      animationData,
-      rendererSettings: this.options.rendererSettings,
-    });
-    // this.anim.addEventListener("config_ready", this.$emit('emitConfig_ready', this.anim));    //初始配置完成
-    // this.anim.addEventListener("data_ready", this.$emit('emitDataReady', this.anim));     //所有動畫數據加載完成
+    this.init();
+  },
+  computed: {
+    ...mapState(['theaterSize'])
   },
   methods: {
-    propChange() {
-      this.anim.destroy();
+    init(){
+      if(this.anim) {
+        this.anim.destroy();
+        this.anim = null;
+      }
+      console.log(this.anim);
       this.anim = lottie.loadAnimation({
         container: this.$refs.lottieRef,
         renderer: 'svg',
-        loop: this.options.loop !== false,
-        autoplay: this.options.autoplay !== false,
-        animationData: this.options.animationData,
-        rendererSettings: this.options.rendererSettings,
+        loop: this.loop,
+        autoplay: this.autoPlay,
+        animationData: this.animationData,
+        name: this.pathId,
+        rendererSettings: this.rendererSettings
       });
+      console.log(this.anim);
+      this.$emit("AnimControl", this.anim);
+      this.anim.setSpeed(this.speed);
+      if (this.loopDelayMin > 0) {
+        this.anim.loop = false;
+        this.anim.autoplay = false;
+        this.executeLoop();
+      }
     },
-    play() {
+    getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
+    executeLoop() {
       this.anim.play();
+      setTimeout(() => {
+        this.anim.stop();
+        this.executeLoop();
+      }, this.getRandomInt(this.loopDelayMin, this.loopDelayMax == 0? this.loopDelayMin : this.loopDelayMax));
     },
-    stop() {
-      this.anim.stop();
-    },
-    pause() {
-      this.anim.pause();
-    },
-    setSpeed(speed = 1) {
-      this.anim.setSpeed(speed);
+  },
+  watch: {
+    "theaterSize": {
+      handler: function(newVal, oldVal){
+        this.init();
+      },
+      deep: true
     }
-  },
-  beforeDestroy() {
-    this.anim.destroy();
-  },
+  }
 };
 </script>
+
+<style lang="scss">
+.lottie {
+  width: 100%;
+}
+</style>

@@ -7,7 +7,7 @@
     <p class="file__source font-999999 text-center">
       圖片來源：行銷系統部 / 數位行銷運營部
     </p>
-    <p>version: <span>v1.5</span></p>
+    <p>version: <span>v1.7</span></p>
     <p>
       內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案
     </p>
@@ -46,5 +46,10 @@ p {
 
 .file__source {
   margin-top: 0.5rem;
+}
+
+.lottie {
+  width: 100%;
+  min-width: initial;
 }
 </style>
