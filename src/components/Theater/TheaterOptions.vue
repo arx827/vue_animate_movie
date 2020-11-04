@@ -68,6 +68,7 @@ export default {
   &__optBox {
     z-index: 30;
     @include sm-media {
+      -ms-transform: translateY(100%) translateY(-55px) translateY(-1rem) translateY(-4px); /* IE 11 */
       transform: translateY(calc(100% - (55px + 1rem + 4px)));
       transition: 0.4s;
       position: absolute;
