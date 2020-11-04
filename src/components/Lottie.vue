@@ -76,6 +76,7 @@ export default {
       item.p = require(`@/assets/icons/${this.pathId}/images/img_${index}.svg`);
     });
     this.init();
+    console.log(this.pathId);
   },
   computed: {
     ...mapState(['theaterSize'])
@@ -86,7 +87,6 @@ export default {
         this.anim.destroy();
         this.anim = null;
       }
-      console.log(this.anim);
       this.anim = lottie.loadAnimation({
         container: this.$refs.lottieRef,
         renderer: 'svg',
@@ -96,7 +96,6 @@ export default {
         name: this.pathId,
         rendererSettings: this.rendererSettings
       });
-      console.log(this.anim);
       this.$emit("AnimControl", this.anim);
       this.anim.setSpeed(this.speed);
       if (this.loopDelayMin > 0) {
