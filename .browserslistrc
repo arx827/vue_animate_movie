@@ -1,3 +1,8 @@
-> 1%
-last 2 versions
-not dead
+[production]
+last 5 version
+>= 5%
+IE 10 # sorry
+
+[modern]
+last 1 chrome version
+last 1 firefox version
