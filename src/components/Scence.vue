@@ -34,11 +34,11 @@ export default {
   },
   mounted() {
     const vm = this;
-    this.loadingTimer = setTimeout(() => {
+    // this.loadingTimer = setTimeout(() => {
       vm.$store.dispatch('updateLoading', false);
       // 動態切換場景
       this.scenesView = () => import(`../components/Scences/${this.currentData.scenes}.vue`);
-    }, vm.$store.state.loadingDelay);
+    // }, vm.$store.state.loadingDelay);
     this.$store.dispatch('updateOpt', true);
 
     // 判斷最後一幕

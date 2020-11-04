@@ -68,6 +68,7 @@ export default {
   &__optBox {
     z-index: 30;
     @include sm-media {
+      -ms-transform: translateY(100%) translateY(-55px) translateY(-1rem) translateY(-4px); /* IE 11 */
       transform: translateY(calc(100% - (55px + 1rem + 4px)));
       transition: 0.4s;
       position: absolute;
@@ -90,7 +91,7 @@ export default {
       border-radius: 100%;
       padding: 0;
       position: relative;
-      background: var(--btn-bg-70);
+      background: $COLOR-BLACK-OP70;
       &:focus {
         outline: 0;
       }
@@ -106,18 +107,18 @@ export default {
         left: calc(55px + 5px);
         word-break: keep-all;
         font-size: 14px;
-        color: var(--color-white);
+        color: $COLOR-WHITE;
         // text-shadow: 0px 0px 3px var(--color-black), 0px 0px 5px var(--color-black);
       }
       &:active {
-        background: var(--btn-bg-70-hover);
+        background: $COLOR-GREEN-OP70;
       }
       @include md-media {
         &:active {
-          background: var(--btn-bg-70);
+          background: $COLOR-BLACK-OP70;
         }
         &:hover {
-          background: var(--btn-bg-70-hover);
+          background: $COLOR-GREEN-OP70;
         }
       }
       
@@ -134,7 +135,7 @@ export default {
     &__line {
       width: 0;
       height: 1rem;
-      border-left: 2px solid var(--color-gray3);
+      border-left: 2px solid $COLOR-GRAY3;
       margin: 2px auto;
     }
 
@@ -152,8 +153,8 @@ export default {
     &__btn {
       flex: 1;
       text-align: left;
-      background: var(--btn-bg-70);
-      color: var(--color-white);
+      background: $COLOR-BLACK-OP70;
+      color: $COLOR-WHITE;
       border-radius: 20px;
       border: 0;
       padding: 20px 26px;
@@ -162,25 +163,25 @@ export default {
         outline: none;
       }
       &:hover {
-        background: var(--btn-bg-70);
+        background: $COLOR-BLACK-OP70;
       }
       &:active {
-        background: var(--btn-bg-70-hover);
+        background: $COLOR-GREEN-OP70;
       }
       @include sm-media {
         margin-left: 10px;
         margin-right: 10px;
         padding: 15px 25px 25px;
         border-radius: 30px;
-        background: var(--btn-pc-bg);
+        background: $COLOR-BLACK-OP99;
         font-size: 18px;
       }
       @include md-media {
         &:hover {
-          background: var(--btn-bg-70-hover);
+          background: $COLOR-GREEN-OP70;
         }
         &:active {
-          background: var(--btn-bg-70);
+          background: $COLOR-BLACK-OP70;
         }
       }
 

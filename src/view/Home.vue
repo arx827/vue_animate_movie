@@ -126,10 +126,10 @@ export default {
 <style lang="scss">
 .Home {
   width: 100%;
-  max-width: var(--scenes_w);
+  max-width: $SCENES_W;
   margin: 0 auto;
   @include sm-media {
-    box-shadow: 0 0 15px var(--box-shadow);
+    box-shadow: 0 0 15px $BOX-SHADOW;
   }
 }
 
@@ -159,7 +159,7 @@ export default {
       bottom: 0;
       right: 0;
       width: 100%;
-      background: var(--Home-bg);
+      background: $COLOR-GRAY5;
       z-index: 10;
   }
 }
@@ -174,24 +174,27 @@ export default {
 
 // 開始 按鈕
 .startBtn {
-  --btn-wh: 92px;
-  background: var(--btn-bg-70);
+  background: $COLOR-BLACK-OP70;
   position: absolute;
-  top: calc((100% - var(--btn-wh)) / 2);
-  left: calc((100% - var(--btn-wh)) / 2);
-  width: var(--btn-wh);
-  height: var(--btn-wh);
+  top: calc((100% - 92px) / 2);
+  left: calc((100% - 92px) / 2);
+  width: 92px;
+  height: 92px;
   border: 0;
   border-radius: 100%;
   font-size: 35px;
-  color: var(--color-white);
+  color: $COLOR-WHITE;
   z-index: 30;
   padding: 0;
   @include sm-media {
-    --btn-wh: 112px;
+    $btn-wh: 112px;
+    top: calc((100% - 112px) / 2);
+    left: calc((100% - 112px) / 2);
+    width: 112px;
+    height: 112px;
   }
   &:hover {
-      background: var(--btn-bg-70-hover);
+    background: $COLOR-GREEN-OP70;
   }
   &:focus {
       outline: 0;
@@ -204,13 +207,13 @@ export default {
 // 再玩一次 按鈕
 .scence {
   &__reStartBtn {
-    background: var(--btn-bg-70);
+    background: $COLOR-BLACK-OP70;
     position: absolute;
     bottom: 1rem;
     right: .5rem;
     border: 0;
     font-size: 20px;
-    color: var(--color-white);
+    color: $COLOR-WHITE;
     z-index: 30;
     border-radius: 5px;
     padding: 5px 16px;
@@ -219,7 +222,7 @@ export default {
       right: 6rem;
     }
     &:hover {
-        background: var(--btn-bg-70-hover);
+      background: $COLOR-GREEN-OP70;
     }
     &:focus {
         outline: 0;

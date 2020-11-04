@@ -7,7 +7,7 @@
     <p class="file__source font-999999 text-center">
       圖片來源：行銷系統部 / 數位行銷運營部
     </p>
-    <p>version: <span>v1.7</span></p>
+    <p>version: <span>v2.3</span></p>
     <p>
       內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案
     </p>
@@ -37,10 +37,10 @@ export default {
 }
 
 p {
-  color: var(--color-gray1);
+  color: $COLOR-GRAY1;
 
   &.font-999999 {
-    color: var(--color-gray2);
+    color: $COLOR-GRAY2;
   }
 }
 
@@ -50,6 +50,6 @@ p {
 
 .lottie {
   width: 100%;
-  min-width: initial;
+  height: 100%;
 }
 </style>

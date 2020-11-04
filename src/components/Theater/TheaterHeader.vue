@@ -21,7 +21,7 @@ export default {
 <style scoped lang="scss">
 .theater {
   &__header {
-    background: var(--color-white);
+    background: $COLOR-WHITE;
     padding: 16px;
     width: 100%;
     position: relative;
@@ -38,10 +38,10 @@ export default {
       width: 75px;
       height: 75px;
       border-radius: 50%;
-      box-shadow: 1px 1px 1px var(--color-gray5);
+      box-shadow: 1px 1px 1px $COLOR-GRAY5;
     }
     &__voice {
-      color: var(--color-gray2);
+      color: $COLOR-GRAY2;
       font-size: 16px;
       margin-left: 7px;
       line-height: 1.5;
