@@ -37,10 +37,16 @@ export default {
 }
 
 p {
-  color: var(--color-gray1);
+  @supports(not (--test: 0)){
+    color: $COLOR-GRAY1;
+  }
+  color: var(--COLOR-GRAY1);
 
   &.font-999999 {
-    color: var(--color-gray2);
+    @supports(not (--test: 0)){
+      color: $COLOR-GRAY2;
+    }
+    color: var(--COLOR-GRAY2);
   }
 }
 
