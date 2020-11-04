@@ -34,27 +34,20 @@ export default {
 
 <style scoped lang="scss">
 .fitLayout {
-  @supports(not (--test: 0)){
-    background: $COLOR-WHITE;
-    color: $COLOR-GRAY3;
-  }
-  background: var(--COLOR-WHITE);
+  background: $COLOR-WHITE;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   z-index: 999;
-  color: var(--COLOR-GRAY3);
+  color: $COLOR-GRAY3;
   
 }
 // .loading {
 //   &__txt {
-//    @supports(not (--test: 0)){
-//      color: $COLOR-GRAY3;
-//    }
 //     margin: 0;
-//     color: var(--COLOR-GRAY3);
+//     color: $COLOR-GRAY3;
 //   }
 // }
 

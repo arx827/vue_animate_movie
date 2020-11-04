@@ -125,17 +125,11 @@ export default {
 
 <style lang="scss">
 .Home {
-  @supports(not (--test: 0)){
-    max-width: $SCENES_W;
-  }
   width: 100%;
-  max-width: var(--SCENES_W);
+  max-width: $SCENES_W;
   margin: 0 auto;
   @include sm-media {
-    @supports(not (--test: 0)){
-      box-shadow: 0 0 15px $BOX-SHADOW;
-    }
-    box-shadow: 0 0 15px var(--BOX-SHADOW);
+    box-shadow: 0 0 15px $BOX-SHADOW;
   }
 }
 
@@ -165,10 +159,7 @@ export default {
       bottom: 0;
       right: 0;
       width: 100%;
-      @supports(not (--test: 0)){
-        background: $COLOR-GRAY5;
-      }
-      background: var(--Home-BG);
+      background: $COLOR-GRAY5;
       z-index: 10;
   }
 }
@@ -183,11 +174,7 @@ export default {
 
 // 開始 按鈕
 .startBtn {
-  @supports(not (--test: 0)){
-    background: $COLOR-BLACK-OP70;
-    color: $COLOR-WHITE;
-  }
-  background: var(--BTN-BG-70);
+  background: $COLOR-BLACK-OP70;
   position: absolute;
   top: calc((100% - 92px) / 2);
   left: calc((100% - 92px) / 2);
@@ -196,7 +183,7 @@ export default {
   border: 0;
   border-radius: 100%;
   font-size: 35px;
-  color: var(--COLOR-WHITE);
+  color: $COLOR-WHITE;
   z-index: 30;
   padding: 0;
   @include sm-media {
@@ -207,10 +194,7 @@ export default {
     height: 112px;
   }
   &:hover {
-    @supports(not (--test: 0)){
-      background: $COLOR-GREEN-OP70;
-    }
-    background: var(--BTN-BG-70-HOVER);
+    background: $COLOR-GREEN-OP70;
   }
   &:focus {
       outline: 0;
@@ -223,17 +207,13 @@ export default {
 // 再玩一次 按鈕
 .scence {
   &__reStartBtn {
-    @supports(not (--test: 0)){
-      background: $COLOR-BLACK-OP70;
-      color: $COLOR-WHITE;
-    }
-    background: var(--BTN-BG-70);
+    background: $COLOR-BLACK-OP70;
     position: absolute;
     bottom: 1rem;
     right: .5rem;
     border: 0;
     font-size: 20px;
-    color: var(--COLOR-WHITE);
+    color: $COLOR-WHITE;
     z-index: 30;
     border-radius: 5px;
     padding: 5px 16px;
@@ -242,10 +222,7 @@ export default {
       right: 6rem;
     }
     &:hover {
-      @supports(not (--test: 0)){
-        background: $COLOR-GREEN-OP70;
-      }
-      background: var(--BTN-BG-70-HOVER);
+      background: $COLOR-GREEN-OP70;
     }
     &:focus {
         outline: 0;

@@ -84,16 +84,13 @@ export default {
     }
 
     &__controlBtn {
-      @supports(not (--test: 0)){
-        background: $COLOR-BLACK-OP70;
-      }
       border: 0;
       width: 55px;
       height: 55px;
       border-radius: 100%;
       padding: 0;
       position: relative;
-      background: var(--BTN-BG-70);
+      background: $COLOR-BLACK-OP70;
       &:focus {
         outline: 0;
       }
@@ -103,36 +100,24 @@ export default {
         transform: rotate(180deg);
       }
       &__txt {
-        @supports(not (--test: 0)){
-          color: $COLOR-WHITE;
-        }
         position: absolute;
         margin: 0;
         top: calc((100% - (14px * 1.5)) / 2);
         left: calc(55px + 5px);
         word-break: keep-all;
         font-size: 14px;
-        color: var(--COLOR-WHITE);
+        color: $COLOR-WHITE;
         // text-shadow: 0px 0px 3px var(--color-black), 0px 0px 5px var(--color-black);
       }
       &:active {
-        @supports(not (--test: 0)){
-          color: $COLOR-GREEN-OP70;
-        }
-        background: var(--BTN-BG-70-HOVER);
+        background: $COLOR-GREEN-OP70;
       }
       @include md-media {
         &:active {
-          @supports(not (--test: 0)){
-            color: $COLOR-BLACK-OP70;
-          }
-          background: var(--BTN-BG-70);
+          background: $COLOR-BLACK-OP70;
         }
         &:hover {
-          @supports(not (--test: 0)){
-            color: $COLOR-GREEN-OP70;
-          }
-          background: var(--BTN-BG-70-HOVER);
+          background: $COLOR-GREEN-OP70;
         }
       }
       
@@ -147,12 +132,9 @@ export default {
     }
 
     &__line {
-      @supports(not (--test: 0)){
-        border-left: 2px solid $COLOR-GRAY3;
-      }
       width: 0;
       height: 1rem;
-      border-left: 2px solid var(--COLOR-GRAY3);
+      border-left: 2px solid $COLOR-GRAY3;
       margin: 2px auto;
     }
 
@@ -168,14 +150,10 @@ export default {
     }
 
     &__btn {
-      @supports(not (--test: 0)){
-        background: $COLOR-BLACK-OP70;
-        color: $COLOR-WHITE;
-      }
       flex: 1;
       text-align: left;
-      background: var(--BTN-BG-70);
-      color: var(--COLOR-WHITE);
+      background: $COLOR-BLACK-OP70;
+      color: $COLOR-WHITE;
       border-radius: 20px;
       border: 0;
       padding: 20px 26px;
@@ -184,40 +162,25 @@ export default {
         outline: none;
       }
       &:hover {
-        @supports(not (--test: 0)){
-          background: $COLOR-BLACK-OP70;
-        }
-        background: var(--BTN-BG-70);
+        background: $COLOR-BLACK-OP70;
       }
       &:active {
-        @supports(not (--test: 0)){
-          background: $COLOR-GREEN-OP70;
-        }
-        background: var(--BTN-BG-70-HOVER);
+        background: $COLOR-GREEN-OP70;
       }
       @include sm-media {
-        @supports(not (--test: 0)){
-          background: $COLOR-BLACK-OP99;
-        }
         margin-left: 10px;
         margin-right: 10px;
         padding: 15px 25px 25px;
         border-radius: 30px;
-        background: var(--BTN-PC-BG);
+        background: $COLOR-BLACK-OP99;
         font-size: 18px;
       }
       @include md-media {
         &:hover {
-          @supports(not (--test: 0)){
-            background: $COLOR-GREEN-OP70;
-          }
-          background: var(--BTN-BG-70-HOVER);
+          background: $COLOR-GREEN-OP70;
         }
         &:active {
-          @supports(not (--test: 0)){
-            background: $COLOR-BLACK-OP70;
-          }
-          background: var(--BTN-BG-70);
+          background: $COLOR-BLACK-OP70;
         }
       }
 

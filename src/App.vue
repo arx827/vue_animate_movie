@@ -7,7 +7,7 @@
     <p class="file__source font-999999 text-center">
       圖片來源：行銷系統部 / 數位行銷運營部
     </p>
-    <p>version: <span>v1.7</span></p>
+    <p>version: <span>v2.1</span></p>
     <p>
       內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案內容區塊文案
     </p>
@@ -37,16 +37,10 @@ export default {
 }
 
 p {
-  @supports(not (--test: 0)){
-    color: $COLOR-GRAY1;
-  }
-  color: var(--COLOR-GRAY1);
+  color: $COLOR-GRAY1;
 
   &.font-999999 {
-    @supports(not (--test: 0)){
-      color: $COLOR-GRAY2;
-    }
-    color: var(--COLOR-GRAY2);
+    color: $COLOR-GRAY2;
   }
 }
 
