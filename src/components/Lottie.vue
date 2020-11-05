@@ -72,11 +72,12 @@ export default {
   },
   mounted() {
     this.animationData.assets.forEach((item, index) => {
-      item.u = '';
-      item.p = require(`@/assets/icons/${this.pathId}/images/img_${index}.svg`);
+      if(!item.layers){
+        item.u = '';
+        item.p = require(`@/assets/icons/${this.pathId}/images/img_${index}.svg`);
+      }
     });
     this.init();
-    console.log(this.pathId);
   },
   computed: {
     ...mapState(['theaterSize'])

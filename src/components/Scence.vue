@@ -2,18 +2,15 @@
   <div class="fitLayout scence">
     <div class="scence__content">
       <div class="scence__animate">
-        <img
+        <!-- <img
           class="img-fluid scence__bg"
           src="@/assets/images/demo/img_testbg.jpg"
           alt=""
-        />
+        /> -->
         <div class="scence__main d-flex justify-content-center align-items-center">
           <component :is="scenesView"></component>
         </div>
       </div>
-
-      <!-- 結尾 結語 -->
-      <div class="scence__conclusion" v-if="currentData.conclusion">{{ currentData.conclusion }}</div>
     </div>
   </div>
 </template>
@@ -26,7 +23,7 @@ export default {
   props: ['currentData'],
   data() {
     return {
-      scenesView: '',
+      scenesView: ''
     };
   },
   beforeCreate() {
@@ -34,11 +31,11 @@ export default {
   },
   mounted() {
     const vm = this;
-    // this.loadingTimer = setTimeout(() => {
+    this.loadingTimer = setTimeout(() => {
       vm.$store.dispatch('updateLoading', false);
       // 動態切換場景
       this.scenesView = () => import(`../components/Scences/${this.currentData.scenes}.vue`);
-    // }, vm.$store.state.loadingDelay);
+    }, vm.$store.state.loadingDelay);
     this.$store.dispatch('updateOpt', true);
 
     // 判斷最後一幕
@@ -81,12 +78,19 @@ export default {
     right: 0;
     z-index: 20;
   }
-  // 結語
-  &__conclusion {
-    position: absolute;
-    top: 1rem;
-    left: 5%;
-    width: 90%;
-  }
+}
+
+// 選項
+.conclusion {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 2s;
+    }
+    &-leave-active {
+        transition: opacity 1s;
+    }
 }
 </style>

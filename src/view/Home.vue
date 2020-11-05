@@ -1,6 +1,5 @@
 <template>
   <div class="Home">
-    <TheaterHeader :description="getCurrentData.description"/>
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
           <!-- 圖片為定義寬高比例用 -->
@@ -8,6 +7,8 @@
           <Loading />
           <div class="theater__main">
               <Opening @emitOpeningBtn="openingBtn" />
+              <!-- 開始/再玩一次 - 按鈕 -->
+              <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
               <transition name="fade" mode="out-in">
                 <Scence :currentData="getCurrentData" v-if="$store.state.isShow == 'Scence'"/>
               </transition>
@@ -20,10 +21,18 @@
         </transition>
       </div>
       <Procedure v-if="$store.state.isShow == 'Scence'" />
-      <!-- 開始/再玩一次 - 按鈕 -->
-      <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
-      <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" />
+      <TheaterHeader class="theater__Header--mbShow" :description="getCurrentData.description"/>
+      <transition name="theaterOpt" mode="out-in">
+        <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" v-if="$store.state.isOptShow"/>
+      </transition>
+      <!-- 結尾 結語 -->
+      <transition name="conclusion" mode="out-in">
+        <div class="scence__conclusion d-flex flex-column" v-if="getCurrentData.conclusion && showConclusion">
+          <span class="scence__conclusion__txt">{{ getCurrentData.conclusion }}</span>
+        </div>
+      </transition>
     </div>
+    <TheaterHeader class="theater__Header--pcShow" :description="getCurrentData.description"/>
   </div>
 </template>
 
@@ -42,7 +51,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      ScenceManger: {}
+      ScenceManger: {},
+      showConclusion: false
     };
   },
   beforeCreate() {},
@@ -72,6 +82,14 @@ export default {
     setTimeout(function(){
       vm.getTheater();
     });
+    // 判斷最後一幕
+    if (this.getIsFinally) {
+      vm.AfterAnimate(() => {
+        this.showConclusion = true;
+      });
+    }else{
+      this.showConclusion = false;
+    }
   },
   beforeDestroy(){
     window.removeEventListener('resize', this.resize);
@@ -85,8 +103,8 @@ export default {
     ])
   },
   methods: {
-    ...mapActions(['updateShow','updateTheaterSize']),
-    ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart']),
+    ...mapActions(['updateShow', 'updateOpt', 'updateTheaterSize']),
+    ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart', 'AfterAnimate']),
     // 開始
     openingBtn() {
       this.updateShow('Scence');
@@ -113,6 +131,7 @@ export default {
       handler(newValue, oldValue) {
         if (oldValue) {
           this.updateShow('');
+          this.updateOpt(false);
           this.$nextTick(() => {
             this.updateShow('Scence');
           });
@@ -159,8 +178,23 @@ export default {
       bottom: 0;
       right: 0;
       width: 100%;
-      background: $COLOR-GRAY5;
+      // background: $COLOR-GRAY5;
       z-index: 10;
+  }
+
+  &__Header {
+    &--pcShow {
+      display: none;
+      @include sm-media {
+        display: block;
+      }
+    }
+    &--mbShow {
+      display: block;
+      @include sm-media {
+        display: none;
+      }
+    }
   }
 }
 
@@ -204,8 +238,8 @@ export default {
   }
 }
 
-// 再玩一次 按鈕
 .scence {
+  // 再玩一次 按鈕
   &__reStartBtn {
     background: $COLOR-BLACK-OP70;
     position: absolute;
@@ -237,6 +271,32 @@ export default {
       margin-left: .7rem;
     }
   }
+
+  // 結語
+  &__conclusion {
+    background: $COLOR-BLACK-OP70;
+    z-index: 20;
+    box-shadow: 1px 1px 10px 1px #0000004d;
+    color: #FFF;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-top: 10px;
+    @include sm-media {
+      position: absolute;
+      width: 80%;
+      top: 1rem;
+      left: 10%;
+      margin-top: 0;
+    }
+    &::before {
+      content: '結語:';
+      font-size: 20px;
+      margin-right: 8px;
+    }
+    &__txt {
+      margin-left: 20px;
+    }
+  }
 }
 
 // 開場、場景淡出淡入
@@ -264,6 +324,34 @@ export default {
     }
     &-leave-active {
         transition: opacity 0s;
+    }
+}
+
+// 選項
+.theaterOpt {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 5s;
+    }
+    &-leave-active {
+        transition: opacity 0s;
+    }
+}
+
+// 結語
+.conclusion {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 2s;
+    }
+    &-leave-active {
+        transition: opacity 1s;
     }
 }
 </style>

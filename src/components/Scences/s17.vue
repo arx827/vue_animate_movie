@@ -6,7 +6,7 @@
 
 <script>
 import Lottie from '@/components/Lottie.vue';
-// import * as animationData from '@/lotties/s17/data.json';
+import * as animationData from '@/lotties/s17/data.json';
 
 export default {
   name: 's17',

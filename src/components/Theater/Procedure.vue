@@ -37,8 +37,8 @@ export default {
   &__procedure {
     position: static;
     z-index: 40;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
     @include sm-media {
       position: absolute;
       top: 0;

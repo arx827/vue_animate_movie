@@ -5,7 +5,7 @@
         <div class="theater__header__icon">
           <img class="img-fluid" src="@/assets/images/img_god.svg" alt="神仙來的"/>
         </div>
-        <p class="theater__header__voice" v-show="!$store.state.isLoading" v-html="description"></p>
+        <p class="theater__header__voice" v-html="description"></p>
       </div>
     </div>
   </transition>
@@ -21,7 +21,7 @@ export default {
 <style scoped lang="scss">
 .theater {
   &__header {
-    background: $COLOR-WHITE;
+    background: $COLOR-MAIN;
     padding: 16px;
     width: 100%;
     position: relative;
@@ -41,7 +41,7 @@ export default {
       box-shadow: 1px 1px 1px $COLOR-GRAY5;
     }
     &__voice {
-      color: $COLOR-GRAY2;
+      color: $COLOR-WHITE;
       font-size: 16px;
       margin-left: 7px;
       line-height: 1.5;
@@ -65,7 +65,7 @@ export default {
         transition: opacity 3s;
     }
     &-leave-active {
-        transition: opacity 10s;
+        transition: opacity 1s;
     }
 }
 </style>

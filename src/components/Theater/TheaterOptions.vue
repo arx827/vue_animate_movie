@@ -1,9 +1,9 @@
 <template>
-  <transition name="theaterOpt" mode="out-in">
+  
     <div
       class="theater__optBox d-flex flex-column align-items-center"
       :class="{ theater__optBox__open: isShowOptBox }"
-      v-if="hasOpts && $store.state.isOptShow"
+      v-if="hasOpts"
     >
       <div class="theater__optBox__control d-none d-sm-block">
         <button class="theater__optBox__controlBtn" @click="controlBtn">
@@ -12,7 +12,7 @@
             src="@/assets/images/demo/Icon_arrow_down.svg"
             alt=""
           />
-          <!-- <p class="theater__optBox__controlBtn__txt">看選項</p> -->
+          <p class="theater__optBox__controlBtn__txt">看選項</p>
         </button>
         <div class="theater__optBox__line"></div>
       </div>
@@ -28,7 +28,7 @@
         </button>
       </div>
     </div>
-  </transition>
+  
 </template>
 
 <script>
@@ -45,9 +45,12 @@ export default {
     };
   },
   mounted() {
-    this.AfterAnimate(() => {
-      this.isShowOptBox = true;
-    });
+    // this.isShowOptBox = false;
+    this.isShowOptBox = true;
+    // 動畫時間跑完 自動開啟選項
+    // this.AfterAnimate(() => {
+    //   this.isShowOptBox = true;
+    // });
   },
   computed: {
     hasOpts() {
@@ -141,11 +144,10 @@ export default {
 
     &__wrap {
       width: 100%;
-      // margin-top: 10px;
+      margin-top: 10px;
       margin-bottom: 10px;
-
       @include sm-media {
-        // margin-top: 0;
+        margin-top: 0;
         margin-bottom: 20px;
       }
     }
@@ -222,17 +224,5 @@ export default {
       }
     }
   }
-}
-.theaterOpt {
-    &-enter,
-    &-leave-to {
-        opacity: 0;
-    }
-    &-enter-active {
-        transition: opacity 2s;
-    }
-    &-leave-active {
-        transition: opacity 0s;
-    }
 }
 </style>

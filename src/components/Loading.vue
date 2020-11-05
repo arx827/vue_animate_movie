@@ -1,11 +1,11 @@
 <template>
   <transition name="trans" mode="out-in">
     <div class="fitLayout d-flex flex-column justify-content-center align-items-center" v-if="$store.state.isLoading">
-      <div class="loading_animation">
+      <!-- <div class="loading_animation"> -->
         <div class="lottie">
           <lottie :options="defaultOptions" :style="{ maxWidth: '500px' }" />
         </div>
-      </div>
+      <!-- </div> -->
 
       <!-- <p class="loading__txt">載入中...</p> -->
     </div>
@@ -53,15 +53,15 @@ export default {
 
 // loading淡出淡入
 .trans {
-    &-enter,
-    &-leave-to {
-        opacity: 0;
-    }
-    &-enter-active {
-        transition: opacity 1s;
-    }
-    &-leave-active {
-        transition: opacity 0s;
-    }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active {
+    transition: opacity 0s;
+  }
+  &-leave-active {
+    transition: opacity .3s;
+  }
 }
 </style>
