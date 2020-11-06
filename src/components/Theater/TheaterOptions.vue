@@ -45,8 +45,8 @@ export default {
     };
   },
   mounted() {
-    // this.isShowOptBox = false;
-    this.isShowOptBox = true;
+    this.isShowOptBox = false;
+    // this.isShowOptBox = true;
     // 動畫時間跑完 自動開啟選項
     // this.AfterAnimate(() => {
     //   this.isShowOptBox = true;
