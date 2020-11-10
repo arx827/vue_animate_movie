@@ -34,7 +34,7 @@ export default {
 
 <style scoped lang="scss">
 .fitLayout {
-  background: $COLOR-WHITE;
+  background: $COLOR-BLACK-OP90;
   position: absolute;
   top: 0;
   left: 0;
