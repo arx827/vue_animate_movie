@@ -33,9 +33,11 @@ export default {
     const vm = this;
     this.loadingTimer = setTimeout(() => {
       vm.$store.dispatch('updateLoading', false);
+    }, vm.$store.state.loadingDelay);
+    this.scenesTimer = setTimeout(() => {
       // 動態切換場景
       this.scenesView = () => import(`../components/Scences/${this.currentData.scenes}.vue`);
-    }, vm.$store.state.loadingDelay);
+    });
     this.$store.dispatch('updateOpt', true);
 
     // 判斷最後一幕
@@ -47,6 +49,7 @@ export default {
   },
   beforeDestroy() {
     clearTimeout(this.loadingTimer);
+    clearTimeout(this.scenesTimer);
     this.$store.dispatch('updateOpt', false);
   },
   computed: {
