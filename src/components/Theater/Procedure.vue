@@ -1,9 +1,6 @@
 <template>
-  <div class="theater__procedure d-flex justify-content-center align-items-md-center">
-    <div class=" d-flex flex-md-column flex-wrap justify-content-start">
-      <!-- <div class="procedure__stepItem procedure__stepItem--active"></div>
-    <div class="procedure__stepItem" @click="stepClick($event)"></div>
-    <div class="procedure__stepItem" @click="stepClick($event)"></div> -->
+  <div class="theater__procedure d-flex justify-content-center align-items-sm-center">
+    <div class=" d-flex flex-sm-column flex-wrap justify-content-start">
       <template v-for="item in getHistroyMax">
         <div
           class="procedure__stepItem"
@@ -32,7 +29,6 @@ export default {
       }
     },
   },
-  created() {},
 };
 </script>
 
@@ -40,42 +36,35 @@ export default {
 .theater {
   &__procedure {
     position: static;
-    // background: #ffc107;
     z-index: 40;
-
-    // margin-top: 1rem;
-    // margin-bottom: 1rem;
-    @include md-media {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    @include sm-media {
       position: absolute;
       top: 0;
       bottom: 0;
       right: 0;
-      margin-right: 38px;
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 0 1rem 0 0;
     }
   }
 }
 
 .procedure {
   &__stepItem {
-    width: 16px;
-    height: 16px;
-    margin: 0.5rem;
-    border-radius: 50%;
-    background: var(--btn-step);
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: .6rem;
+    background-image: url("../../assets/images/demo/img_icon_foot_off.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     cursor: pointer;
-
-    &--active {
-      background: var(--btn-step-active);
+    @include sm-media {
+      margin: 15px;
+      transform: rotate(-90deg);
     }
-
-    + .procedure__stepItem {
-      // margin-left: 1rem;
-      // @include md-media {
-      //   margin-bottom: 1rem;
-      //   margin-left: 0;
-      // }
+    &--active {
+      background-image: url("../../assets/images/demo/img_icon_foot_on.svg");
     }
   }
 }

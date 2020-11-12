@@ -36,14 +36,18 @@ export default {
 }
 
 p {
-  color: var(--color-gray1);
-
+  color: $COLOR-GRAY1;
   &.font-999999 {
-    color: var(--color-gray2);
+    color: $COLOR-GRAY2;
   }
 }
 
 .file__source {
   margin-top: 0.5rem;
+}
+
+.lottie {
+  width: 100%;
+  height: 100%;
 }
 </style>

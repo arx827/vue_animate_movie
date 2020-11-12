@@ -1,9 +1,11 @@
 <template>
-  <div class="fitLayout">
-    <div class="scence__animate">
-      <img class="img-fluid" src="@/assets/images/demo/img_testbg.jpg" alt="" />
+  <transition name="opening" mode="out-in">
+    <div class="fitLayout" v-if="$store.state.isShow == 'Opening'">
+      <div class="scence__animate">
+        <img class="img-fluid" src="@/assets/images/demo/img_testbg.jpg" alt="" />
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -28,3 +30,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.opening {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 2s;
+    }
+    &-leave-active {
+        transition: opacity 0s;
+    }
+}
+</style>

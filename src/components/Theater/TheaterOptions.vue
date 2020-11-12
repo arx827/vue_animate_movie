@@ -1,11 +1,10 @@
 <template>
-  <!-- <div class="theater__options"> -->
   <div
     class="theater__optBox d-flex flex-column align-items-center"
     :class="{ theater__optBox__open: isShowOptBox }"
     v-if="hasOpts"
   >
-    <div class="theater__optBox__control d-none d-md-block">
+    <div class="theater__optBox__control d-none d-sm-block">
       <button class="theater__optBox__controlBtn" @click="controlBtn">
         <img
           class="img-fluid theater__optBox__controlBtn__img"
@@ -17,7 +16,7 @@
       <div class="theater__optBox__line"></div>
     </div>
 
-    <div class="theater__optBox__wrap d-flex flex-column flex-md-row">
+    <div class="theater__optBox__wrap d-flex flex-column flex-sm-row">
       <button
         class=" theater__optBox__btn d-flex flex-md-column"
         v-for="item in questionOpt"
@@ -28,7 +27,6 @@
       </button>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -45,9 +43,12 @@ export default {
     };
   },
   mounted() {
-    this.AfterAnimate(() => {
-      this.isShowOptBox = true;
-    });
+    this.isShowOptBox = false;
+    // this.isShowOptBox = true;
+    // 動畫時間跑完 自動開啟選項
+    // this.AfterAnimate(() => {
+    //   this.isShowOptBox = true;
+    // });
   },
   computed: {
     hasOpts() {
@@ -66,10 +67,9 @@ export default {
 <style lang="scss" scoped>
 .theater {
   &__optBox {
-    // box-shadow: 0 0 15px var(--box-shadow);
     z-index: 30;
-
-    @include md-media {
+    @include sm-media {
+      -ms-transform: translateY(100%) translateY(-55px) translateY(-1rem) translateY(-4px); /* IE 11 */
       transform: translateY(calc(100% - (55px + 1rem + 4px)));
       transition: 0.4s;
       position: absolute;
@@ -80,7 +80,7 @@ export default {
     }
 
     &__open {
-      @include md-media {
+      @include sm-media {
         transform: translateY(0);
       }
     }
@@ -92,7 +92,7 @@ export default {
       border-radius: 100%;
       padding: 0;
       position: relative;
-      background: #000000b3;
+      background: $COLOR-BLACK-OP70;
       &:focus {
         outline: 0;
       }
@@ -108,10 +108,19 @@ export default {
         left: calc(55px + 5px);
         word-break: keep-all;
         font-size: 14px;
-        color: var(--color-main2);
+        color: $COLOR-WHITE;
+        // text-shadow: 0px 0px 3px var(--color-black), 0px 0px 5px var(--color-black);
       }
-      &:hover {
-        background: #0188d1b3;
+      &:active {
+        background: $COLOR-GREEN-OP70;
+      }
+      @include md-media {
+        &:active {
+          background: $COLOR-BLACK-OP70;
+        }
+        &:hover {
+          background: $COLOR-GREEN-OP70;
+        }
       }
     }
     &__open {
@@ -126,17 +135,16 @@ export default {
     &__line {
       width: 0;
       height: 1rem;
-      border-left: 1px solid var(--color-gray2);
+      border-left: 2px solid $COLOR-GRAY3;
       margin: 2px auto;
     }
 
     &__wrap {
       width: 100%;
-      // margin-top: 10px;
+      margin-top: 10px;
       margin-bottom: 10px;
-
-      @include md-media {
-        // margin-top: 0;
+      @include sm-media {
+        margin-top: 0;
         margin-bottom: 20px;
       }
     }
@@ -144,26 +152,41 @@ export default {
     &__btn {
       flex: 1;
       text-align: left;
-      background: var(--btn-mb-bg);
-      border-radius: 30px;
+      background: $COLOR-BLACK-OP70;
+      color: $COLOR-WHITE;
+      border-radius: 20px;
       border: 0;
-      padding: 30px 28px 30px;
-
+      padding: 20px 26px;
+      font-size: 16px;
       &:focus {
         outline: none;
       }
-
-      @include md-media {
+      &:hover {
+        background: $COLOR-BLACK-OP70;
+      }
+      &:active {
+        background: $COLOR-GREEN-OP70;
+      }
+      @include sm-media {
         margin-left: 10px;
         margin-right: 10px;
-        padding-bottom: 40px;
-        background: var(--btn-pc-bg);
+        padding: 15px 25px 25px;
+        border-radius: 30px;
+        background: $COLOR-BLACK-OP99;
+        font-size: 18px;
+      }
+      @include md-media {
+        &:hover {
+          background: $COLOR-GREEN-OP70;
+        }
+        &:active {
+          background: $COLOR-BLACK-OP70;
+        }
       }
 
       + .theater__optBox__btn {
         margin-top: 10px;
-
-        @include md-media {
+        @include sm-media {
           margin-top: 0;
         }
       }
@@ -188,14 +211,12 @@ export default {
 
       &::before {
         display: block;
-        font-size: 30px;
+        font-size: 25px;
         line-height: 1.2;
         margin-right: 8px;
-
-        @include md-media {
+        @include sm-media {
+          font-size: 30px;
           margin-right: 0;
-          line-height: 1.3;
-          margin-bottom: 8px;
         }
       }
     }

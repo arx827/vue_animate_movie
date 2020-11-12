@@ -11,9 +11,6 @@
           <component :is="scenesView"></component>
         </div>
       </div>
-
-      <!-- 結尾 結語 -->
-      <div class="scence__conclusion" v-if="currentData.conclusion">{{ currentData.conclusion }}</div>
     </div>
   </div>
 </template>
@@ -26,7 +23,7 @@ export default {
   props: ['currentData'],
   data() {
     return {
-      scenesView: '',
+      scenesView: ''
     };
   },
   beforeCreate() {
@@ -36,10 +33,12 @@ export default {
     const vm = this;
     this.loadingTimer = setTimeout(() => {
       vm.$store.dispatch('updateLoading', false);
+    }, vm.$store.state.loadingDelay);
+    this.scenesTimer = setTimeout(() => {
       // 動態切換場景
       this.scenesView = () => import(`../components/Scences/${this.currentData.scenes}.vue`);
-    }, vm.$store.state.loadingDelay);
-    this.$store.dispatch('updateOpt', true);
+      this.$store.dispatch('updateOpt', true);
+    });
 
     // 判斷最後一幕
     if (this.getIsFinally) {
@@ -50,13 +49,11 @@ export default {
   },
   beforeDestroy() {
     clearTimeout(this.loadingTimer);
+    clearTimeout(this.scenesTimer);
     this.$store.dispatch('updateOpt', false);
   },
   computed: {
     ...mapGetters('ScenceManger', ['getIsFinally']),
-    // scenesView() {
-    //   return `${this.currentData.scenes}View`;
-    // }
   },
   method: {
     ...mapActions('ScenceManger', ['AfterAnimate']),
@@ -66,16 +63,7 @@ export default {
 
 <style lang="scss">
 .fitLayout {
-  // width: inherit;
-  // min-height: inherit;
-  // background: #fcffe0;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // bottom: 0;
-  // right: 0;
   z-index: 10;
-  // overflow: hidden;
 }
 
 .scence {
@@ -92,13 +80,6 @@ export default {
     bottom: 0;
     right: 0;
     z-index: 20;
-  }
-  // 結語
-  &__conclusion {
-    position: absolute;
-    top: 1rem;
-    left: 5%;
-    width: 90%;
   }
 }
 </style>

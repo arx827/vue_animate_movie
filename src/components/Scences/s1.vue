@@ -1,6 +1,6 @@
 <template>
   <div class="lottie">
-    <lottie :options="defaultOptions"/>
+    <Lottie :options="defaultOptions" ref="lottie"/>
   </div>
 </template>
 
@@ -14,12 +14,12 @@ export default {
     return {
       defaultOptions: {
         animationData: animationData.default,
-        pathId: 's1'
+        pathId: 's1',
       }
     };
   },
   components: {
-    lottie: Lottie,
+    Lottie,
   }
 };
 </script>

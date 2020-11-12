@@ -1,47 +1,60 @@
 // login 頁面
-$color-white: #FFF;                 // 白色
-$color-black: #000;                 // 黑色
+$COLOR-WHITE: #FFF;                 // 白色
+$COLOR-BLACK: #000;                 // 黑色
 
-$color-gray1: #333;
-$color-gray2: #666;
-$color-gray3: #999;
-$color-gray4: #eee;
-$color-gray5: #e0e0e0;
+$COLOR-BLACK-OP99: #00000099;       // 黑色 透明99
+$COLOR-BLACK-OP70: #000000BF;       // 黑色 透明77
+$COLOR-BLACK-OP90: #313131e6;       // 黑色 透明90
 
-$color-main2: #bc977a;
-$box-shadow: lighten($color-black, 90%);
+$COLOR-GRAY1: #333;
+$COLOR-GRAY2: #666;
+$COLOR-GRAY3: #999;
+$COLOR-GRAY4: #AAA;
+$COLOR-GRAY5: #EEE;
+$COLOR-GRAY6: #E0E0E0;
+
+$COLOR-MAIN: #47C5AA;
+
+$COLOR-BLUE-OP70: #0188D1BF;         // 水藍色 透明77
+$COLOR-GREEN-OP70: #47C5AABF;        // 綠色 透明77
+
+$COLOR-MAIN2: #BC977A;
+$BOX-SHADOW: lighten($COLOR-BLACK, 90%);
 
 //----------------------------- RWD 斷點 -----------------------------
-$xl-media:1200px;
-$lg-media:992px;
-$md-media:768px;
-$sm-media:576px;
+$XL-MEDIA: 1200px;
+$LG-MEDIA: 992px;
+$MD-MEDIA: 768px;
+$SM-MEDIA: 576px;
 
+$SCENES_W: 1000px;
+$SCENES_H: 670px;
 
 :root {
     // 展示框大小
-    --scenes_w: 1000px;
-    --scenes_h: 670px;
-    --color-main: #00b7ff;
-    --color-main2: #{$color-main2};
+    --SCENES_W: #{$SCENES_W};
+    --SCENES_H: #{$SCENES_H};
+    --COLOR-MAIN: #{$COLOR-MAIN};
+    --COLOR-MAIN2: #{$COLOR-WHITE};
 
-    --color-white: #{$color-white};
-    --color-black: #{$color-black};
+    --COLOR-WHITE: #{$COLOR-WHITE};
+    --COLOR-BLACK: #{$COLOR-BLACK};
 
-    --color-gray1: #{$color-gray1};
-    --color-gray2: #{$color-gray2};
-    --color-gray3: #{$color-gray3};
-    --color-gray4: #{$color-gray4};
+    --COLOR-GRAY1: #{$COLOR-GRAY1};
+    --COLOR-GRAY2: #{$COLOR-GRAY2};
+    --COLOR-GRAY3: #{$COLOR-GRAY3};
+    --COLOR-GRAY4: #{$COLOR-GRAY4};
+    --COLOR-GRAY5: #{$COLOR-GRAY5};
 
-    --btn-mb-bg: #b5e4ff;
-    --btn-pc-bg: #F4FBFF;
+    --BTN-MB-BG: #{$COLOR-BLACK-OP70};
+    --BTN-PC-BG: #{$COLOR-BLACK-OP99};
 
-    --btn-step: #{$color-gray5};
-    --btn-step-active: #{$color-gray3};
+    --BTN-BG-70: #{$COLOR-BLACK-OP70};
+    --BTN-BG-70-HOVER: #{$COLOR-GREEN-OP70};
 
+    --BTN-STEP: #{$COLOR-GRAY5};
+    --BTN-STEP-ACTIVE: #{$COLOR-GRAY3};
 
-
-
-    --box-shadow: #{$box-shadow};
-    --Home-bg: var(--color-gray4);
+    --BOX-SHADOW: #{$BOX-SHADOW};
+    --Home-BG: var(--COLOR-GRAY5);
 }

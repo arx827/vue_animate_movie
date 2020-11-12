@@ -1,47 +1,38 @@
 <template>
   <div class="Home">
-    <transition name="theaterH" mode="out-in">
-      <TheaterHeader
-        :description="getCurrentData.description"
-        v-if="$store.state.isShow == 'Scence'"
-      />
-    </transition>
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
         <!-- 圖片為定義寬高比例用 -->
-        <img class="img-fluid theater__ratio" src="@/assets/images/demo/img_testbg.jpg" />
-        <transition name="trans" mode="out-in">
-          <Loading v-if="$store.state.isLoading" />
-        </transition>
+        <img class="img-fluid theater__ratio js-theater__ratio" src="@/assets/images/demo/img_testbg.jpg"/>
+        <Loading />
         <div class="theater__main">
+          <Opening @emitOpeningBtn="openingBtn" />
+          <!-- 開始/再玩一次 - 按鈕 -->
+          <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
           <transition name="fade" mode="out-in">
-            <Opening v-if="$store.state.isShow == 'Opening'" @emitOpeningBtn="openingBtn" />
-          </transition>
-          <transition name="fade" mode="out-in">
-            <Scence v-if="$store.state.isShow == 'Scence'" :currentData="getCurrentData" />
+            <Scence :currentData="getCurrentData" v-if="$store.state.isShow == 'Scence'"/>
           </transition>
         </div>
+        <transition name="btn" mode="out-in">
+          <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
+            <span>再玩一次</span>
+            <img class="scence__reStartBtn__icon" src="@/assets/images/demo/Icon_material-refresh.svg" alt="">
+          </button>
+        </transition>
       </div>
       <Procedure v-if="$store.state.isShow == 'Scence'" />
-      <!-- 開始/再玩一次 - 按鈕 -->
-      <transition name="fade" mode="out-in">
-        <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn">
-          開場
-        </button>
+      <TheaterHeader class="theater__Header--mbShow" :description="getCurrentData.description"/>
+      <transition name="theaterOpt" mode="out-in">
+        <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" v-if="$store.state.isOptShow"/>
       </transition>
-      <transition name="fade" mode="out-in">
-        <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
-          再玩一次
-        </button>
-      </transition>
-      <transition name="fade" mode="out-in">
-        <TheaterOptions
-          :questionOpt="getCurrentData.questionOpt"
-          @next="nextScence"
-          v-if="$store.state.isOptShow"
-        />
+      <!-- 結尾 結語 -->
+      <transition name="conclusion" mode="out-in">
+        <div class="scence__conclusion d-flex flex-column" v-if="getCurrentData.conclusion && showConclusion">
+          <span class="scence__conclusion__txt">{{ getCurrentData.conclusion }}</span>
+        </div>
       </transition>
     </div>
+    <TheaterHeader class="theater__Header--pcShow" :description="getCurrentData.description"/>
   </div>
 </template>
 
@@ -54,12 +45,14 @@ import Procedure from '@/components/Theater/Procedure.vue';
 import TheaterOptions from '@/components/Theater/TheaterOptions.vue';
 import { scenesAll } from '@/static/json/scenes.js';
 import { mapGetters, mapActions } from 'vuex';
+import _ from 'lodash';
 
 export default {
   name: 'Home',
   data() {
     return {
       ScenceManger: {},
+      showConclusion: false
     };
   },
   beforeCreate() {},
@@ -70,14 +63,36 @@ export default {
     Scence,
     Procedure,
     TheaterOptions,
-    // Lottie
   },
   created() {
     // 實體化
     this.init([scenesAll, 8]);
+    this.resize = _.debounce(this.getTheater, 1000);
   },
   mounted() {
+    const vm = this;
     this.createStart();
+    setTimeout(function(){
+      vm.getTheater();
+    });
+    window.addEventListener('resize', this.resize);
+  },
+  updated() {
+    const vm = this;
+    setTimeout(function(){
+      vm.getTheater();
+    });
+    // 判斷最後一幕
+    if (this.getIsFinally) {
+      vm.AfterAnimate(() => {
+        this.showConclusion = true;
+      });
+    }else{
+      this.showConclusion = false;
+    }
+  },
+  beforeDestroy(){
+    window.removeEventListener('resize', this.resize);
   },
   computed: {
     ...mapGetters('ScenceManger', [
@@ -88,17 +103,13 @@ export default {
     ]),
   },
   methods: {
-    ...mapActions(['updateShow']),
-    ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart']),
+    ...mapActions(['updateShow', 'updateOpt', 'updateTheaterSize']),
+    ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart', 'AfterAnimate']),
     // 開始
     openingBtn() {
       this.updateShow('Scence');
       this.goToNext(this.getStartId);
       // 第一場景開始
-    },
-    // 下一頁
-    nextScence(sIds) {
-      this.goToNext(sIds);
     },
     // 再玩一次
     reStart() {
@@ -106,6 +117,12 @@ export default {
       this.$store.dispatch('updateFinally', false);
       this.updateShow('Opening');
     },
+    getTheater() {
+      let item = document.querySelector('.js-theater__ratio');
+      let theaterW = item.clientWidth;
+      let theaterH = item.clientHeight;
+      this.updateTheaterSize({theaterW,theaterH});
+    }
   },
   watch: {
     // 變換場景 立即 觸發Scence重載
@@ -114,6 +131,7 @@ export default {
       handler(newValue, oldValue) {
         if (oldValue) {
           this.updateShow('');
+          this.updateOpt(false);
           this.$nextTick(() => {
             this.updateShow('Scence');
           });
@@ -127,36 +145,32 @@ export default {
 <style lang="scss">
 .Home {
   width: 100%;
-  max-width: var(--scenes_w);
+  max-width: $SCENES_W;
   margin: 0 auto;
+  @include sm-media {
+    box-shadow: 0 0 15px $BOX-SHADOW;
+  }
 }
 
 .theater {
   position: relative;
   z-index: 10;
-
   &__pcCover {
-    @include md-media {
-      // height: var(--scenes_h);
+    @include sm-media {
       overflow: hidden;
     }
   }
-
   &__mbCover {
     position: relative;
     overflow: hidden;
-
-    @include md-media {
-      // height: var(--scenes_h);
+    @include sm-media {
       overflow: visible;
     }
   }
-
   &__ratio {
     opacity: 0;
     pointer-events: none;
   }
-
   &__main {
     position: absolute;
     top: 0;
@@ -164,12 +178,22 @@ export default {
     bottom: 0;
     right: 0;
     width: 100%;
-    // height: calc(1000 / 100 * 670);
-    // min-height: var(--scenes_h);
-    background: var(--Home-bg);
-    box-shadow: 0 0 15px var(--box-shadow);
-    // overflow: hidden;
+    // background: $COLOR-GRAY5;
     z-index: 10;
+  }
+  &__Header {
+    &--pcShow {
+      display: none;
+      @include sm-media {
+        display: block;
+      }
+    }
+    &--mbShow {
+      display: block;
+      @include sm-media {
+        display: none;
+      }
+    }
   }
 }
 
@@ -181,74 +205,149 @@ export default {
   right: 0;
 }
 
-.startBtn,
-.scence__reStartBtn {
-  background: var(--color-main);
-  position: static;
-  width: 100%;
+// 開始 按鈕
+.startBtn {
+  background: $COLOR-MAIN;
+  position: absolute;
+  bottom: 20px;
+  left: calc((100% - 10rem) / 2);
+  width: 10rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
   border-radius: 5px;
-  padding: 20px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   z-index: 30;
-
-  @include md-media {
-    position: absolute;
-    width: 200px;
-    bottom: 20px;
-    left: calc((100% - 200px) / 2);
+  padding: 20px 0;
+  @include sm-media {
+    left: calc((100% - 15rem) / 2);
+    width: 15rem;
   }
-
+  &:hover {
+    background: $COLOR-GREEN-OP70;
+  }
   &:focus {
-    outline: 0;
+      outline: 0;
   }
-
   &:active {
-    opacity: 0.8;
+      opacity: 0.8;
   }
 }
 
-// 旁白區塊 淡出淡入
-.theaterH {
-  &-enter,
-  &-leave-to {
-    opacity: 0;
+.scence {
+  // 再玩一次 按鈕
+  &__reStartBtn {
+    background: $COLOR-MAIN;
+    position: absolute;
+    bottom: 1rem;
+    right: .5rem;
+    border: 0;
+    font-size: 20px;
+    color: $COLOR-WHITE;
+    z-index: 30;
+    border-radius: 5px;
+    padding: 5px 16px;
+    @include sm-media {
+      bottom: 2rem;
+      right: 6rem;
+    }
+    &:hover {
+      background: $COLOR-GREEN-OP70;
+    }
+    &:focus {
+        outline: 0;
+    }
+    &:active {
+        opacity: 0.8;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      margin-left: .7rem;
+    }
   }
-  &-enter-active {
-    transition: opacity 3s;
-  }
-  &-leave-active {
-    transition: opacity 10s;
+
+  // 結語
+  &__conclusion {
+    background: $COLOR-BLACK-OP70;
+    z-index: 20;
+    box-shadow: 1px 1px 10px 1px #0000004d;
+    color: #FFF;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-top: 10px;
+    @include sm-media {
+      position: absolute;
+      width: 80%;
+      top: 1rem;
+      left: 10%;
+      margin-top: 0;
+    }
+    &::before {
+      content: '結語:';
+      font-size: 20px;
+      margin-right: 8px;
+    }
+    &__txt {
+      margin-left: 20px;
+    }
   }
 }
 
 // 開場、場景淡出淡入
 .fade {
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-  }
-  &-enter-active {
-    transition: opacity 2s;
-  }
-  &-leave-active {
-    transition: opacity 1s;
-  }
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 2s;
+    }
+    &-leave-active {
+        transition: opacity 0s;
+    }
 }
 
-// 轉場淡出淡入
-.trans {
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-  }
-  &-enter-active {
-    transition: opacity 0s;
-  }
-  &-leave-active {
-    transition: opacity 1s;
-  }
+// 再玩一次 淡出淡入
+.btn {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 1s;
+    }
+    &-leave-active {
+        transition: opacity 0s;
+    }
+}
+
+// 選項
+.theaterOpt {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 5s;
+    }
+    &-leave-active {
+        transition: opacity 0s;
+    }
+}
+
+// 結語
+.conclusion {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: opacity 2s;
+    }
+    &-leave-active {
+        transition: opacity 1s;
+    }
 }
 </style>

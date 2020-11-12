@@ -16,5 +16,5 @@ export const mutations = {
     }
     state.historyIds.push(currentId);
     // console.log(currentId, state.historyIds);
-  }
+  },
 };
