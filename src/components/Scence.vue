@@ -37,8 +37,8 @@ export default {
     this.scenesTimer = setTimeout(() => {
       // 動態切換場景
       this.scenesView = () => import(`../components/Scences/${this.currentData.scenes}.vue`);
+      this.$store.dispatch('updateOpt', true);
     });
-    this.$store.dispatch('updateOpt', true);
 
     // 判斷最後一幕
     if (this.getIsFinally) {
@@ -81,19 +81,5 @@ export default {
     right: 0;
     z-index: 20;
   }
-}
-
-// 選項
-.conclusion {
-    &-enter,
-    &-leave-to {
-        opacity: 0;
-    }
-    &-enter-active {
-        transition: opacity 2s;
-    }
-    &-leave-active {
-        transition: opacity 1s;
-    }
 }
 </style>

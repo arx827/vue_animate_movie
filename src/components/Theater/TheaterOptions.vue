@@ -1,34 +1,32 @@
 <template>
-  
-    <div
-      class="theater__optBox d-flex flex-column align-items-center"
-      :class="{ theater__optBox__open: isShowOptBox }"
-      v-if="hasOpts"
-    >
-      <div class="theater__optBox__control d-none d-sm-block">
-        <button class="theater__optBox__controlBtn" @click="controlBtn">
-          <img
-            class="img-fluid theater__optBox__controlBtn__img"
-            src="@/assets/images/demo/Icon_arrow_down.svg"
-            alt=""
-          />
-          <p class="theater__optBox__controlBtn__txt">看選項</p>
-        </button>
-        <div class="theater__optBox__line"></div>
-      </div>
-
-      <div class="theater__optBox__wrap d-flex flex-column flex-sm-row">
-        <button
-          class=" theater__optBox__btn d-flex flex-md-column"
-          v-for="item in questionOpt"
-          :key="item.optScenes"
-          @click="$emit('next', item.optScenes)"
-        >
-          {{ item.optQuestion }}
-        </button>
-      </div>
+  <div
+    class="theater__optBox d-flex flex-column align-items-center"
+    :class="{ theater__optBox__open: isShowOptBox }"
+    v-if="hasOpts"
+  >
+    <div class="theater__optBox__control d-none d-sm-block">
+      <button class="theater__optBox__controlBtn" @click="controlBtn">
+        <img
+          class="img-fluid theater__optBox__controlBtn__img"
+          src="@/assets/images/demo/Icon_arrow_down.svg"
+          alt=""
+        />
+        <p class="theater__optBox__controlBtn__txt">看選項</p>
+      </button>
+      <div class="theater__optBox__line"></div>
     </div>
-  
+
+    <div class="theater__optBox__wrap d-flex flex-column flex-sm-row">
+      <button
+        class=" theater__optBox__btn d-flex flex-md-column"
+        v-for="item in questionOpt"
+        :key="item.optScenes"
+        @click="$emit('next', item.optScenes)"
+      >
+        {{ item.optQuestion }}
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -221,7 +221,6 @@ export default {
   z-index: 30;
   padding: 0;
   @include sm-media {
-    $btn-wh: 112px;
     top: calc((100% - 112px) / 2);
     left: calc((100% - 112px) / 2);
     width: 112px;
