@@ -2,7 +2,7 @@
   <transition name="opening" mode="out-in">
     <div class="fitLayout" v-if="$store.state.isShow == 'Opening'">
       <div class="scence__animate">
-        <img class="img-fluid" src="@/assets/images/demo/img_testbg.jpg" alt="" />
+        <img class="img-fluid" src="@/assets/images/star_p1.svg" alt="" />
       </div>
     </div>
   </transition>
