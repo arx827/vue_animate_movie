@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'? process.env.VUE_APP_CONTEXT_PATH: '/',
-  outputDir: `dist/${process.env.NODE_ENV}`,
+  outputDir: `dist/${process.env.VUE_APP_MODENAME}`,
   assetsDir: 'assets',
   chainWebpack: (config) => {
     config.plugin('html').tap((args) => {
