@@ -6,14 +6,15 @@
           <img class="img-fluid theater__ratio js-theater__ratio" src="@/assets/images/demo/img_testbg.jpg"/>
           <Loading />
           <div class="theater__main">
-              <Opening @emitOpeningBtn="openingBtn" />
-              <!-- 開始/再玩一次 - 按鈕 -->
+              <Opening />
+              <!-- 開始 - 按鈕 -->
               <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
               <transition name="fade" mode="out-in">
                 <Scence :currentData="getCurrentData" v-if="$store.state.isShow == 'Scence'"/>
               </transition>
           </div>
           <transition name="btn" mode="out-in">
+            <!-- 再玩一次 - 按鈕 -->
             <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
               <span>再玩一次</span>
               <img class="scence__reStartBtn__icon" src="@/assets/images/Icon_material-refresh.svg" alt="">
