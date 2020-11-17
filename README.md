@@ -13,8 +13,8 @@
 
 ***
 ### 流程說明
-###### template顯示，皆使用transition淡出淡入
-###### isShow切換時 [Opening、Scence]，<br>會在beforeCreate時開啟Loading，<br>mounted時關閉Loading
+> template顯示，皆使用transition淡出淡入
+> isShow切換時 [Opening、Scence]，會在beforeCreate時開啟Loading，mounted時關閉Loading
 - 撈取json，取得 ***allData***
 - ***初始化init***，設定 ***historyMax*** 歷史紀錄筆數(步驟數量)
 - 清空步驟紀錄
@@ -58,7 +58,7 @@
 
 ***
 ### 資料夾結構
-```
+```js
 src
 ├── assets
 │   ├── helpers
@@ -134,48 +134,70 @@ src
 ```
 ***
 ### 場景資訊json
-##### 檔案位置
-```
+#### 檔案位置
+```js
 src
 ├── static
 │   └── json
 │       └── scenes.js
 ```
-##### 結構範例
-```
+#### 結構範例
+##### 一般場景 (含選項)
+```js
 {
-    scenes: 's1',
-    description: '有一天，武松要回家探望兄長，經過景陽崗之前看到一家酒館...',
-    animationTime: 3000,
-    questionOpt: [
-      {
-        optScenes: 's2',
-        optQuestion: '進去喝酒',
-      },
-      {
-        optScenes: 's3',
-        optQuestion: '叫朋友來唱KTV',
-      },
-      {
-        optScenes: 's4',
-        optQuestion: '繼續趕路',
-      },
-    ],
-  }
+  scenes: 's1',
+  description: '有一天，武松要回家探望兄長，經過景陽崗之前看到一家酒館...',
+  animationTime: 3000,
+  questionOpt: [
+    {
+      optScenes: 's2',
+      optQuestion: '進去喝酒',
+    },
+    {
+      optScenes: 's3',
+      optQuestion: '叫朋友來唱KTV',
+    },
+    {
+      optScenes: 's4',
+      optQuestion: '繼續趕路',
+    },
+  ],
+}
 ```
-##### 結構說明
+##### 轉場場景 (動畫時間到，自動跳轉到下一場景)
+```js
+{
+  scenes: 's5',
+  description: '大戰一波後...<br>武松繼續上路',
+  animationTime: 3000,
+  redirectTo: 's8',
+}
+```
+##### 結尾場景
+```js
+{
+  scenes: 's17',
+  description: '這一拼讓武松成了當地的紅人，但卻住進醫院，必須負擔大筆的醫療與相關費用。',
+  animationTime: 2000,
+  conclusion:
+    '辛苦打拼與努力，卻忘了意外的發生總是讓人措手不及，如果身為家中支柱與社會棟樑，你更應該備好保障與失能風險，讓保險在你需要幫助的時候成為你的最佳助手。',
+}
+```
+#### 結構說明
 - **scenes** --- 場景id (須與檔案名稱相同)
 - ***description*** --- 旁白
 - ***animationTime*** --- 動畫預留時間(ex:時間過後才顯示選項)(毫秒)
 - ***questionOpt*** --- 選項物件
     - ***optScenes*** --- 選項欲前往的場景id
     - ***optQuestion*** --- 選項顯示文字
+- ***redirectTo*** --- 自動跳轉到？場景
+- ***conclusion*** --- 結語
 
 
 ***
 ### lottie 動畫檔案配置
 #### 場景template
-```
+```js
 src/components/Scences/${name}.vue
 
 src
@@ -184,7 +206,7 @@ src
 │   │   ├── s1.vue
 ```
 #### 動畫json
-```
+```js
 src/lotties/${name}/data.json
 
 src
@@ -193,7 +215,7 @@ src
 │   │   └── data.json
 ```
 #### 動畫json須引入的image
-```
+```js
 src/assets/icons/${name}/images/img_${i}.svg
 
 src
@@ -210,7 +232,7 @@ src
 
 ***
 ### 部署 線上Demo
-```
+```js
 sh deploy.sh
 ```
 
