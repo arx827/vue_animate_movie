@@ -28,9 +28,14 @@
       </transition>
       <!-- 結尾 結語 -->
       <transition name="conclusion" mode="out-in">
-        <div class="scence__conclusion d-flex flex-column" v-if="getCurrentData.conclusion && showConclusion">
-          <span class="scence__conclusion__txt">{{ getCurrentData.conclusion }}</span>
+        <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
+          <div class="scence__conclusionInfo d-flex flex-column">
+            <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
+            <p class="scence__conclusionInfo__Tags"><span class="scence__conclusionInfo__Tags__item" v-for="item in getCurrentData.tags" :key="item">{{ item | tags }}</span></p>
+          </div>
+          <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
         </div>
+        
       </transition>
     </div>
     <TheaterHeader class="theater__Header--pcShow" :description="getCurrentData.description"/>
@@ -140,6 +145,11 @@ export default {
       },
     },
   },
+  filters: {
+    tags(str){
+      return `#${str}`
+    }
+  }
 };
 </script>
 
@@ -274,27 +284,65 @@ export default {
 
   // 結語
   &__conclusion {
-    background: $COLOR-BLACK-OP70;
-    z-index: 20;
-    box-shadow: 1px 1px 10px 1px #0000004d;
-    color: #FFF;
-    padding: 1rem;
-    border-radius: 20px;
-    margin-top: 10px;
-    @include sm-media {
-      position: absolute;
-      width: 80%;
-      top: 1rem;
-      left: 10%;
-      margin-top: 0;
+    &Pos {
+      z-index: 20;
+      @include sm-media {
+        position: absolute;
+        width: 80%;
+        top: 1rem;
+        left: 10%;
+        margin-top: 0;
+      }
     }
-    &::before {
-      content: '結語:';
+    &Info {
+      background: $COLOR-BLACK-OP70;
+      box-shadow: 1px 1px 10px 1px #0000004d;
+      color: $COLOR-WHITE;
+      padding: 1rem;
+      border-radius: 20px;
+      margin-top: 10px;
+      &::before {
+        content: '結語:';
+        font-size: 25px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+      &__txt {
+        margin-left: 20px;
+        font-size: 20px;
+        color: $COLOR-WHITE;
+        margin-bottom: 0;
+      }
+      &__Tags {
+        font-size: 18px;
+        text-align: right;
+        margin-bottom: 0;
+        color: $COLOR-GRAY5;
+        margin-top: 1rem;
+        &__item {
+          // &:hover {
+          //   color: $COLOR-MAIN;
+          // }
+          + .scence__conclusionInfo__Tags__item {
+            &::before {
+              content: '、';
+            }
+          }
+        }
+      }
+    }
+    &Tips {
+      margin-top: 1rem;
+      background: #ffc107BF;
+      box-shadow: 1px 1px 10px 1px #0000004d;
+      padding: 10px 20px;
+      color: #ff2b07;
+      border-radius: 20px;
       font-size: 20px;
-      margin-right: 8px;
-    }
-    &__txt {
-      margin-left: 20px;
+      &::before {
+        content: 'Tips:';
+        margin-right: 8px;
+      }
     }
   }
 }

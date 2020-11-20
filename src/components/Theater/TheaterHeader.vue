@@ -42,13 +42,13 @@ export default {
     }
     &__voice {
       color: $COLOR-WHITE;
-      font-size: 16px;
+      font-size: 20px;
       margin-left: 7px;
       line-height: 1.5;
       margin-bottom: 0;
       flex: 1;
       @include sm-media {
-        font-size: 18px;
+        font-size: 22px;
         margin-left: 36px;
       }
     }

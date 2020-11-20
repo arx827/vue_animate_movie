@@ -10,7 +10,7 @@ export default new Vuex.Store({
     isLoading: false,
     isOptShow: false,
     isFinally: false,
-    loadingDelay: 1000, // 附加延遲
+    loadingDelay: 1500, // 附加延遲
     theaterSize: {
       theaterW: 0,
       theaterH: 0

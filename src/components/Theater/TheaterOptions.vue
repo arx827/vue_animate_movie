@@ -158,7 +158,7 @@ export default {
       border-radius: 20px;
       border: 0;
       padding: 20px 26px;
-      font-size: 16px;
+      font-size: 18px;
       &:focus {
         outline: none;
       }

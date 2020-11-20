@@ -14,7 +14,7 @@
 
 <script>
 import Lottie from '@/components/Lottie.vue';
-import * as loadingData from '@/lotties/loading/loading.json';
+import * as loadingData from '@/lotties/loading/data.json';
 
 export default {
   name: 'Loading',
@@ -58,10 +58,10 @@ export default {
     opacity: 0;
   }
   &-enter-active {
-    transition: opacity 0s;
+    transition: opacity .4s;
   }
   &-leave-active {
-    transition: opacity .3s;
+    transition: opacity .4s;
   }
 }
 </style>
