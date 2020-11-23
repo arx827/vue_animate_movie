@@ -9,8 +9,9 @@ export default new Vuex.Store({
     isShow: 'Opening',
     isLoading: false,
     isOptShow: false,
+    isOptBoxOpen: false,
     isFinally: false,
-    loadingDelay: 1500, // 附加延遲
+    loadingDelay: 1000, // 附加延遲
     theaterSize: {
       theaterW: 0,
       theaterH: 0
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
     updateOpt(context, isOptShow) {
       context.commit('OPTIONSHOW', isOptShow);
+    },
+    updateOptOpen(context, isOptBoxOpen) {
+      context.commit('OPTIONBOXOPEN', isOptBoxOpen);
     },
     updateFinally(context, isFinally) {
       context.commit('FINALLY', isFinally);
@@ -40,6 +44,9 @@ export default new Vuex.Store({
     OPTIONSHOW(state, isOptShow) {
       state.isOptShow = isOptShow;
     },
+    OPTIONBOXOPEN(state, isOptBoxOpen) {
+      state.isOptBoxOpen = isOptBoxOpen;
+    },
     FINALLY(state, isFinally) {
       state.isFinally = isFinally;
     },
@@ -54,6 +61,9 @@ export default new Vuex.Store({
   getters: {
     getTheaterSize(state){
       return state.theaterSize;
+    },
+    getOptBoxOpen(state){
+      return state.isOptBoxOpen;
     }
   },
   modules: {

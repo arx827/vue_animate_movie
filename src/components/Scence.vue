@@ -51,6 +51,7 @@ export default {
     clearTimeout(this.loadingTimer);
     clearTimeout(this.scenesTimer);
     this.$store.dispatch('updateOpt', false);
+    this.$store.dispatch('updateOptOpen', false);
   },
   computed: {
     ...mapGetters('ScenceManger', ['getIsFinally']),

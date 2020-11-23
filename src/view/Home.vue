@@ -22,10 +22,8 @@
         </transition>
       </div>
       <Procedure v-if="$store.state.isShow == 'Scence'" />
-      <TheaterHeader class="theater__Header--mbShow" :description="getCurrentData.description"/>
-      <transition name="theaterOpt" mode="out-in">
-        <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" v-if="$store.state.isOptShow"/>
-      </transition>
+      <TheaterHeader :description="getCurrentData.description"/>
+      
       <!-- 結尾 結語 -->
       <transition name="conclusion" mode="out-in">
         <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
@@ -35,10 +33,11 @@
           </div>
           <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
         </div>
-        
       </transition>
     </div>
-    <TheaterHeader class="theater__Header--pcShow" :description="getCurrentData.description"/>
+    <transition name="theaterOpt" mode="out-in">
+      <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" v-if="$store.state.isOptShow"/>
+    </transition>
   </div>
 </template>
 
@@ -61,7 +60,6 @@ export default {
       showConclusion: false
     };
   },
-  beforeCreate() {},
   components: {
     TheaterHeader,
     Loading,
@@ -111,18 +109,19 @@ export default {
   methods: {
     ...mapActions(['updateShow', 'updateOpt', 'updateTheaterSize']),
     ...mapActions('ScenceManger', ['goToNext', 'init', 'createStart', 'AfterAnimate']),
-    // 開始
+    // 開始 (按鈕)
     openingBtn() {
       this.updateShow('Scence');
       this.goToNext(this.getStartId);
       // 第一場景開始
     },
-    // 再玩一次
+    // 再玩一次 (按鈕)
     reStart() {
       this.createStart();
       this.$store.dispatch('updateFinally', false);
       this.updateShow('Opening');
     },
+    // 取得場景尺寸
     getTheater() {
       let item = document.querySelector('.js-theater__ratio');
       let theaterW = item.clientWidth;
@@ -158,14 +157,15 @@ export default {
   width: 100%;
   max-width: $SCENES_W;
   margin: 0 auto;
-  @include sm-media {
-    box-shadow: 0 0 15px $BOX-SHADOW;
-  }
+  position: relative;
 }
 
 .theater {
   position: relative;
   z-index: 10;
+  @include sm-media {
+    box-shadow: 0 0 15px $BOX-SHADOW;
+  }
   &__pcCover {
     @include sm-media {
       overflow: hidden;
@@ -193,20 +193,20 @@ export default {
       z-index: 10;
   }
 
-  &__Header {
-    &--pcShow {
-      display: none;
-      @include sm-media {
-        display: block;
-      }
-    }
-    &--mbShow {
-      display: block;
-      @include sm-media {
-        display: none;
-      }
-    }
-  }
+  // &__Header {
+  //   &--pcShow {
+  //     display: none;
+  //     @include sm-media {
+  //       display: block;
+  //     }
+  //   }
+  //   &--mbShow {
+  //     display: block;
+  //     @include sm-media {
+  //       display: none;
+  //     }
+  //   }
+  // }
 }
 
 .fitLayout {

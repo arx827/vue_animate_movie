@@ -1,21 +1,9 @@
 <template>
   <div
     class="theater__optBox d-flex flex-column align-items-center"
-    :class="{ theater__optBox__open: isShowOptBox }"
+    :class="{ theater__optBox__open: getOptBoxOpen }"
     v-if="hasOpts"
   >
-    <div class="theater__optBox__control d-none d-sm-block">
-      <button class="theater__optBox__controlBtn" @click="controlBtn">
-        <img
-          class="img-fluid theater__optBox__controlBtn__img"
-          src="@/assets/images/demo/Icon_arrow_down.svg"
-          alt=""
-        />
-        <p class="theater__optBox__controlBtn__txt">看選項</p>
-      </button>
-      <div class="theater__optBox__line"></div>
-    </div>
-
     <div class="theater__optBox__wrap d-flex flex-column flex-sm-row">
       <button
         class=" theater__optBox__btn d-flex flex-md-column"
@@ -30,36 +18,37 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'TheaterOptions',
   props: {
     questionOpt: Array,
   },
-  data() {
-    return {
-      isShowOptBox: false,
-    };
-  },
-  mounted() {
-    this.isShowOptBox = false;
-    // this.isShowOptBox = true;
-    // 動畫時間跑完 自動開啟選項
-    // this.AfterAnimate(() => {
-    //   this.isShowOptBox = true;
-    // });
-  },
+  // data() {
+  //   return {
+  //     isShowOptBox: false,
+  //   };
+  // },
+  // mounted() {
+  //   this.isShowOptBox = false;
+  //   // this.isShowOptBox = true;
+  //   // 動畫時間跑完 自動開啟選項
+  //   // this.AfterAnimate(() => {
+  //   //   this.isShowOptBox = true;
+  //   // });
+  // },
   computed: {
+    ...mapGetters(['getOptBoxOpen']),
     hasOpts() {
       return !!this.questionOpt;
     },
   },
   methods: {
     ...mapActions('ScenceManger', ['AfterAnimate']),
-    controlBtn() {
-      this.isShowOptBox = !this.isShowOptBox;
-    },
+    // controlBtn() {
+    //   this.isShowOptBox = !this.isShowOptBox;
+    // },
   },
 };
 </script>
@@ -67,24 +56,17 @@ export default {
 <style lang="scss" scoped>
 .theater {
   &__optBox {
-    z-index: 30;
-    @include sm-media {
-      -ms-transform: translateY(100%) translateY(-55px) translateY(-1rem) translateY(-4px); /* IE 11 */
-      transform: translateY(calc(100% - (55px + 1rem + 4px)));
-      transition: 0.4s;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      box-shadow: none;
-    }
-
+    z-index: 0;
+    transition: 0.1s;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    right: 0;
+    left: 0;
     &__open {
-      @include sm-media {
-        transform: translateY(0);
-      }
+      opacity: 1;
+      position: static;
     }
-
     &__controlBtn {
       border: 0;
       width: 55px;
@@ -124,30 +106,11 @@ export default {
       }
       
     }
-    &__open {
-      .theater__optBox__controlBtn__img {
-        transform: rotate(0deg);
-      }
-      .theater__optBox__controlBtn__txt {
-        display: none;
-      }
-    }
-
-    &__line {
-      width: 0;
-      height: 1rem;
-      border-left: 2px solid $COLOR-GRAY3;
-      margin: 2px auto;
-    }
 
     &__wrap {
       width: 100%;
       margin-top: 10px;
       margin-bottom: 10px;
-      @include sm-media {
-        margin-top: 0;
-        margin-bottom: 20px;
-      }
     }
 
     &__btn {

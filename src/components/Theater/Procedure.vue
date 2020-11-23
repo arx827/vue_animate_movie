@@ -37,14 +37,16 @@ export default {
   &__procedure {
     position: static;
     z-index: 40;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background: $COLOR-WHITE;
     @include sm-media {
       position: absolute;
       top: 0;
       bottom: 0;
       right: 0;
-      margin: 0 1rem 0 0;
+      padding: 1rem 1rem 10rem 0;
+      background: transparent;
     }
   }
 }
@@ -60,8 +62,11 @@ export default {
     background-size: cover;
     cursor: pointer;
     @include sm-media {
-      margin: 15px;
+      margin: .7rem;
       transform: rotate(-90deg);
+    }
+    @include md-media {
+      margin: 15px;
     }
     &--active {
       background-image: url("../../assets/images/img_icon_foot_on.svg");

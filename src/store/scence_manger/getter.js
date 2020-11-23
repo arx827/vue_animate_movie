@@ -20,7 +20,7 @@ export const getters = {
     if (currentDate.animationTime) {
       return state.currentData.redirectTo || state.startId;
     }
-    throw TypeError('這不適動畫不可以自動跳轉悠');
+    throw TypeError('這不是動畫不可以自動跳轉悠');
   },
   /* ----------------history相關--------------------------*/
   getHistroyNums(state) {
@@ -30,6 +30,7 @@ export const getters = {
     return state.historyMax;
   },
   /* ------------------Animation相關-------------------*/
+  // 判斷是否為 跳轉場景
   getIsAnimationNow(state) {
     const currentDate = state.currentData;
     return Boolean(currentDate.redirectTo);

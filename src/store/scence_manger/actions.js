@@ -18,9 +18,12 @@ export const actions = {
     const SenceData = getters.getScenceDataById(Id);
     commit('setCurrentData', SenceData);
     commit('addHistoryIds', Id);
-    if (getters.getIsAnimationNow) {
-      dispatch('goToNextByAnimation', Id);
-    }
+
+    // 轉場 自動跳轉
+    // if (getters.getIsAnimationNow) {
+    //   dispatch('goToNextByAnimation', Id);
+    // }
+    // 轉場 20201123 改為 按鈕觸發
   },
   /* ------------------History相關----------------------*/
   goBackToHistory({ state, dispatch }, step) {
@@ -35,22 +38,19 @@ export const actions = {
     // const SenceData = getters.getScenceDataById(state.historyIds[step]);
   },
   /* ---------------Animation相關----------------------*/
+  // 轉場 (自動跳轉)
   goToNextByAnimation({
     state, getters, commit, dispatch,
   }, correctNowId) {
     const timmer = setTimeout(() => {
       if (correctNowId === state.currentData.scenes) {
         const nextId = getters.getNextId;
-        // const SenceData = getters.getScenceDataById(nextId);
-        // commit("addHistoryIds", nextId);
-        // commit("setCurrentData", SenceData);
         dispatch('goToNext', nextId);
       }
       clearTimeout(timmer);
     }, state.currentData.animationTime);
   },
   AfterAnimate({ state, rootState }, fn) {
-    // console.log(fn);
     const timer = state.currentData.animationTime;
     setTimeout(() => {
       fn();
