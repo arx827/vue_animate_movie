@@ -2,7 +2,7 @@ export const scenesAll = [
   {
     scenes: 's1',
     description: '有一天，武松要回家探望兄長，經過景陽崗之前看到一家酒館...',
-    animationTime: 3000,
+    animationTime: 2000,
     questionOpt: [
       {
         optScenes: 's2',
@@ -21,7 +21,7 @@ export const scenesAll = [
   {
     scenes: 's2',
     description: '喝酒中，遇到醉漢把桌子直接翻掉...',
-    animationTime: 3000,
+    animationTime: 2000,
     questionOpt: [
       {
         optScenes: 's5',
@@ -78,19 +78,19 @@ export const scenesAll = [
   {
     scenes: 's5',
     description: '大戰一波後...<br>武松繼續上路',
-    animationTime: 3000,
+    animationTime: 2000,
     redirectTo: 's8',
   },
   {
     scenes: 's6',
     description: '玩完以後...<br>武松繼續上路',
-    animationTime: 3000,
+    animationTime: 2000,
     redirectTo: 's8',
   },
   {
     scenes: 's7',
     description: '迴避以後...<br>武松繼續上路',
-    animationTime: 3000,
+    animationTime: 2000,
     redirectTo: 's8',
   },
   {
@@ -115,19 +115,19 @@ export const scenesAll = [
   {
     scenes: 's9',
     description: '繼續上路',
-    animationTime: 3000,
+    animationTime: 2000,
     redirectTo: 's12',
   },
   {
     scenes: 's10',
     description: '繞道上路',
-    animationTime: 3000,
+    animationTime: 2000,
     redirectTo: 's12',
   },
   {
     scenes: 's11',
     description: '勇往直前',
-    animationTime: 3000,
+    animationTime: 2000,
     redirectTo: 's12',
   },
   {

@@ -29,7 +29,16 @@
         <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
           <div class="scence__conclusionInfo d-flex flex-column">
             <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
-            <p class="scence__conclusionInfo__Tags"><span class="scence__conclusionInfo__Tags__item" v-for="item in getCurrentData.tags" :key="item">{{ item | tags }}</span></p>
+
+            <div class="scence__conclusionInfo__Tags">
+              <template v-for="(item, index) in getCurrentData.tags">
+                <a class="scence__conclusionInfo__Tag d-inline-block" @click.prevent>
+                  <span class="scence__conclusionInfo__Tag__item" >{{ item | tags }}</span>
+                </a>
+                <span v-if="index != getCurrentData.tags.length - 1">、</span>
+              </template>
+            </div>
+            
           </div>
           <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
         </div>
@@ -319,16 +328,22 @@ export default {
         margin-bottom: 0;
         color: $COLOR-GRAY5;
         margin-top: 1rem;
-        &__item {
-          // &:hover {
-          //   color: $COLOR-MAIN;
-          // }
-          + .scence__conclusionInfo__Tags__item {
-            &::before {
-              content: '、';
-            }
-          }
+      }
+      &__Tag {
+        color: $COLOR-GRAY5;
+        cursor: pointer;
+        &:hover {
+          text-decoration: none;
+          color: $COLOR-GRAY5;
         }
+        // &:active {
+        //   color: $COLOR-MAIN;
+        // }
+        // @include sm-media {
+        //   &:hover {
+        //     color: $COLOR-MAIN;
+        //   }
+        // }
       }
     }
     &Tips {
