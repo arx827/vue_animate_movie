@@ -31,12 +31,9 @@
             <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
 
             <div class="scence__conclusionInfo__Tags">
-              <template v-for="(item, index) in getCurrentData.tags">
-                <a class="scence__conclusionInfo__Tag d-inline-block" @click.prevent>
-                  <span class="scence__conclusionInfo__Tag__item" >{{ item | tags }}</span>
-                </a>
-                <span v-if="index != getCurrentData.tags.length - 1">、</span>
-              </template>
+              <a class="scence__conclusionInfo__Tag d-inline-block" v-for="(item, index) in getCurrentData.tags" :key="index" @click.prevent>
+                <span class="scence__conclusionInfo__Tag__item">{{ item | tags }}</span>
+              </a>
             </div>
             
           </div>
@@ -344,6 +341,9 @@ export default {
         //     color: $COLOR-MAIN;
         //   }
         // }
+        & + & {
+          margin-left: 5px;
+        }
       }
     }
     &Tips {
