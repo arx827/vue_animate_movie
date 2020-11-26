@@ -1,6 +1,6 @@
 <template>
   <div class="lottie">
-    <lottie :options="defaultOptions" ref="lottie"/>
+    <Lottie :options="defaultOptions" ref="lottie"/>
     <div style="position: absolute; top: 0;">
       <button @click="play">play</button>
       <button @click="stop">stop</button>
@@ -26,7 +26,7 @@ export default {
     };
   },
   components: {
-    lottie: Lottie,
+    Lottie,
   },
   methods: {
     play() {

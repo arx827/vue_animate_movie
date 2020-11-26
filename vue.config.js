@@ -1,17 +1,72 @@
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV);
+
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'? process.env.VUE_APP_CONTEXT_PATH: '/',
+  publicPath: IS_PROD ? process.env.VUE_APP_CONTEXT_PATH : '/',
   outputDir: `dist/${process.env.VUE_APP_MODENAME}`,
   assetsDir: 'assets',
+  lintOnSave: true,
+  runtimeCompiler: true, // 是否使用包含運行時編譯器的Vue構建版本
+  productionSourceMap: !IS_PROD, // 生產環境的source map
   chainWebpack: (config) => {
+    // 打包分析
+    if (process.env.IS_ANALY) {
+      config.plugin('webpack-report').use(BundleAnalyzerPlugin, [{
+        analyzerMode: 'static',
+      }]);
+    }
+    // 修复HMR
+    config.resolve.symlinks(true);
     config.plugin('html').tap((args) => {
       args[0].title = 'Animation';
       return args;
     });
     config.module.rule('eslint').use('eslint-loader');
+    // 壓縮圖片
+    config.module
+    .rule('images')
+    .use('image-webpack-loader')
+    .loader('image-webpack-loader')
+    .options({
+      mozjpeg: { progressive: true, quality: 65 },
+      optipng: { enabled: false },
+      pngquant: { quality: '65-90', speed: 4 },
+      gifsicle: { interlaced: false },
+      webp: { quality: 75 },
+    });
   },
-  // eslint-loader 是否在儲存的時候檢查
-  // eslint-disable-next-line no-dupe-keys
-  lintOnSave: true,
+  configureWebpack: (config) => {
+    // if (IS_PROD) {
+      config.optimization = {
+        splitChunks: {
+          cacheGroups: {
+            libs: {
+              name: 'chunk-libs',
+              test: /[\\/]node_modules[\\/]/,
+              priority: 0,
+              minChunks: 2,
+              chunks: 'all',
+            },
+            jquery: {
+              name: 'chunk-jquery',
+              test: /[\\/]node_modules[\\/]jquery[\\/]/,
+              priority: 10,
+              chunks: 'all',
+            },
+            common: {
+              name: 'chunk-common',
+              minChunks: 2,
+              priority: -20,
+              chunks: 'initial',
+              reuseExistingChunk: true,
+          },
+          },
+        },
+      };
+    // }
+  },
+
   css: {
     // 是否使用css分離外掛 ExtractTextPlugin
     extract: true,

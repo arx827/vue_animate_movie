@@ -15,11 +15,11 @@ export default {
       defaultOptions: {
         animationData: animationData.default,
         pathId: 's1',
-      }
+      },
     };
   },
   components: {
     Lottie,
-  }
+  },
 };
 </script>
