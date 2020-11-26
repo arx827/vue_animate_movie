@@ -57,12 +57,14 @@ export default {
 .theater {
   &__optBox {
     z-index: 0;
-    transition: 0.1s;
     position: absolute;
     bottom: 0;
     opacity: 0;
     right: 0;
     left: 0;
+    @include sm-media {
+      transition: 0.5s;
+    }
     &__open {
       opacity: 1;
       position: relative;

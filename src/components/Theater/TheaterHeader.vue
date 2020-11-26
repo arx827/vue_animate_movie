@@ -66,19 +66,19 @@ export default {
   },
   watch: {
     // 變換場景 立即 觸發Scence重載
-    // getCurrentData: {
-    //   immediate: true,
-    //   handler(newValue, oldValue) {
-    //     this.isShowOptControl = false;
-    //     if (newValue) {
-    //       this.AfterAnimate(() => {
-    //         if (!this.getIsFinally) {
-    //           this.isShowOptControl = true;
-    //         }
-    //       });
-    //     }
-    //   },
-    // },
+    getCurrentData: {
+      immediate: true,
+      handler(newValue, oldValue) {
+        this.isShowOptControl = false;
+        if (newValue) {
+          // this.AfterAnimate(() => {
+            if (!this.getIsFinally) {
+              this.isShowOptControl = true;
+            }
+          // });
+        }
+      },
+    },
   },
 };
 </script>

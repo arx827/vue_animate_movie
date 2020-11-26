@@ -34,7 +34,52 @@
             </button>
         </transition>
       </div>
-      <!-- 結尾 結語 -->
+      <!-- pc版 結尾 結語 -->
+      <div class="pcShow">
+        <transition name="conclusion" mode="out-in">
+          <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
+            <div class="scence__conclusionInfo d-flex flex-column">
+              <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
+
+              <div class="scence__conclusionInfo__Tags">
+                <a class="scence__conclusionInfo__Tag d-inline-block"
+                  v-for="(item, index) in getCurrentData.tags"
+                  :key="index"
+                  @click.prevent
+                >
+                  <span class="scence__conclusionInfo__Tag__item">{{ item | tags }}</span>
+                </a>
+              </div>
+
+            </div>
+            <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
+          </div>
+        </transition>
+      </div>
+      <Procedure v-if="$store.state.isShow == 'Scence'" />
+      <!-- pc版 旁白&選項 -->
+      <div class="theater__Header pcShow">
+        <TheaterHeader :description="getCurrentData.description"/>
+        <transition name="theaterOpt" mode="out-in">
+          <TheaterOptions
+            :questionOpt="getCurrentData.questionOpt"
+            @next="goToNext"
+            v-if="$store.state.isOptShow"
+          />
+        </transition>
+      </div>
+    </div>
+    <!-- mb版 旁白&選項 -->
+    <div class="theater__Header mbShow">
+      <TheaterHeader :description="getCurrentData.description"/>
+      <TheaterOptions
+        :questionOpt="getCurrentData.questionOpt"
+        @next="goToNext"
+        v-if="$store.state.isOptShow"
+      />
+    </div>
+    <!-- pc版 結尾 結語 -->
+    <div class="mbShow">
       <transition name="conclusion" mode="out-in">
         <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
           <div class="scence__conclusionInfo d-flex flex-column">
@@ -53,29 +98,6 @@
           </div>
           <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
         </div>
-      </transition>
-      <Procedure v-if="$store.state.isShow == 'Scence'" />
-      <!-- pc版 旁白&選項 -->
-      <div class="theater__Header--pcShow">
-        <TheaterHeader :description="getCurrentData.description"/>
-        <transition name="theaterOpt" mode="out-in">
-          <TheaterOptions
-            :questionOpt="getCurrentData.questionOpt"
-            @next="goToNext"
-            v-if="$store.state.isOptShow"
-          />
-        </transition>
-      </div>
-    </div>
-    <!-- mb版 旁白&選項 -->
-    <div class="theater__Header--mbShow">
-      <TheaterHeader :description="getCurrentData.description"/>
-      <transition name="theaterOpt" mode="out-in">
-        <TheaterOptions
-          :questionOpt="getCurrentData.questionOpt"
-          @next="goToNext"
-          v-if="$store.state.isOptShow"
-        />
       </transition>
     </div>
   </div>
@@ -199,7 +221,18 @@ export default {
   margin: 0 auto;
   position: relative;
 }
-
+.pcShow {
+  display: none;
+  @include sm-media {
+    display: block;
+  }
+}
+.mbShow {
+  display: block;
+  @include sm-media {
+    display: none;
+  }
+}
 .theater {
   position: relative;
   z-index: 10;
@@ -233,19 +266,11 @@ export default {
       z-index: 10;
   }
   &__Header {
-    &--pcShow {
-      display: none;
+    &.pcShow {
       @include sm-media {
-        display: block;
         position: absolute;
         bottom: 0;
         width: 100%
-      }
-    }
-    &--mbShow {
-      display: block;
-      @include sm-media {
-        display: none;
       }
     }
   }
@@ -385,6 +410,7 @@ export default {
     }
     &Tips {
       margin-top: 1rem;
+      margin-bottom: 1rem;
       background: #ffc107BF;
       box-shadow: 1px 1px 10px 1px #0000004d;
       padding: 10px 20px;
