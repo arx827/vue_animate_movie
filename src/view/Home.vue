@@ -3,12 +3,21 @@
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
           <!-- 圖片為定義寬高比例用 -->
-          <img class="img-fluid theater__ratio js-theater__ratio" src="@/assets/images/demo/img_testbg.jpg"/>
+          <img
+            class="img-fluid theater__ratio js-theater__ratio"
+            src="@/assets/images/demo/img_testbg.jpg"
+          />
           <Loading />
           <div class="theater__main">
               <Opening />
               <!-- 開始 - 按鈕 -->
-              <button v-if="$store.state.isShow == 'Opening'" class="startBtn" @click="openingBtn"><span>GO</span></button>
+              <button
+                v-if="$store.state.isShow == 'Opening'"
+                class="startBtn"
+                @click="openingBtn"
+              >
+                <span>GO</span>
+              </button>
               <transition name="fade" mode="out-in">
                 <Scence :currentData="getCurrentData" v-if="$store.state.isShow == 'Scence'"/>
               </transition>
@@ -17,13 +26,14 @@
             <!-- 再玩一次 - 按鈕 -->
             <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
               <span>再玩一次</span>
-              <img class="scence__reStartBtn__icon" src="@/assets/images/Icon_material-refresh.svg" alt="">
+              <img
+                class="scence__reStartBtn__icon"
+                src="@/assets/images/Icon_material-refresh.svg"
+                alt=""
+              >
             </button>
         </transition>
       </div>
-      <Procedure v-if="$store.state.isShow == 'Scence'" />
-      <TheaterHeader :description="getCurrentData.description"/>
-      
       <!-- 結尾 結語 -->
       <transition name="conclusion" mode="out-in">
         <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
@@ -31,19 +41,43 @@
             <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
 
             <div class="scence__conclusionInfo__Tags">
-              <a class="scence__conclusionInfo__Tag d-inline-block" v-for="(item, index) in getCurrentData.tags" :key="index" @click.prevent>
+              <a class="scence__conclusionInfo__Tag d-inline-block"
+                v-for="(item, index) in getCurrentData.tags"
+                :key="index"
+                @click.prevent
+              >
                 <span class="scence__conclusionInfo__Tag__item">{{ item | tags }}</span>
               </a>
             </div>
-            
+
           </div>
           <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
         </div>
       </transition>
+      <Procedure v-if="$store.state.isShow == 'Scence'" />
+      <!-- pc版 旁白&選項 -->
+      <div class="theater__Header--pcShow">
+        <TheaterHeader :description="getCurrentData.description"/>
+        <transition name="theaterOpt" mode="out-in">
+          <TheaterOptions
+            :questionOpt="getCurrentData.questionOpt"
+            @next="goToNext"
+            v-if="$store.state.isOptShow"
+          />
+        </transition>
+      </div>
     </div>
-    <transition name="theaterOpt" mode="out-in">
-      <TheaterOptions :questionOpt="getCurrentData.questionOpt" @next="goToNext" v-if="$store.state.isOptShow"/>
-    </transition>
+    <!-- mb版 旁白&選項 -->
+    <div class="theater__Header--mbShow">
+      <TheaterHeader :description="getCurrentData.description"/>
+      <transition name="theaterOpt" mode="out-in">
+        <TheaterOptions
+          :questionOpt="getCurrentData.questionOpt"
+          @next="goToNext"
+          v-if="$store.state.isOptShow"
+        />
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -54,7 +88,7 @@ import Opening from '@/components/Opening.vue';
 import Scence from '@/components/Scence.vue';
 import Procedure from '@/components/Theater/Procedure.vue';
 import TheaterOptions from '@/components/Theater/TheaterOptions.vue';
-import { scenesAll } from '@/static/json/scenes.js';
+import { scenesAll } from '@/static/json/scenes';
 import { mapGetters, mapActions } from 'vuex';
 import _ from 'lodash';
 
@@ -63,7 +97,7 @@ export default {
   data() {
     return {
       ScenceManger: {},
-      showConclusion: false
+      showConclusion: false,
     };
   },
   components: {
@@ -82,14 +116,14 @@ export default {
   mounted() {
     const vm = this;
     this.createStart();
-    setTimeout(function(){
+    setTimeout(() => {
       vm.getTheater();
     });
     window.addEventListener('resize', this.resize);
   },
   updated() {
     const vm = this;
-    setTimeout(function(){
+    setTimeout(() => {
       vm.getTheater();
     });
     // 判斷最後一幕
@@ -97,11 +131,11 @@ export default {
       vm.AfterAnimate(() => {
         this.showConclusion = true;
       });
-    }else{
+    } else {
       this.showConclusion = false;
     }
   },
-  beforeDestroy(){
+  beforeDestroy() {
     window.removeEventListener('resize', this.resize);
   },
   computed: {
@@ -110,7 +144,7 @@ export default {
       'getCurrentData',
       'getScenceDataById',
       'getIsFinally',
-    ])
+    ]),
   },
   methods: {
     ...mapActions(['updateShow', 'updateOpt', 'updateTheaterSize']),
@@ -129,11 +163,11 @@ export default {
     },
     // 取得場景尺寸
     getTheater() {
-      let item = document.querySelector('.js-theater__ratio');
-      let theaterW = item.clientWidth;
-      let theaterH = item.clientHeight;
-      this.updateTheaterSize({theaterW,theaterH});
-    }
+      const item = document.querySelector('.js-theater__ratio');
+      const theaterW = item.clientWidth;
+      const theaterH = item.clientHeight;
+      this.updateTheaterSize({ theaterW, theaterH });
+    },
   },
   watch: {
     // 變換場景 立即 觸發Scence重載
@@ -151,16 +185,16 @@ export default {
     },
   },
   filters: {
-    tags(str){
-      return `#${str}`
-    }
-  }
+    tags(str) {
+      return `#${str}`;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .Home {
-  width: 100%;
+  width: 100vmin;
   max-width: $SCENES_W;
   margin: 0 auto;
   position: relative;
@@ -198,21 +232,24 @@ export default {
       // background: $COLOR-GRAY5;
       z-index: 10;
   }
+  &__Header {
+    &--pcShow {
+      display: none;
+      @include sm-media {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%
+      }
+    }
+    &--mbShow {
+      display: block;
+      @include sm-media {
+        display: none;
+      }
+    }
+  }
 
-  // &__Header {
-  //   &--pcShow {
-  //     display: none;
-  //     @include sm-media {
-  //       display: block;
-  //     }
-  //   }
-  //   &--mbShow {
-  //     display: block;
-  //     @include sm-media {
-  //       display: none;
-  //     }
-  //   }
-  // }
 }
 
 .fitLayout {

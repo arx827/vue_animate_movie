@@ -63,7 +63,7 @@ export default {
     cursor: pointer;
     @include sm-media {
       margin: .7rem;
-      transform: rotate(-90deg);
+      transform: rotate(90deg);
     }
     @include md-media {
       margin: 15px;

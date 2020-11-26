@@ -14,8 +14,8 @@ export default new Vuex.Store({
     loadingDelay: 1000, // 附加延遲
     theaterSize: {
       theaterW: 0,
-      theaterH: 0
-    }
+      theaterH: 0,
+    },
   },
   actions: {
     updateLoading(context, isLoading) {
@@ -35,7 +35,7 @@ export default new Vuex.Store({
     },
     updateTheaterSize(context, theaterSize) {
       context.commit('CHANGETHEATERSIZE', theaterSize);
-    }
+    },
   },
   mutations: {
     LOADING(state, isLoading) {
@@ -53,20 +53,20 @@ export default new Vuex.Store({
     CHANGESHOW(state, isShow) {
       state.isShow = isShow;
     },
-    CHANGETHEATERSIZE(state, {theaterW,theaterH}) {
+    CHANGETHEATERSIZE(state, { theaterW, theaterH }) {
       state.theaterSize.theaterW = theaterW;
       state.theaterSize.theaterH = theaterH;
-    }
+    },
   },
   getters: {
-    getTheaterSize(state){
+    getTheaterSize(state) {
       return state.theaterSize;
     },
-    getOptBoxOpen(state){
+    getOptBoxOpen(state) {
       return state.isOptBoxOpen;
-    }
+    },
   },
   modules: {
-    ScenceManger
+    ScenceManger,
   },
 });

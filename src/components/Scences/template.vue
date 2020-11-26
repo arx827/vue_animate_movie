@@ -19,10 +19,10 @@ export default {
   data() {
     return {
       defaultOptions: {
-        animationData: loadingData.default,
+        animationData: animationData.default,
         pathId: 's1', // 圖檔位置
       },
-      speed: 1
+      speed: 1,
     };
   },
   components: {
@@ -40,7 +40,7 @@ export default {
     },
     setSpeed(speed = 1) {
       this.anim.setSpeed(speed);
-    }
+    },
   },
   beforeDestroy() {
     this.anim.destroy();

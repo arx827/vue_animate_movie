@@ -17,62 +17,62 @@ export default {
     speed: {
       type: Number,
       required: false,
-      default: 1
+      default: 1,
     },
     width: {
       type: Number,
       required: false,
-      default: -1
+      default: -1,
     },
     height: {
       type: Number,
       required: false,
-      default: -1
+      default: -1,
     },
     loop: {
-      type:Boolean,
+      type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     autoPlay: {
-      type:Boolean,
+      type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     loopDelayMin: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     loopDelayMax: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
   },
   data() {
     return {
       name: 'lottie-animation',
       rendererSettings: {
-        scaleMode: "centerCrop",
+        scaleMode: 'centerCrop',
         clearCanvas: true,
         progressiveLoad: false,
-        hideOnTransparent: true
+        hideOnTransparent: true,
       },
       anim: null,
       style: {
-        width: (this.width != -1 )? `${this.width}px` : '100%',
-        height: (this.height != -1 )? `${this.height}px` : '100%',
-        overflow: "hidden",
-        margin: "0 auto"
+        width: (this.width !== -1) ? `${this.width}px` : '100%',
+        height: (this.height !== -1) ? `${this.height}px` : '100%',
+        overflow: 'hidden',
+        margin: '0 auto',
       },
       animationData: this.options.animationData,
-      pathId: this.options.pathId
+      pathId: this.options.pathId,
     };
   },
   mounted() {
     this.animationData.assets.forEach((item, index) => {
-      if(!item.layers){
+      if (!item.layers) {
         item.u = '';
         item.p = require(`@/assets/icons/${this.pathId}/images/img_${index}.svg`);
       }
@@ -80,11 +80,11 @@ export default {
     this.init();
   },
   computed: {
-    ...mapState(['theaterSize'])
+    ...mapState(['theaterSize']),
   },
   methods: {
-    init(){
-      if(this.anim) {
+    init() {
+      if (this.anim) {
         this.anim.destroy();
         this.anim = null;
       }
@@ -95,9 +95,9 @@ export default {
         autoplay: this.autoPlay,
         animationData: this.animationData,
         name: this.pathId,
-        rendererSettings: this.rendererSettings
+        rendererSettings: this.rendererSettings,
       });
-      this.$emit("AnimControl", this.anim);
+      this.$emit('AnimControl', this.anim);
       this.anim.setSpeed(this.speed);
       if (this.loopDelayMin > 0) {
         this.anim.loop = false;
@@ -115,17 +115,20 @@ export default {
       setTimeout(() => {
         this.anim.stop();
         this.executeLoop();
-      }, this.getRandomInt(this.loopDelayMin, this.loopDelayMax == 0? this.loopDelayMin : this.loopDelayMax));
+      }, this.getRandomInt(
+        this.loopDelayMin,
+        this.loopDelayMax === 0 ? this.loopDelayMin : this.loopDelayMax,
+      ));
     },
   },
   watch: {
-    "theaterSize": {
-      handler: function(newVal, oldVal){
+    theaterSize: {
+      handler(newVal, oldVal) {
         this.init();
       },
-      deep: true
-    }
-  }
+      deep: true,
+    },
+  },
 };
 </script>
 

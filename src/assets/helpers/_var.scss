@@ -28,34 +28,5 @@ $LG-MEDIA: 992px;
 $MD-MEDIA: 768px;
 $SM-MEDIA: 576px;
 
-$SCENES_W: 1000px;
-$SCENES_H: 670px;
-
-:root {
-    // 展示框大小
-    --SCENES_W: #{$SCENES_W};
-    --SCENES_H: #{$SCENES_H};
-    --COLOR-MAIN: #{$COLOR-MAIN};
-    --COLOR-MAIN2: #{$COLOR-WHITE};
-
-    --COLOR-WHITE: #{$COLOR-WHITE};
-    --COLOR-BLACK: #{$COLOR-BLACK};
-
-    --COLOR-GRAY1: #{$COLOR-GRAY1};
-    --COLOR-GRAY2: #{$COLOR-GRAY2};
-    --COLOR-GRAY3: #{$COLOR-GRAY3};
-    --COLOR-GRAY4: #{$COLOR-GRAY4};
-    --COLOR-GRAY5: #{$COLOR-GRAY5};
-
-    --BTN-MB-BG: #{$COLOR-BLACK-OP70};
-    --BTN-PC-BG: #{$COLOR-BLACK-OP99};
-
-    --BTN-BG-70: #{$COLOR-BLACK-OP70};
-    --BTN-BG-70-HOVER: #{$COLOR-GREEN-OP70};
-
-    --BTN-STEP: #{$COLOR-GRAY5};
-    --BTN-STEP-ACTIVE: #{$COLOR-GRAY3};
-
-    --BOX-SHADOW: #{$BOX-SHADOW};
-    --Home-BG: var(--COLOR-GRAY5);
-}
+$SCENES_W: 800px;
+$SCENES_H: calc(#{$SCENES_W} / 1000 * 670);

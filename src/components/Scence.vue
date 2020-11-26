@@ -23,7 +23,7 @@ export default {
   props: ['currentData'],
   data() {
     return {
-      scenesView: ''
+      scenesView: '',
     };
   },
   beforeCreate() {

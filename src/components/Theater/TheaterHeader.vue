@@ -9,7 +9,11 @@
 
         <div class="theater__optBox__keepW">
           <transition name="theaterOptControl" mode="out-in">
-            <div class="theater__optBox__control" :class="changeOptBoxClass" v-if="isShowOptControl">
+            <div
+              class="theater__optBox__control"
+              :class="changeOptBoxClass"
+              v-if="isShowOptControl"
+            >
               <button class="theater__optBox__controlBtn" @click="changeOptBoxControlEvent">
                 <p class="theater__optBox__controlBtn__txt">{{ getIsAnimationNow ? '繼續':'看選項' }}</p>
                 <img
@@ -28,51 +32,53 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'TheaterHeader',
   props: { description: String },
   data() {
     return {
-      isShowOptControl: false,
+      isShowOptControl: true,
     };
   },
   computed: {
     ...mapGetters(['getOptBoxOpen']),
-    ...mapGetters('ScenceManger',['getIsAnimationNow', 'getNextId', 'getCurrentData', 'getIsFinally']),
+    ...mapGetters('ScenceManger', ['getIsAnimationNow', 'getNextId', 'getCurrentData', 'getIsFinally']),
     changeOptBoxClass() {
-      if(this.getIsAnimationNow){     // 判斷是否為轉場
+      if (this.getIsAnimationNow) { // 判斷是否為轉場
         return 'theater__optBox__control__next';
-      }else if(this.getOptBoxOpen){   // 是否開啟選項盒子
+      }
+      if (this.getOptBoxOpen) { // 是否開啟選項盒子
         return 'theater__optBox__control__open';
       }
-    }
+    },
   },
   methods: {
     ...mapActions(['updateOptOpen']),
-    ...mapActions('ScenceManger',['goToNext', 'AfterAnimate']),
+    ...mapActions('ScenceManger', ['goToNext', 'AfterAnimate']),
     changeOptBoxControlEvent() {
-      if(this.getIsAnimationNow){                 // 判斷是否為轉場
-        this.goToNext(this.getNextId);            // 轉場的按鈕為 "跳至下一場"
-      }else{
-        this.updateOptOpen(!this.getOptBoxOpen);  // 展開選項按鈕
+      if (this.getIsAnimationNow) { // 判斷是否為轉場
+        this.goToNext(this.getNextId); // 轉場的按鈕為 "跳至下一場"
+      } else {
+        this.updateOptOpen(!this.getOptBoxOpen); // 展開選項按鈕
       }
-    }
+    },
   },
   watch: {
     // 變換場景 立即 觸發Scence重載
-    getCurrentData: {
-      immediate: true,
-      handler(newValue, oldValue) {
-        this.isShowOptControl = false;
-        if (newValue) {
-          this.AfterAnimate(() => {
-            if(!this.getIsFinally){
-              this.isShowOptControl = true;
-            }
-          });
-        }
-      },
-    },
+    // getCurrentData: {
+    //   immediate: true,
+    //   handler(newValue, oldValue) {
+    //     this.isShowOptControl = false;
+    //     if (newValue) {
+    //       this.AfterAnimate(() => {
+    //         if (!this.getIsFinally) {
+    //           this.isShowOptControl = true;
+    //         }
+    //       });
+    //     }
+    //   },
+    // },
   },
 };
 </script>
@@ -196,7 +202,7 @@ export default {
       opacity: 0;
   }
   &-enter-active {
-      transition: opacity 1s;
+      transition: opacity 3s;
   }
   &-leave-active {
       transition: opacity 1s;

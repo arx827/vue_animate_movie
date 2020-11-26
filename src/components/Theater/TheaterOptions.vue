@@ -65,7 +65,8 @@ export default {
     left: 0;
     &__open {
       opacity: 1;
-      position: static;
+      position: relative;
+      z-index: 20;
     }
     &__controlBtn {
       border: 0;
@@ -104,7 +105,7 @@ export default {
           background: $COLOR-GREEN-OP70;
         }
       }
-      
+
     }
 
     &__wrap {

@@ -1,6 +1,8 @@
 <template>
   <transition name="trans" mode="out-in">
-    <div class="fitLayout d-flex flex-column justify-content-center align-items-center" v-if="$store.state.isLoading">
+    <div class="fitLayout d-flex flex-column justify-content-center align-items-center"
+      v-if="$store.state.isLoading"
+    >
       <!-- <div class="loading_animation"> -->
         <div class="lottie">
           <lottie :options="defaultOptions" :style="{ maxWidth: '500px' }" />
@@ -42,7 +44,7 @@ export default {
   right: 0;
   z-index: 999;
   color: $COLOR-GRAY3;
-  
+
 }
 // .loading {
 //   &__txt {

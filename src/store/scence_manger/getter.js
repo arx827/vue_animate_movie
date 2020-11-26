@@ -9,7 +9,7 @@ export const getters = {
   getScenceDataById(state) {
     return (id) => {
       if (state.allData === '') {
-        return;
+        return false;
       }
       const resultData = state.allData.find((sceneData) => sceneData.scenes === id);
       return resultData;

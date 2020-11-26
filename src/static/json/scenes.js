@@ -78,19 +78,19 @@ export const scenesAll = [
   {
     scenes: 's5',
     description: '大戰一波後...<br>武松繼續上路',
-    animationTime: 2000,
+    animationTime: 4000,
     redirectTo: 's8',
   },
   {
     scenes: 's6',
     description: '玩完以後...<br>武松繼續上路',
-    animationTime: 2000,
+    animationTime: 4000,
     redirectTo: 's8',
   },
   {
     scenes: 's7',
     description: '迴避以後...<br>武松繼續上路',
-    animationTime: 2000,
+    animationTime: 4000,
     redirectTo: 's8',
   },
   {
@@ -115,19 +115,19 @@ export const scenesAll = [
   {
     scenes: 's9',
     description: '繼續上路',
-    animationTime: 2000,
+    animationTime: 4000,
     redirectTo: 's12',
   },
   {
     scenes: 's10',
     description: '繞道上路',
-    animationTime: 2000,
+    animationTime: 4000,
     redirectTo: 's12',
   },
   {
     scenes: 's11',
     description: '勇往直前',
-    animationTime: 2000,
+    animationTime: 4000,
     redirectTo: 's12',
   },
   {
@@ -202,7 +202,7 @@ export const scenesAll = [
     conclusion:
       '只要肯努力有夢想，小錢終將累積而成大財富，好好計劃，精打細算將來的每一步，聰明有規劃的你，養成儲蓄理財的好習慣，你也會開創一個更愜意的將來。',
     tips: '理財保障未來好工具，你我都知年金險！！',
-    tags: ['富邦人壽','年金險']
+    tags: ['富邦人壽', '年金險'],
   },
   {
     scenes: 's17',
@@ -211,6 +211,6 @@ export const scenesAll = [
     conclusion:
       '辛苦打拼與努力，卻忘了意外的發生總是讓人措手不及，如果身為家中支柱與社會棟樑，你更應該備好保障與失能風險，讓保險在你需要幫助的時候成為你的最佳助手。',
     tips: '規劃保障與管理風險，守護萬一更能保障家人！！',
-    tags: ['富邦人壽','傷害險']
+    tags: ['富邦人壽', '傷害險'],
   },
 ];

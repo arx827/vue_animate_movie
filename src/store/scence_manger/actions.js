@@ -20,10 +20,9 @@ export const actions = {
     commit('addHistoryIds', Id);
 
     // 轉場 自動跳轉
-    // if (getters.getIsAnimationNow) {
-    //   dispatch('goToNextByAnimation', Id);
-    // }
-    // 轉場 20201123 改為 按鈕觸發
+    if (getters.getIsAnimationNow) {
+      dispatch('goToNextByAnimation', Id);
+    }
   },
   /* ------------------History相關----------------------*/
   goBackToHistory({ state, dispatch }, step) {
