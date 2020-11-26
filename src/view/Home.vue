@@ -216,10 +216,13 @@ export default {
 
 <style lang="scss">
 .Home {
-  width: 100vmin;
+  width: 100%;
   max-width: $SCENES_W;
   margin: 0 auto;
   position: relative;
+  @include sm-media {
+    max-width: 100vmin;
+  }
 }
 .pcShow {
   display: none;
