@@ -41,17 +41,23 @@ module.exports = {
       config.optimization = {
         splitChunks: {
           cacheGroups: {
-            libs: {
-              name: 'chunk-libs',
-              test: /[\\/]node_modules[\\/]/,
-              priority: 0,
-              minChunks: 2,
-              chunks: 'all',
-            },
             jquery: {
-              name: 'chunk-jquery',
+              name: 'jquery',
               test: /[\\/]node_modules[\\/]jquery[\\/]/,
               priority: 10,
+              chunks: 'all',
+            },
+            bootstrap: {
+              name: 'bootstrap',
+              test: /[\\/]node_modules[\\/]bootstrap[\\/]/,
+              priority: 10,
+              chunks: 'all',
+            },
+            vendors: {
+              name: 'chunk-vendors',
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              minChunks: 2,
               chunks: 'all',
             },
             common: {
@@ -60,7 +66,7 @@ module.exports = {
               priority: -20,
               chunks: 'initial',
               reuseExistingChunk: true,
-          },
+            },
           },
         },
       };
