@@ -60,7 +60,7 @@ export default {
       if (this.getIsAnimationNow) { // 判斷是否為轉場
         this.goToNext(this.getNextId); // 轉場的按鈕為 "跳至下一場"
       } else {
-        this.updateOptOpen(!this.getOptBoxOpen); // 展開選項按鈕
+        this.updateOptOpen(!this.getOptBoxOpen); // 展開/收合選項按鈕
       }
     },
   },
@@ -136,6 +136,7 @@ export default {
         &__img {
           width: 23px;
           transition: 0.5s;
+          transform: rotate(180deg);
         }
         &__txt {
           margin: 0;
@@ -159,7 +160,7 @@ export default {
       }
       &__open {
         .theater__optBox__controlBtn__img {
-          transform: rotate(180deg);
+          transform: rotate(0deg);
         }
         .theater__optBox__controlBtn__txt {
           display: none;
@@ -192,7 +193,7 @@ export default {
       transition: opacity 3s;
   }
   &-leave-active {
-      transition: opacity 1s;
+      transition: opacity 2s;
   }
 }
 

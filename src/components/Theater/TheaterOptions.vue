@@ -62,9 +62,6 @@ export default {
     opacity: 0;
     right: 0;
     left: 0;
-    @include sm-media {
-      transition: 0.5s;
-    }
     &__open {
       opacity: 1;
       position: relative;

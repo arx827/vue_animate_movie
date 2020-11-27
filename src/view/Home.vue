@@ -220,9 +220,9 @@ export default {
   max-width: $SCENES_W;
   margin: 0 auto;
   position: relative;
-  @include sm-media {
-    max-width: 100vmin;
-  }
+  // @include sm-media {
+  //   max-width: 100vmin;
+  // }
 }
 .pcShow {
   display: none;
@@ -463,7 +463,7 @@ export default {
         opacity: 0;
     }
     &-enter-active {
-        transition: opacity 5s;
+        transition: opacity .5s;
     }
     &-leave-active {
         transition: opacity 0s;
