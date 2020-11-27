@@ -87,7 +87,7 @@ export default {
 .theater {
   &__header {
     background: $COLOR-MAIN;
-    padding: 16px;
+    padding: 10px;
     width: 100%;
     position: relative;
     z-index: 20;
@@ -107,13 +107,18 @@ export default {
     }
     &__voice {
       color: $COLOR-WHITE;
-      font-size: 20px;
+      font-size: 18px;
       margin-left: 7px;
       margin-right: 7px;
-      line-height: 1.5;
+      line-height: 1.3;
       margin-bottom: 0;
       flex: 1;
       @include sm-media {
+        font-size: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      @include md-media {
         font-size: 22px;
         margin-left: 36px;
         margin-right: 36px;
@@ -136,7 +141,10 @@ export default {
         &__img {
           width: 23px;
           transition: 0.5s;
-          transform: rotate(180deg);
+          transform: rotate(0deg);
+          @include sm-media {
+            transform: rotate(180deg);
+          }
         }
         &__txt {
           margin: 0;
@@ -160,7 +168,10 @@ export default {
       }
       &__open {
         .theater__optBox__controlBtn__img {
-          transform: rotate(0deg);
+          transform: rotate(180deg);
+          @include sm-media {
+            transform: rotate(0deg);
+          }
         }
         .theater__optBox__controlBtn__txt {
           display: none;
