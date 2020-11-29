@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "@/assets/all.scss";
 </style>
 <style lang="scss">

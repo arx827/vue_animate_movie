@@ -40,33 +40,41 @@ module.exports = {
     // if (IS_PROD) {
       config.optimization = {
         splitChunks: {
+          // 表示選擇哪些 chunks 進行分割，可選值有：async，initial和all
+          chunks: 'all',
+          // 表示新分離開出的chunk必須大於等於minSize，默認為30000，約30kb。
+          minSize: 30000,
+          // 表示一個模塊至少應被minChunks個chunk所包含才能分割。默認為1。
+          minChunks: 1,
+          // 表示按需加載文件時，並行請求的最大數目。默認為5。
+          maxAsyncRequests: 5,
+          // 表示加載入口文件時，並行請求的最大數目。默認為3。
+          maxInitialRequests: 3,
+          // 表示拆分出的chunk的名稱連接符，默認為~
+          automaticNameDelimiter: '-',
           cacheGroups: {
             jquery: {
               name: 'jquery',
               test: /[\\/]node_modules[\\/]jquery[\\/]/,
               priority: 10,
-              chunks: 'all',
             },
             bootstrap: {
               name: 'bootstrap',
               test: /[\\/]node_modules[\\/]bootstrap[\\/]/,
               priority: 10,
-              chunks: 'all',
             },
             vendors: {
               name: 'chunk-vendors',
               test: /[\\/]node_modules[\\/]/,
               priority: -10,
-              minChunks: 2,
-              chunks: 'all',
             },
-            common: {
-              name: 'chunk-common',
-              minChunks: 2,
-              priority: -20,
-              chunks: 'initial',
-              reuseExistingChunk: true,
-            },
+            // common: {
+            //   name: 'chunk-common',
+            //   minChunks: 2,
+            //   priority: -20,
+            //   chunks: 'initial',
+            //   reuseExistingChunk: true,
+            // },
           },
         },
       };
