@@ -2,42 +2,32 @@
   <div class="Home">
     <div class="theater theater__pcCover">
       <div class="theater__mbCover">
-          <!-- 圖片為定義寬高比例用 -->
-          <img
-            class="img-fluid theater__ratio js-theater__ratio"
-            src="@/assets/images/demo/img_testbg.jpg"
-          />
-          <Loading />
-          <div class="theater__main">
-              <Opening />
-              <!-- 開始 - 按鈕 -->
-              <button
-                v-if="$store.state.isShow == 'Opening'"
-                class="startBtn"
-                @click="openingBtn"
-              >
-                <span>GO</span>
-              </button>
-              <transition name="fade" mode="out-in">
-                <Scence :currentData="getCurrentData" v-if="$store.state.isShow == 'Scence'"/>
-              </transition>
-          </div>
-          <transition name="btn" mode="out-in">
-            <!-- 再玩一次 - 按鈕 -->
-            <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
-              <span>再玩一次</span>
-              <img
-                class="scence__reStartBtn__icon"
-                src="@/assets/images/Icon_material-refresh.svg"
-                alt=""
-              >
+        <!-- 圖片為定義寬高比例用 -->
+        <img
+          class="img-fluid theater__ratio js-theater__ratio"
+          src="@/assets/images/demo/img_testbg.jpg"
+        />
+        <Loading />
+        <div class="theater__main">
+            <Opening />
+            <!-- 開始 - 按鈕 -->
+            <button
+              v-if="$store.state.isShow == 'Opening'"
+              class="startBtn"
+              @click="openingBtn"
+            >
+              <span>GO</span>
             </button>
-        </transition>
+            <transition name="fade" mode="out-in">
+              <Scence :currentData="getCurrentData" v-if="$store.state.isShow == 'Scence'"/>
+            </transition>
+        </div>
       </div>
       <!-- pc版 結尾 結語 -->
       <div class="pcShow">
         <transition name="conclusion" mode="out-in">
-          <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
+          <div class="scence__conclusionPos d-flex flex-column align-items-end"
+          v-if="getCurrentData.conclusion && showConclusion">
             <div class="scence__conclusionInfo d-flex flex-column">
               <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
 
@@ -53,6 +43,17 @@
 
             </div>
             <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
+            <transition v-if="getIsFinally" name="btn" mode="out-in">
+              <!-- 再玩一次 - 按鈕 -->
+              <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
+                <span>再玩一次</span>
+                <img
+                  class="scence__reStartBtn__icon"
+                  src="@/assets/images/Icon_material-refresh.svg"
+                  alt=""
+                >
+              </button>
+            </transition>
           </div>
         </transition>
       </div>
@@ -78,10 +79,11 @@
         v-if="$store.state.isOptShow"
       />
     </div>
-    <!-- pc版 結尾 結語 -->
+    <!-- mb版 結尾 結語 -->
     <div class="mbShow">
       <transition name="conclusion" mode="out-in">
-        <div class="scence__conclusionPos" v-if="getCurrentData.conclusion && showConclusion">
+        <div class="scence__conclusionPos d-flex flex-column align-items-end"
+        v-if="getCurrentData.conclusion && showConclusion">
           <div class="scence__conclusionInfo d-flex flex-column">
             <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
 
@@ -97,6 +99,17 @@
 
           </div>
           <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
+          <transition name="btn" mode="out-in">
+            <!-- 再玩一次 - 按鈕 -->
+            <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
+              <span>再玩一次</span>
+              <img
+                class="scence__reStartBtn__icon"
+                src="@/assets/images/Icon_material-refresh.svg"
+                alt=""
+              >
+            </button>
+          </transition>
         </div>
       </transition>
     </div>
@@ -323,9 +336,9 @@ export default {
   // 再玩一次 按鈕
   &__reStartBtn {
     background: $COLOR-BLACK-OP70;
-    position: absolute;
-    bottom: 1rem;
-    right: .5rem;
+    // position: absolute;
+    // bottom: 1rem;
+    // right: .5rem;
     border: 0;
     font-size: 20px;
     color: $COLOR-WHITE;
@@ -333,8 +346,8 @@ export default {
     border-radius: 5px;
     padding: 5px 16px;
     @include sm-media {
-      bottom: 2rem;
-      right: 6rem;
+      // bottom: 2rem;
+      // right: 6rem;
     }
     &:hover {
       background: $COLOR-GREEN-OP70;
@@ -383,6 +396,7 @@ export default {
         font-size: 20px;
         color: $COLOR-WHITE;
         margin-bottom: 0;
+        line-height: 1.3;
       }
       &__Tags {
         font-size: 18px;
@@ -420,6 +434,7 @@ export default {
       color: #ff2b07;
       border-radius: 20px;
       font-size: 20px;
+      width: 100%;
       &::before {
         content: 'Tips:';
         margin-right: 8px;
