@@ -6,12 +6,15 @@
   >
     <div class="theater__optBox__wrap d-flex flex-column flex-sm-row">
       <button
-        class=" theater__optBox__btn d-flex flex-md-column"
+        class="theater__optBox__btn d-flex flex-md-column"
         v-for="item in questionOpt"
         :key="item.optScenes"
         @click="$emit('next', item.optScenes)"
       >
-        {{ item.optQuestion }}
+        <div>
+          <p v-if="item.optHeader" class="theater__optBox__header">{{item.optHeader}}</p>
+          <span>{{item.optQuestion}}</span>
+        </div>
       </button>
     </div>
   </div>
@@ -122,6 +125,7 @@ export default {
       border: 0;
       padding: 20px 26px;
       font-size: 18px;
+      line-height: 1.3;
       &:focus {
         outline: none;
       }
@@ -183,6 +187,9 @@ export default {
           margin-right: 0;
         }
       }
+    }
+    &__header {
+      color: var(--COLOR-MAIN3);
     }
   }
 }
