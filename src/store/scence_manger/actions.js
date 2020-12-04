@@ -17,11 +17,13 @@ export const actions = {
   goToNext({ getters, commit, dispatch }, Id) {
     const SenceData = getters.getScenceDataById(Id);
     commit('setCurrentData', SenceData);
-    commit('addHistoryIds', Id);
 
     // 轉場 自動跳轉
+    // 轉場不紀錄歷史紀錄
     if (getters.getIsAnimationNow) {
       dispatch('goToNextByAnimation', Id);
+    } else {
+      commit('addHistoryIds', Id);
     }
   },
   /* ------------------History相關----------------------*/

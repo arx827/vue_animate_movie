@@ -145,7 +145,7 @@ export default {
   },
   created() {
     // 實體化
-    this.init([scenesAll, 8]);
+    this.init([scenesAll, 6]);
     this.resize = _.debounce(this.getTheater, 1000);
   },
   mounted() {
