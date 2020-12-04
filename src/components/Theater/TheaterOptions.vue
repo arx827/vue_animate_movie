@@ -13,7 +13,7 @@
       >
         <div>
           <p v-if="item.optHeader" class="theater__optBox__header">{{item.optHeader}}</p>
-          <span>{{item.optQuestion}}</span>
+          <span class="theater__optBox__info">{{item.optQuestion}}</span>
         </div>
       </button>
     </div>
@@ -190,6 +190,10 @@ export default {
     }
     &__header {
       color: var(--COLOR-MAIN3);
+      font-size: 20px;
+    }
+    &__info {
+      font-size: 16px;
     }
   }
 }
