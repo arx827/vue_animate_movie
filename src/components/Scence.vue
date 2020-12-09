@@ -9,7 +9,6 @@
         /> -->
 
         <div class="scence__main d-flex justify-content-center align-items-center">
-          <!-- <Se/> -->
           <component :is="scenesView"></component>
         </div>
       </div>
@@ -19,7 +18,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-// import Se from './Scences/s0.vue';
 import Lottie from '@/components/Lottie.vue';
 import s1 from '@/components/Scences/s1.vue';
 import s2 from '@/components/Scences/s2.vue';
