@@ -24,17 +24,17 @@ module.exports = {
     });
     config.module.rule('eslint').use('eslint-loader');
     // 壓縮圖片
-    config.module
-    .rule('images')
-    .use('image-webpack-loader')
-    .loader('image-webpack-loader')
-    .options({
-      mozjpeg: { progressive: true, quality: 65 },
-      optipng: { enabled: false },
-      pngquant: { quality: '65-90', speed: 4 },
-      gifsicle: { interlaced: false },
-      webp: { quality: 75 },
-    });
+    // config.module
+    // .rule('images')
+    // .use('image-webpack-loader')
+    // .loader('image-webpack-loader')
+    // .options({
+    //   mozjpeg: { progressive: true, quality: 65 },
+    //   optipng: { enabled: false },
+    //   pngquant: { quality: '65-90', speed: 4 },
+    //   gifsicle: { interlaced: false },
+    //   webp: { quality: 75 },
+    // });
   },
   configureWebpack: (config) => {
     // if (IS_PROD) {

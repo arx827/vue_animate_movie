@@ -1,10 +1,13 @@
 <template>
   <div class="theater__procedure d-flex justify-content-center align-items-sm-center">
-    <div class=" d-flex flex-sm-column flex-wrap justify-content-start">
+    <div class="d-flex flex-sm-column flex-wrap justify-content-start align-items-center">
       <template v-for="item in getHistroyMax">
         <div
           class="procedure__stepItem"
-          :class="{ 'procedure__stepItem--active': item <= getHistroyNums }"
+          :class="{
+            'procedure__stepItem--history': item <= getHistroyNums,
+            'procedure__stepItem--active': item === getHistroyNums
+          }"
           @click="stepClick(item)"
           :key="item"
         ></div>
@@ -60,7 +63,14 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    cursor: pointer;
+    &.procedure__stepItem--history {
+      &:not(.procedure__stepItem--active){
+        cursor:pointer;
+      }
+    }
+    &:not(.procedure__stepItem--history){
+      cursor:not-allowed;
+    }
     @include sm-media {
       margin: .7rem;
       transform: rotate(90deg);
@@ -68,9 +78,28 @@ export default {
     @include md-media {
       margin: 15px;
     }
-    &--active {
+    &--history {
       background-image: url("../../assets/images/img_icon_foot_on.svg");
     }
+    &--active {
+      width: 1.8rem;
+      height: 1.8rem;
+      background-image: url("../../assets/images/wusong-head.svg");
+      animation-name: rotate;
+      animation-duration: 3.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+    }
+  }
+}
+
+@keyframes rotate {
+  from{
+    transform: rotate(15deg);
+  }
+  to{
+    transform: rotate(-15deg);
   }
 }
 </style>
