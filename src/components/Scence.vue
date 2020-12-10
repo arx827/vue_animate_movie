@@ -50,9 +50,9 @@ export default {
   },
   mounted() {
     const vm = this;
-    this.loadingTimer = setTimeout(() => {
-      vm.$store.dispatch('updateLoading', false);
-    }, vm.$store.state.loadingDelay);
+    // this.loadingTimer = setTimeout(() => {
+    //   vm.$store.dispatch('updateLoading', false);
+    // }, vm.$store.state.loadingDelay);
     this.scenesTimer = setTimeout(() => {
       // 動態切換場景
       // this.scenesView = () => import(`../components/Scences/${this.currentData.scenes}.vue`);

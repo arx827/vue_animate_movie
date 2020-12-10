@@ -71,6 +71,7 @@ export default {
     };
   },
   mounted() {
+    const vm = this;
     this.animationData.assets.forEach((item, index) => {
       if (!item.layers) {
         item.u = '';
@@ -78,6 +79,9 @@ export default {
       }
     });
     this.init();
+    this.anim.addEventListener('loopComplete', (e) => {
+      vm.$store.dispatch('updateLoading', false);
+    });
   },
   computed: {
     ...mapState(['theaterSize']),
@@ -119,6 +123,12 @@ export default {
         this.loopDelayMin,
         this.loopDelayMax === 0 ? this.loopDelayMin : this.loopDelayMax,
       ));
+    },
+    play() {
+      this.anim.play();
+    },
+    stop() {
+      this.anim.stop();
     },
   },
   watch: {
