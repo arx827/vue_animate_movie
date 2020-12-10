@@ -79,6 +79,8 @@ export default {
       }
     });
     this.init();
+
+    // 當動畫跑過一次循環之後 關閉loading
     this.anim.addEventListener('loopComplete', (e) => {
       vm.$store.dispatch('updateLoading', false);
     });
