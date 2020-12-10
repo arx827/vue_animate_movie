@@ -4,7 +4,7 @@
     <p class="file__source font-999999 text-center">
       圖片來源：富邦人壽 行銷系統部 / 數位行銷運營部
     </p>
-    <p class="d-none">version: <span>v3.4</span></p>
+    <p class="d-none">version: <span>v3.6</span></p>
   </div>
 </template>
 
