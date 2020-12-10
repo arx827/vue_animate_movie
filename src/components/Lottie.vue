@@ -85,6 +85,9 @@ export default {
       vm.$store.dispatch('updateLoading', false);
     });
   },
+  beforeDestroy() {
+    this.anim.destroy();
+  },
   computed: {
     ...mapState(['theaterSize']),
   },
