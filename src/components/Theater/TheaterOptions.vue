@@ -189,7 +189,7 @@ export default {
       }
     }
     &__header {
-      color: var(--COLOR-MAIN3);
+      color: $COLOR-MAIN3;
       font-size: 20px;
     }
     &__info {

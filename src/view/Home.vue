@@ -84,7 +84,7 @@
       <transition name="conclusion" mode="out-in">
         <div class="scence__conclusionPos d-flex flex-column align-items-end"
         v-if="getCurrentData.conclusion && showConclusion">
-          <div class="scence__conclusionInfo d-flex flex-column">
+          <div class="scence__conclusionInfo d-flex flex-column w-100">
             <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
 
             <div class="scence__conclusionInfo__Tags">
@@ -101,7 +101,8 @@
           <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
           <transition name="btn" mode="out-in">
             <!-- 再玩一次 - 按鈕 -->
-            <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
+            <button v-if="getIsFinally" class="scence__reStartBtn d-flex align-items-center"
+            @click="reStart">
               <span>再玩一次</span>
               <img
                 class="scence__reStartBtn__icon"
