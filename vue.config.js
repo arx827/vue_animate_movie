@@ -68,13 +68,6 @@ module.exports = {
               test: /[\\/]node_modules[\\/]/,
               priority: -10,
             },
-            // common: {
-            //   name: 'chunk-common',
-            //   minChunks: 2,
-            //   priority: -20,
-            //   chunks: 'initial',
-            //   reuseExistingChunk: true,
-            // },
           },
         },
       };

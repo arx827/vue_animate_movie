@@ -4,7 +4,7 @@
     :class="{ theater__optBox__open: getOptBoxOpen }"
     v-if="hasOpts"
   >
-    <div class="theater__optBox__wrap d-flex flex-column flex-sm-row">
+    <div class="theater__optBox__wrap d-flex flex-column flex-md-row">
       <button
         class="theater__optBox__btn d-flex flex-md-column"
         v-for="item in questionOpt"
@@ -135,7 +135,7 @@ export default {
       &:active {
         background: $COLOR-GREEN-OP70;
       }
-      @include sm-media {
+      @include md-media {
         margin-left: 10px;
         margin-right: 10px;
         padding: 15px 25px 25px;
@@ -154,7 +154,7 @@ export default {
 
       + .theater__optBox__btn {
         margin-top: 10px;
-        @include sm-media {
+        @include md-media {
           margin-top: 0;
         }
       }
@@ -182,7 +182,7 @@ export default {
         font-size: 25px;
         line-height: 1.2;
         margin-right: 8px;
-        @include sm-media {
+        @include md-media {
           font-size: 30px;
           margin-right: 0;
         }

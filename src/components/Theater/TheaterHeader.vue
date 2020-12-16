@@ -95,7 +95,7 @@ export default {
       width: 100%;
       margin-right: auto;
       margin-left: auto;
-      @include sm-media {
+      @include md-media {
         width: 90%;
       }
     }
@@ -113,12 +113,12 @@ export default {
       line-height: 1.3;
       margin-bottom: 0;
       flex: 1;
-      @include sm-media {
+      @include md-media {
         font-size: 20px;
         margin-left: 20px;
         margin-right: 20px;
       }
-      @include md-media {
+      @include lg-media {
         font-size: 22px;
         margin-left: 36px;
         margin-right: 36px;
@@ -142,7 +142,7 @@ export default {
           width: 23px;
           transition: 0.5s;
           transform: rotate(0deg);
-          @include sm-media {
+          @include md-media {
             transform: rotate(180deg);
           }
         }
@@ -169,7 +169,7 @@ export default {
       &__open {
         .theater__optBox__controlBtn__img {
           transform: rotate(180deg);
-          @include sm-media {
+          @include md-media {
             transform: rotate(0deg);
           }
         }

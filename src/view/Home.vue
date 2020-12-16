@@ -28,7 +28,7 @@
         <transition name="conclusion" mode="out-in">
           <div class="scence__conclusionPos d-flex flex-column align-items-end"
           v-if="getCurrentData.conclusion && showConclusion">
-            <div class="scence__conclusionInfo d-flex flex-column">
+            <div class="scence__conclusionInfo d-flex flex-column w-100">
               <p class="scence__conclusionInfo__txt">{{ getCurrentData.conclusion }}</p>
 
               <div class="scence__conclusionInfo__Tags">
@@ -45,11 +45,13 @@
             <div class="scence__conclusionTips"><span>{{ getCurrentData.tips }}</span></div>
             <transition v-if="getIsFinally" name="btn" mode="out-in">
               <!-- 再玩一次 - 按鈕 -->
-              <button v-if="getIsFinally" class="scence__reStartBtn" @click="reStart">
+              <button v-if="getIsFinally"
+                class="scence__reStartBtn d-flex align-items-center"
+                @click="reStart">
                 <span>再玩一次</span>
                 <img
                   class="scence__reStartBtn__icon"
-                  src="@/assets/images/Icon_material-refresh.svg"
+                  src="@/assets/images/Icon_refresh.svg"
                   alt=""
                 >
               </button>
@@ -106,7 +108,7 @@
               <span>再玩一次</span>
               <img
                 class="scence__reStartBtn__icon"
-                src="@/assets/images/Icon_material-refresh.svg"
+                src="@/assets/images/Icon_refresh.svg"
                 alt=""
               >
             </button>
@@ -240,31 +242,31 @@ export default {
 }
 .pcShow {
   display: none;
-  @include sm-media {
+  @include md-media {
     display: block;
   }
 }
 .mbShow {
   display: block;
-  @include sm-media {
+  @include md-media {
     display: none;
   }
 }
 .theater {
   position: relative;
   z-index: 10;
-  @include sm-media {
+  @include md-media {
     box-shadow: 0 0 15px $BOX-SHADOW;
   }
   &__pcCover {
-    @include sm-media {
+    @include md-media {
       overflow: hidden;
     }
   }
   &__mbCover {
     position: relative;
     overflow: hidden;
-    @include sm-media {
+    @include md-media {
       overflow: visible;
     }
   }
@@ -284,7 +286,7 @@ export default {
   }
   &__Header {
     &.pcShow {
-      @include sm-media {
+      @include md-media {
         position: absolute;
         bottom: 0;
         width: 100%
@@ -316,7 +318,7 @@ export default {
   color: $COLOR-WHITE;
   z-index: 30;
   padding: 0;
-  @include sm-media {
+  @include md-media {
     top: calc((100% - 112px) / 2);
     left: calc((100% - 112px) / 2);
     width: 112px;
@@ -346,7 +348,7 @@ export default {
     z-index: 30;
     border-radius: 5px;
     padding: 5px 16px;
-    @include sm-media {
+    @include md-media {
       // bottom: 2rem;
       // right: 6rem;
     }
@@ -371,7 +373,7 @@ export default {
   &__conclusion {
     &Pos {
       z-index: 20;
-      @include sm-media {
+      @include md-media {
         position: absolute;
         width: 80%;
         top: 1rem;

@@ -1,6 +1,6 @@
 <template>
-  <div class="theater__procedure d-flex justify-content-center align-items-sm-center">
-    <div class="d-flex flex-sm-column flex-wrap justify-content-start align-items-center">
+  <div class="theater__procedure d-flex justify-content-center align-items-md-center">
+    <div class="d-flex flex-md-column flex-wrap justify-content-start align-items-center">
       <template v-for="item in getHistroyMax">
         <div
           class="procedure__stepItem"
@@ -43,7 +43,7 @@ export default {
     padding-top: .5rem;
     padding-bottom: .5rem;
     background: $COLOR-WHITE;
-    @include sm-media {
+    @include md-media {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -71,7 +71,7 @@ export default {
     &:not(.procedure__stepItem--history){
       cursor:not-allowed;
     }
-    @include sm-media {
+    @include md-media {
       margin: .7rem;
       transform: rotate(90deg);
     }
