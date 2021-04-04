@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="bg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1024" style="enable-background:new 0 0 1000 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);fill:url(#天空_1_);}
+	.st1{clip-path:url(#SVGID_2_);}
+	.st2{fill:url(#SVGID_3_);}
+	.st3{fill:#5A7DE0;}
+	.st4{clip-path:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:url(#雲_2_);}
+	.st5{fill:#49404D;}
+	.st6{fill:#5A7D4E;}
+	.st7{fill:url(#石頭_2_);}
+	.st8{fill:url(#後_2_);}
+	.st9{display:none;fill:url(#右_前山_2_);}
+	.st10{fill:url(#右_前山_3_);}
+	.st11{fill:url(#SVGID_4_);}
+	.st12{fill:url(#SVGID_5_);}
+	.st13{fill:url(#SVGID_6_);}
+	.st14{fill:url(#後_3_);}
+	.st15{fill:url(#SVGID_7_);}
+	.st16{display:none;fill:url(#左_前山_2_);}
+	.st17{fill:url(#左_前山_3_);}
+	.st18{clip-path:url(#SVGID_2_);fill:url(#樹叢_1_);}
+	.st19{fill:none;stroke:#49404D;stroke-width:3;stroke-miterlimit:10;}
+	.st20{fill:url(#XMLID_2_);}
+	.st21{clip-path:url(#SVGID_2_);fill:url(#地板_2_);}
+	.st22{clip-path:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:url(#雲_3_);}
+	.st23{fill:url(#SVGID_8_);}
+	.st24{fill:url(#SVGID_9_);}
+	.st25{fill:url(#SVGID_10_);}
+	.st26{fill:url(#SVGID_11_);}
+	.st27{fill:url(#SVGID_12_);}
+	.st28{fill:url(#SVGID_13_);}
+	.st29{fill:url(#SVGID_14_);}
+	.st30{fill:url(#SVGID_15_);}
+	.st31{fill:#CCCCFF;}
+</style>
+<g>
+	<defs>
+		<rect id="SVGID_1_" x="0" width="1000" height="1024"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<linearGradient id="天空_1_" gradientUnits="userSpaceOnUse" x1="501.9314" y1="-2.1991" x2="501.9314" y2="432.0445">
+		<stop  offset="0" style="stop-color:#3BDBBB"/>
+		<stop  offset="8.952320e-03" style="stop-color:#3FDBBB"/>
+		<stop  offset="0.1273" style="stop-color:#6BDBBB"/>
+		<stop  offset="0.2511" style="stop-color:#90DBBB"/>
+		<stop  offset="0.379" style="stop-color:#AFDBBB"/>
+		<stop  offset="0.5124" style="stop-color:#C7DBBB"/>
+		<stop  offset="0.6536" style="stop-color:#D8DBBB"/>
+		<stop  offset="0.8079" style="stop-color:#E2DBBB"/>
+		<stop  offset="1" style="stop-color:#E5DBBB"/>
+	</linearGradient>
+	<rect id="天空" x="-10.1" y="-2.2" class="st0" width="1024" height="434.2"/>
+	<g id="山_1_" class="st1">
+		
+			<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="1003.2947" y1="179.0846" x2="1003.2947" y2="416.8415" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+			<stop  offset="0" style="stop-color:#49B584"/>
+			<stop  offset="0.1451" style="stop-color:#4DB38D"/>
+			<stop  offset="0.3818" style="stop-color:#58AEA5"/>
+			<stop  offset="0.6804" style="stop-color:#69A6CD"/>
+			<stop  offset="1" style="stop-color:#7F9CFF"/>
+		</linearGradient>
+		<path class="st2" d="M1026.7,416.8c21.8-110.2-55.8-237.8-108.9-237.8c-51.5,0-90.4,117.4-74.5,237.8H1026.7z"/>
+		<g>
+			<rect x="933.9" y="196.8" class="st3" width="1.1" height="220"/>
+		</g>
+		<g>
+			<polygon class="st3" points="932.2,416.8 886.9,224.5 885.9,225.3 931,416.8 			"/>
+		</g>
+		<g>
+			<polygon class="st3" points="927.8,416.8 852.2,291.4 851.5,292.9 926.3,416.8 			"/>
+		</g>
+		<g>
+			<polygon class="st3" points="916.1,416.8 847.4,374.7 847.1,376.5 912.8,416.8 			"/>
+		</g>
+		<g>
+			<polygon class="st3" points="937.6,416.8 975.4,243.4 974.4,242.7 936.5,416.8 			"/>
+		</g>
+		<g>
+			<polygon class="st3" points="941.5,416.8 1007.8,289.5 1007,288.1 940,416.8 			"/>
+		</g>
+		<g>
+			<polygon class="st3" points="951.5,416.8 1024.9,359.9 1024.5,358.1 948.8,416.8 			"/>
+		</g>
+	</g>
+	<linearGradient id="雲_2_" gradientUnits="userSpaceOnUse" x1="887.1527" y1="377.7952" x2="332.9596" y2="377.7952">
+		<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.7"/>
+		<stop  offset="0.88" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	</linearGradient>
+	<path id="雲_1_" class="st4" d="M885.8,407.2c3,3.2,0.7,8.4-3.7,8.4l-548,0c-0.6,0-1.6-1.2-1-1.2c98.7-1.4,78-29.4,134.4-23.1
+		c39.2,4.4,44.8-24,72.7-27.7c41.9-5.6,55.2,9.7,75.9,3.6c27.9-8.3,44.2-23.8,65.7-26.6C732.2,334,866.4,386.3,885.8,407.2z"/>
+	<g id="樹_4_" class="st1">
+		<path class="st5" d="M860,213.9c-2.7,1.7-5.2,3.4-7.9,4.9c-2.6,1.6-5.3,3.1-8.1,4.5c-2.7,1.5-5.5,2.9-8.3,4.2l-4.2,2l-2.1,1
+			l-1.1,0.5l-0.5,0.2c0,0,0,0-0.1,0c-0.2,0.1-0.7,0.1-1.2,0.1c-0.6-0.1-1.2-0.2-1.8-0.4c-1.3-0.4-2.6-0.9-3.7-1.6
+			c-0.1-0.1-0.2-0.2-0.3-0.2c-0.1-0.1-0.2-0.1-0.2-0.1c0-0.1-0.1-0.2-0.1-0.2c-0.2-0.2-0.4-0.4-0.7-0.6c-0.5-0.3-1-0.3-1.2-0.3
+			c-0.2,0-0.3,0-0.4,0c-0.1,0-0.2,0-0.3,0c-0.1,0-0.2,0.1-0.3,0.1c-0.3,0.1-0.5,0.2-0.7,0.3c-0.2,0.1-0.3,0.2-0.4,0.2
+			c-0.4,0.3-0.8,0.5-1.1,0.8l-0.9,0.7c-1.2,1-2.4,1.9-3.5,2.6c-0.3,0.2-0.6,0.3-0.8,0.4c-0.2,0.1-0.4,0.2-0.5,0.2l-1.1-0.5
+			c-1.5-0.6-2.9-1.3-4.4-1.9c-2.9-1.2-5.8-2.4-8.8-3.6c-11.7-4.7-23.4-9.4-34.9-14.4c-5.8-2.5-11.5-5.1-17.1-8
+			c-2.8-1.4-5.6-2.9-8.2-4.6c-1.3-0.8-2.6-1.7-3.9-2.7c-0.6-0.5-1.2-1-1.7-1.6c-0.5-0.6-1-1.2-1.4-1.9c0.3,0.7,0.8,1.4,1.3,2
+			c0.5,0.6,1.1,1.1,1.7,1.7c1.2,1,2.5,2,3.8,2.9c2.6,1.8,5.3,3.4,8,5c5.5,3.1,11.1,6,16.8,8.8c11.3,5.6,22.8,10.8,34.3,16.1
+			c2.9,1.3,5.7,2.6,8.5,4c1.4,0.7,2.8,1.4,4.2,2.1l1,0.5l0.1,0.1l0.1,0l0.2,0.1c0.2,0.1,0.5,0.2,0.7,0.2c0.5,0.1,0.9,0.1,1.2,0.1
+			c0.7-0.1,1.2-0.2,1.7-0.4c0.5-0.2,0.9-0.4,1.3-0.6c1.6-0.9,2.9-1.8,4.2-2.8l0.7-0.5c0,0,0.1,0.1,0.1,0.1c0.8,0.6,1.5,1.1,2.3,1.5
+			c0.8,0.4,1.6,0.8,2.4,1.2c0.8,0.4,1.7,0.7,2.7,0.9c1,0.2,2.1,0.4,3.5,0.1c0.3-0.1,0.7-0.2,1.1-0.3l0.6-0.2l1.1-0.4l2.3-0.8
+			l4.5-1.6c3-1.1,6-2.2,9-3.3c3-1.2,6-2.4,8.9-3.8c3-1.3,5.9-2.8,8.7-4.2L860,213.9z M809.7,233.7L809.7,233.7
+			C809.7,233.7,809.7,233.7,809.7,233.7C809.7,233.7,809.7,233.7,809.7,233.7C809.8,233.7,809.7,233.7,809.7,233.7z M816.4,231.9
+			c-0.1-0.1-0.1-0.2-0.1-0.2C816.3,231.7,816.4,231.8,816.4,231.9z M819.2,232.9C819.2,232.9,819.2,232.9,819.2,232.9
+			C819.2,232.9,819.2,232.9,819.2,232.9z M820.7,229.4c0,0,0,0.1,0.1,0.1c0,0,0,0.1,0.1,0.1C820.7,229.6,820.7,229.5,820.7,229.4
+			C820.6,229.3,820.6,229.4,820.7,229.4z"/>
+		<path class="st5" d="M787.7,232.2c0,0,5.7-2.9,10.2-2.8l1.3,3.7c-7.4-0.2-5.8-0.7-11,0.4L787.7,232.2z"/>
+		<path class="st5" d="M806.2,144.6l38.5-6.2c-6.1,15.3-9.6,23.1-7.1,37.2c1.5,8.1,16.3,15.5,16.3,15.5s8.1,12.5,13.2,15.5
+			c2.5,1.5,17.4,1.5,23.3-0.3c11.4-3.4,40.2-33,70.6-32.5c0.7,0-4.8,43.6-10.5,34.7c-6.5-10-36.2,13.5-49.5,20
+			c-18.4,8.9-51-12.5-53.4-14.2c-4.9-3.4-0.8-10.4-3.7-14.2c-5.7-7.6-25.2-13-25.7-21.4C817.3,164.2,798.3,160.1,806.2,144.6z"/>
+		<path id="XMLID_6_" class="st6" d="M670.6,216.6c-2-28.4,56.7-37.9,85.5-41c21.7-2.3,41.7,1.8,48.2,20.8
+			c10.8,31.6-51,27.9-70,28.4C715.2,225.3,672.1,237.9,670.6,216.6z"/>
+	</g>
+	<g id="山" class="st1">
+		
+			<linearGradient id="石頭_2_" gradientUnits="userSpaceOnUse" x1="243.9748" y1="339.2932" x2="243.9748" y2="434.8415" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+			<stop  offset="0" style="stop-color:#3D3939"/>
+			<stop  offset="0.999" style="stop-color:#6A6551"/>
+		</linearGradient>
+		<path id="石頭_1_" class="st7" d="M344,434.8c-1.4-58.8-23.7-95.5-148.7-95.5c-124.3,0-116.9,38.6-187.7,95.5H344z"/>
+		
+			<linearGradient id="後_2_" gradientUnits="userSpaceOnUse" x1="814.3141" y1="131.8505" x2="1035.5331" y2="353.9719" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+			<stop  offset="0.3" style="stop-color:#FFD746"/>
+			<stop  offset="0.3248" style="stop-color:#F3D04A"/>
+			<stop  offset="0.3994" style="stop-color:#D3BD53"/>
+			<stop  offset="0.4806" style="stop-color:#B9AE5B"/>
+			<stop  offset="0.5694" style="stop-color:#A4A361"/>
+			<stop  offset="0.6699" style="stop-color:#969A65"/>
+			<stop  offset="0.7917" style="stop-color:#8E9567"/>
+			<stop  offset="0.9943" style="stop-color:#8B9468"/>
+		</linearGradient>
+		<path id="後" class="st8" d="M1332.1,424.6c-57.9-129.7-187.2-141.5-214.2-225.9C995.7-183.7,914.7,415.5,866.3,341.6
+			c-72.2-110.3-132.2-3.4-192.8,83H1332.1z"/>
+		
+			<linearGradient id="右_前山_2_" gradientUnits="userSpaceOnUse" x1="898.4146" y1="302.1368" x2="939.6843" y2="451.1786" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+			<stop  offset="0" style="stop-color:#49C484"/>
+			<stop  offset="0.1451" style="stop-color:#4DC18D"/>
+			<stop  offset="0.3818" style="stop-color:#58B9A5"/>
+			<stop  offset="0.6804" style="stop-color:#69ACCD"/>
+			<stop  offset="1" style="stop-color:#7F9CFF"/>
+		</linearGradient>
+		<path id="右_前山" class="st9" d="M1232.9,442.6c-57-50.8-85.5-150.4-162.4-150.4c-84.4,0-84.3,65.8-177.9,62.9
+			c-91.3-2.9-101.6,66.6-157.2,41.6c-89.5-40.3-176.4-1.9-230.2,45.9H1232.9z"/>
+		<linearGradient id="右_前山_3_" gradientUnits="userSpaceOnUse" x1="1005.9644" y1="527.7341" x2="820.5983" y2="308.4293">
+			<stop  offset="0" style="stop-color:#7F9CFF"/>
+			<stop  offset="0.1179" style="stop-color:#869EF6"/>
+			<stop  offset="0.3103" style="stop-color:#99A4DE"/>
+			<stop  offset="0.5532" style="stop-color:#B8ADB6"/>
+			<stop  offset="0.8344" style="stop-color:#E3BB80"/>
+			<stop  offset="1" style="stop-color:#FFC35C"/>
+		</linearGradient>
+		<path id="右_前山_1_" class="st10" d="M1232.9,435.6c-49.7-50.8-74.5-130.4-141.5-130.4c-73.6,0-93.2,117.3-181.2,62.9
+			c-103.8-64.2-148.6,78.3-180.5,51.6c-60.7-50.7-80.8-19.6-113.5,15.9H1232.9z"/>
+		<g id="草">
+			<g>
+				
+					<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="631.1763" y1="429.2766" x2="631.1763" y2="437.6401" gradientTransform="matrix(0.9908 -0.1356 0.1356 0.9908 -47.951 89.6088)">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.3587" style="stop-color:#C0AC3F"/>
+					<stop  offset="0.5744" style="stop-color:#B8AA47"/>
+					<stop  offset="0.7518" style="stop-color:#ACA755"/>
+					<stop  offset="0.9" style="stop-color:#9BA468"/>
+				</linearGradient>
+				<path class="st11" d="M626.2,434.6c-0.3,1.8-0.2,3.2,0.4,4.4l20.4-2.8C639.5,431.4,628,425.7,626.2,434.6z"/>
+			</g>
+			<g>
+				
+					<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="657.6924" y1="420.2275" x2="657.6924" y2="437.6401" gradientTransform="matrix(0.9908 -0.1356 0.1356 0.9908 -47.951 89.6088)">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.3587" style="stop-color:#C0AC3F"/>
+					<stop  offset="0.5744" style="stop-color:#B8AA47"/>
+					<stop  offset="0.7518" style="stop-color:#ACA755"/>
+					<stop  offset="0.9" style="stop-color:#9BA468"/>
+				</linearGradient>
+				<path class="st12" d="M667.4,417.6c-8-5.6-11.7,9.2-13.1,17.6l8.1-1.1C668.2,429,673.8,422.1,667.4,417.6z"/>
+			</g>
+			<g>
+				
+					<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="637.8295" y1="397.2758" x2="637.8295" y2="437.6401" gradientTransform="matrix(0.9908 -0.1356 0.1356 0.9908 -47.951 89.6088)">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.3587" style="stop-color:#C0AC3F"/>
+					<stop  offset="0.5744" style="stop-color:#B8AA47"/>
+					<stop  offset="0.7518" style="stop-color:#ACA755"/>
+					<stop  offset="0.9" style="stop-color:#9BA468"/>
+				</linearGradient>
+				<path class="st13" d="M653.8,404.5c-7.4-3.3-7.3,14.4-7,20.1c-1.9-3.7-4-7.4-6.1-11.1c-0.1-5.1-0.8-19-7.5-16
+					c-7.3,3.3,1.9,12.7,5.9,16.3c0,0.1,0,0.2,0.1,0.3c1.8,3.2,3.6,6.4,5.2,9.5c-4.8-5.8-16.3-18.2-20.3-10.2
+					c-4.7,9.5,17.2,12.3,21.6,12.8c1.7,3.2,3.2,6.4,4.7,9.4l1.8-0.2c-1.6-3.3-3.2-6.5-4.8-9.7C650,422.7,661.9,408.2,653.8,404.5z"
+					/>
+			</g>
+		</g>
+		
+			<linearGradient id="後_3_" gradientUnits="userSpaceOnUse" x1="256.7422" y1="-47.9734" x2="531.9896" y2="634.519" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+			<stop  offset="0" style="stop-color:#7A8A2D"/>
+			<stop  offset="0.4291" style="stop-color:#7D8B2D"/>
+			<stop  offset="0.6871" style="stop-color:#85902D"/>
+			<stop  offset="0.8991" style="stop-color:#93972D"/>
+			<stop  offset="1" style="stop-color:#9D9C2D"/>
+		</linearGradient>
+		<path id="後_1_" class="st14" d="M1013,432c-85.1-44.7-184.3-19.6-400.9,18.7c-57.2,10.1-215.7,58.6-258.2,4.8
+			c-64.9-82-94.1-130.7-121.1-149.6c-94.7-66.5-129.5,75-196.1,57.4C-73.9,334.1-66.4,383.8-113.6,432l103.6,592h1024L1013,432z"/>
+		<g id="石頭">
+			
+				<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="327.3391" y1="416.6001" x2="327.3391" y2="436.3911" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+				<stop  offset="0" style="stop-color:#474242"/>
+				<stop  offset="0.999" style="stop-color:#6A6551"/>
+			</linearGradient>
+			<path class="st15" d="M277.8,436.4c4.4-13.2-12.2-14.4-22.2-18.6c-10.8-4.5-18.4,4.1-15.2,18.6H277.8z"/>
+		</g>
+		
+			<linearGradient id="左_前山_2_" gradientUnits="userSpaceOnUse" x1="52.6095" y1="360.2562" x2="165.5977" y2="458.74" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+			<stop  offset="0" style="stop-color:#49C484"/>
+			<stop  offset="0.1451" style="stop-color:#4DC18D"/>
+			<stop  offset="0.3818" style="stop-color:#58B9A5"/>
+			<stop  offset="0.6804" style="stop-color:#69ACCD"/>
+			<stop  offset="1" style="stop-color:#7F9CFF"/>
+		</linearGradient>
+		<path id="左_前山" class="st16" d="M329.6,435.6c-22.1-8.8-59.5-32.9-94.1-27.2c-71.3,11.8-96.6-57.6-143.3-65.2
+			c-65.8-10.7-91.5,87-192.9,34.9c-60.4-31.1-82.5,31.9-87.4,57.5H329.6z"/>
+		
+			<linearGradient id="左_前山_3_" gradientUnits="userSpaceOnUse" x1="82.6245" y1="474.0765" x2="279.769" y2="313.4771" gradientTransform="matrix(1 0 0 1 -68.2324 0)">
+			<stop  offset="0" style="stop-color:#7F9CFF"/>
+			<stop  offset="0.1179" style="stop-color:#869EF6"/>
+			<stop  offset="0.3103" style="stop-color:#99A4DE"/>
+			<stop  offset="0.5532" style="stop-color:#B8ADB6"/>
+			<stop  offset="0.8344" style="stop-color:#E3BB80"/>
+			<stop  offset="1" style="stop-color:#FFC35C"/>
+		</linearGradient>
+		<path id="左_前山_1_" class="st17" d="M379.6,435.6c-40.9-17.1-70.9-22.8-94.1,2.8c-40,43.9-35.1-85.6-118.3-33.2
+			C65.9,469.1,77.7,378.8,39.4,288.1C-10.1,171-93.7,300.7-98,435.6H379.6z"/>
+	</g>
+	
+		<linearGradient id="樹叢_1_" gradientUnits="userSpaceOnUse" x1="45.494" y1="85.2005" x2="233.487" y2="79.3433" gradientTransform="matrix(-1 2.787715e-04 3.040617e-04 1.0909 915.4584 30.8918)">
+		<stop  offset="9.741710e-03" style="stop-color:#809C49"/>
+		<stop  offset="0.55" style="stop-color:#829D49"/>
+		<stop  offset="0.7792" style="stop-color:#899E48"/>
+		<stop  offset="0.9493" style="stop-color:#96A247"/>
+		<stop  offset="1" style="stop-color:#9BA346"/>
+	</linearGradient>
+	<path id="樹叢" class="st18" d="M639.8,138.2c-0.3-34.4,134-45.3,197-77.6c67.4-34.7,145.5-0.9,153.2,52
+		c8.1,55.4-113.4,89-184,87.3C745.1,198.5,640.3,189.7,639.8,138.2z"/>
+	<g id="樹" class="st1">
+		<g id="樹枝">
+			<g>
+				<path class="st19" d="M88.5,272.5c0.1-0.2,0.4-0.3,0.5-0.6c0.1-0.2,0.5-0.3,0.6-0.5c0.1-0.2,0.3-0.4,0.4-0.6
+					c0.1-0.2-0.4-0.7-0.3-0.9c0.1-0.2,0.3-0.4,0.4-0.6c0.1-0.2,0.8-0.2,0.9-0.4c0.1-0.2,0-0.5,0.1-0.8c0.1-0.2-0.3-0.7-0.2-0.9
+					c0.1-0.2,0.7-0.2,0.8-0.4c0.1-0.2,0.3-0.4,0.4-0.6c0.1-0.2-0.1-0.6,0-0.8c0.1-0.2,0.6-0.2,0.8-0.4c0.1-0.2,0.3-0.4,0.4-0.6
+					c0.1-0.2-0.4-0.8-0.3-1c0.1-0.2,0.9-0.1,1-0.3c0.1-0.2,0.1-0.5,0.2-0.7c0.1-0.2,0.4-0.3,0.5-0.5c0.1-0.2-0.5-0.9-0.4-1.1
+					c0.1-0.2,0.6-0.2,0.7-0.4c0.1-0.2,0.6-0.2,0.8-0.4c0.1-0.2-0.3-0.8-0.1-1c0.1-0.2,0.3-0.4,0.5-0.6c0.1-0.2,0.8,0,0.9-0.2
+					c0.1-0.2-0.4-0.9-0.3-1.1c0.1-0.2,0.9,0,1-0.2c0.1-0.2-0.3-0.8-0.1-1c0.1-0.2,0.7-0.1,0.9-0.3c0.1-0.2,0.2-0.4,0.4-0.6
+					c0.1-0.2,0.6-0.2,0.7-0.4c0.1-0.2-0.1-0.6,0.1-0.8c0.1-0.2,0.4-0.3,0.6-0.5c0.1-0.2,0.1-0.5,0.3-0.7c0.1-0.2,0-0.6,0.1-0.8
+					c0.1-0.2,0.8,0,0.9-0.2c0.1-0.2-0.1-0.7,0-0.9c0.1-0.2,0.4-0.3,0.5-0.5"/>
+			</g>
+			<path class="st5" d="M94,294.7c0,0,0.3-1.4,0.8-2.6c-4.9-1.2-7.7,2.4-8.4,2.2c-12.2-3-13.3-8.3-23-3.9l0.7,5
+				c7.6-3.5,11.8,2.4,21.4,2.8C89.2,298.3,89.5,293.7,94,294.7z"/>
+			<path class="st5" d="M98,251.8c-4.8,3.4-4.9,13.6-8.1,19.1c-1.6,2.7-6.8,0.1-7.8,3.6c-0.5,1.7-14.4,21.7-16.8,23.7
+				c-1.2,1-12.9,0.2-14.2,1c0,0-31.4-10.2-43.8-12.3c-3-0.5-49.6,29.8-49.7,29.6c0,0-6.2-20.3-6.1-25.2c1.2-0.5,54.3-26,56.1-25.7
+				c12.8,1.8,37.7,19.2,38.1,19c1.3-0.6,13,0.3,14.1-0.5c2.4-1.6,16.1-13.7,16.7-15.4c1.2-3.5,5.2-3,7-5.6
+				c3.7-5.2,4.5-14.8,9.7-17.9C102.4,239.8,106.4,245.9,98,251.8z"/>
+		</g>
+		
+			<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="761.7687" y1="106.084" x2="761.7687" y2="42.5679" gradientTransform="matrix(-0.9984 -5.637091e-02 -5.637091e-02 0.9984 852.3961 217.1897)">
+			<stop  offset="0" style="stop-color:#31625B"/>
+			<stop  offset="0.2244" style="stop-color:#4C715F"/>
+			<stop  offset="0.5514" style="stop-color:#6E8464"/>
+			<stop  offset="0.8217" style="stop-color:#839067"/>
+			<stop  offset="1" style="stop-color:#8B9468"/>
+		</linearGradient>
+		<path id="XMLID_11_" class="st20" d="M13.5,233.2c0.8-18.9,24.7-16.7,85.3-15.8c21.8,0.3,29,6.3,56.3,30.8
+			c25.7,23.1-25.6,42.6-72.3,28.9C35.5,263.1,12.3,261.4,13.5,233.2z"/>
+	</g>
+	<linearGradient id="地板_2_" gradientUnits="userSpaceOnUse" x1="501.9314" y1="1024" x2="501.9314" y2="432.0445">
+		<stop  offset="0" style="stop-color:#424242"/>
+		<stop  offset="0.5519" style="stop-color:#3F3F3F"/>
+		<stop  offset="0.8834" style="stop-color:#373737"/>
+		<stop  offset="1" style="stop-color:#323232"/>
+	</linearGradient>
+	<rect id="地板_1_" x="-10.1" y="432" class="st21" width="1024" height="592"/>
+	<linearGradient id="雲_3_" gradientUnits="userSpaceOnUse" x1="-74.1084" y1="394.2707" x2="500.7523" y2="394.2707">
+		<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.7"/>
+		<stop  offset="0.8" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	</linearGradient>
+	<path id="雲" class="st22" d="M499.4,423.7c3,3.2,0.7,8.4-3.7,8.4l-569.1,0c-6.1,0,27.6-12.3,34.5-14.3c9.3-2.6,74-14.5,89.5-16.2
+		c21.7-2.5,43.7-6.4,53.2-11.1c23.1-11.4,22.1-16.7,50-20.4c41.9-5.6,55.2,19.7,75.9,13.6c27.9-8.3,44.2-23.8,65.7-26.6
+		C345.8,350.5,480,402.7,499.4,423.7z"/>
+	<g id="草皮" class="st1">
+		<g id="草皮_1_">
+			<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="28.3376" y1="564.4523" x2="210.4639" y2="307.9517">
+				<stop  offset="0" style="stop-color:#7F9CFF"/>
+				<stop  offset="0.2499" style="stop-color:#A4A7CF"/>
+				<stop  offset="0.6042" style="stop-color:#D5B691"/>
+				<stop  offset="0.8642" style="stop-color:#F3BF6B"/>
+				<stop  offset="1" style="stop-color:#FFC35C"/>
+			</linearGradient>
+			<path class="st23" d="M-60.1,877.5l50-447.4l190,2C133.4,422.6-95,835.8-60.1,877.5z"/>
+			<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="944.5616" y1="877.4583" x2="944.5616" y2="430.0445">
+				<stop  offset="0" style="stop-color:#7A8A2D"/>
+				<stop  offset="0.4291" style="stop-color:#7D8B2D"/>
+				<stop  offset="0.6871" style="stop-color:#85902D"/>
+				<stop  offset="0.8991" style="stop-color:#93972D"/>
+				<stop  offset="1" style="stop-color:#9D9C2D"/>
+			</linearGradient>
+			<path class="st24" d="M1063.9,877.5l-50-447.4l-190,2C864.7,430,1083.7,848.2,1063.9,877.5z"/>
+		</g>
+		<g>
+			<g>
+				
+					<linearGradient id="SVGID_10_" gradientUnits="userSpaceOnUse" x1="179.8303" y1="452.7955" x2="179.8303" y2="471.8717" gradientTransform="matrix(-1 0 0 1 241.179 0)">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.1838" style="stop-color:#C4AD44"/>
+					<stop  offset="0.4712" style="stop-color:#C8AF5A"/>
+					<stop  offset="0.8242" style="stop-color:#CFB47E"/>
+					<stop  offset="1" style="stop-color:#D3B693"/>
+				</linearGradient>
+				<path class="st25" d="M84.1,461.8c1.3,4,1.4,7.3,0.4,10h-47C53.2,458.6,77.5,442.3,84.1,461.8z"/>
+			</g>
+			<g>
+				
+					<linearGradient id="SVGID_11_" gradientUnits="userSpaceOnUse" x1="240.3103" y1="432.1557" x2="240.3103" y2="471.8717" gradientTransform="matrix(-1 0 0 1 241.179 0)">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.1838" style="stop-color:#C4AD44"/>
+					<stop  offset="0.4712" style="stop-color:#C8AF5A"/>
+					<stop  offset="0.8242" style="stop-color:#CFB47E"/>
+					<stop  offset="1" style="stop-color:#D3B693"/>
+				</linearGradient>
+				<path class="st26" d="M-14.1,436.1c16.3-15.2,29.2,17.1,35,35.8H2.3C-12.5,462.2-27.1,448.2-14.1,436.1z"/>
+			</g>
+			<g>
+				
+					<linearGradient id="SVGID_12_" gradientUnits="userSpaceOnUse" x1="198.4284" y1="364.7878" x2="198.4284" y2="456.8535" gradientTransform="matrix(-0.9682 -0.2501 -0.2501 0.9682 359.306 77.7126)">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.1838" style="stop-color:#C4AD44"/>
+					<stop  offset="0.4712" style="stop-color:#C8AF5A"/>
+					<stop  offset="0.8242" style="stop-color:#CFB47E"/>
+					<stop  offset="1" style="stop-color:#D3B693"/>
+				</linearGradient>
+				<path class="st27" d="M37.7,394.7c17.7-5.6,12.7,34.5,10.6,47.5c5.4-7.9,10.9-15.7,16.7-23.5c1.5-11.5,7-42.9,21.3-34.2
+					c15.6,9.5-7.8,28.3-17.6,35.4c-0.1,0.2-0.2,0.5-0.3,0.7c-5,6.8-9.7,13.5-14.3,20.1c12.4-11.8,41.8-36.9,48.7-17.7
+					c8.1,22.8-42.2,23.3-52.4,23.2c-4.6,6.8-9,13.5-13.2,20.2l-4-1c4.4-7,8.9-13.8,13.6-20.7C41.5,436.9,18.4,400.8,37.7,394.7z"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<linearGradient id="SVGID_13_" gradientUnits="userSpaceOnUse" x1="954.4419" y1="560.2396" x2="954.4419" y2="574.1091">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.3587" style="stop-color:#C0AC3F"/>
+					<stop  offset="0.5744" style="stop-color:#B8AA47"/>
+					<stop  offset="0.7518" style="stop-color:#ACA755"/>
+					<stop  offset="0.9" style="stop-color:#9BA468"/>
+				</linearGradient>
+				<path class="st28" d="M937.9,566.8c-1,2.9-1,5.3-0.3,7.3h34.2C960.4,564.5,942.7,552.6,937.9,566.8z"/>
+			</g>
+			<g>
+				<linearGradient id="SVGID_14_" gradientUnits="userSpaceOnUse" x1="998.4144" y1="545.2333" x2="998.4144" y2="574.1091">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.3587" style="stop-color:#C0AC3F"/>
+					<stop  offset="0.5744" style="stop-color:#B8AA47"/>
+					<stop  offset="0.7518" style="stop-color:#ACA755"/>
+					<stop  offset="0.9" style="stop-color:#9BA468"/>
+				</linearGradient>
+				<path class="st29" d="M1009.3,548.1c-11.9-11.1-21.2,12.4-25.4,26h13.5C1008.1,567.1,1018.7,556.9,1009.3,548.1z"/>
+			</g>
+			<g>
+				<linearGradient id="SVGID_15_" gradientUnits="userSpaceOnUse" x1="965.4752" y1="507.1718" x2="965.4752" y2="574.1091">
+					<stop  offset="0" style="stop-color:#C2AC3C"/>
+					<stop  offset="0.3587" style="stop-color:#C0AC3F"/>
+					<stop  offset="0.5744" style="stop-color:#B8AA47"/>
+					<stop  offset="0.7518" style="stop-color:#ACA755"/>
+					<stop  offset="0.9" style="stop-color:#9BA468"/>
+				</linearGradient>
+				<path class="st30" d="M989.9,523.6c-11.5-7.2-15.2,22-16.1,31.5c-2.4-6.5-4.9-13-7.5-19.6c1-8.4,2.9-31.5-8.8-27.9
+					c-12.7,3.9,0.3,21.3,6,28.1c0,0.2,0,0.4,0.1,0.6c2.3,5.7,4.4,11.3,6.4,16.7c-6.6-10.5-22.7-33.6-31-21.3
+					c-9.9,14.5,25.5,24.1,32.7,25.9c2,5.7,3.9,11.2,5.6,16.6h3c-1.8-5.7-3.8-11.4-5.8-17C979.6,552.6,1002.4,531.4,989.9,523.6z"/>
+			</g>
+		</g>
+	</g>
+	<g id="bird" class="st1">
+		<path class="st31" d="M115.8,204.6c19.3-6.2,28.2-5.2,37.2,0.5c-12.1-11.6-17.6-13.3-31.8-9.3c-4.8-12.6-6.7-13.1-21.3-20.4
+			C108.5,183.5,114.7,188.9,115.8,204.6z"/>
+		<path class="st31" d="M150,184.3c-0.8-8-1.9-13.8-8.4-17.3c11,3.3,11.2,6,11.7,11.1c7.1-1.9,9.9,0.1,15.9,5.2
+			C161.5,180.9,157.1,180,150,184.3z"/>
+	</g>
+	<g id="bird_1_" class="st1">
+		<path class="st31" d="M714.4,311.3c1-12.1,3.6-16.8,8.9-20.5c-9.2,4-11.4,6.7-12.5,15.4c-8.1-0.3-13.1,1.5-20.5,7.9
+			C696.8,311.3,705.5,308.3,714.4,311.3z"/>
+		<path class="st31" d="M711,287.7c-4.6-1.4-8.1-2.1-11.5,0.6c4.3-5.3,5.9-4.8,8.8-4c0.6-4.4,2.4-5.4,6.5-7.6
+			C711.8,280.6,710.3,282.8,711,287.7z"/>
+	</g>
+</g>
+</svg>
